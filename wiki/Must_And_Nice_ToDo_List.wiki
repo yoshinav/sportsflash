@@ -1,0 +1,18 @@
+#labels Phase-Requirements,Phase-Design
+==Must do list:==
+  *	Access sports data posted to the web, say via Yahoo! Sports or some other online service. 
+  *	Create and modify fantasy baseball teams using real world player data.
+  *	Create interface to allow users to update player stats over the season, so that the community of users are responsible for maintaining the current player stats.
+  *	Provide option of player statistics change alerts or regular stat syndication alerts.
+  *	Provide ability to create, manage, and communicate with a group of fellow baseball enthusiasts with accounts on our service. 
+  *	Provide alerts to members of the group vis-à-vis rankings and current status.
+  *	Provide specialized functionality to the Android Contact-SMS code to allow for sports specific communication between your fantasy league members.
+  *	Ability to tag articles and images from the web associated with particular players, store tags to a repository, and then create alerts for other players.
+
+==Nice to do (May not make Aug 7 release):==
+
+  *	Have the player stats update automatically through the season, using a dependable source.
+  *	Enhance notification and SMS system to support displaying real-time game scores from dependable source.
+  *	Extend data source and interface design to support additional sports like NBA, NHL, NFL, … etc.
+  *	Provide a mechanism to allow users to trade players with other members of your fantasy league group.
+  *	Create interface to allow for easy league management, like changing rules and point allocation.
