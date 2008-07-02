@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><player_tracker xmlns:xsp="http://apache.org/xsp" xmlns:xspdoc="http://apache.org/cocoon/XSPDoc/v1" xmlns:esql="http://apache.org/cocoon/SQL/v2" xmlns:xsp-request="http://apache.org/xsp/request/2.0">
+	
+			
+				
+				
+    <published>Wednesday, Jun 04, 2008 06:04:59 PM EDT</published>
+                        
+    <player id="425859" first="Russ" last="Adams" pos="2B" team="tor"/> 
+                        
+    <player id="435180" first="Robert" last="Andino" pos="2B" team="flo"/> 
+                        
+    <player id="429662" first="Josh" last="Barfield" pos="2B" team="cle"/> 
+                        
+    <player id="150071" first="Ronnie" last="Belliard" pos="2B" team="was"/> 
+                        
+    <player id="466988" first="Emilio" last="Bonifacio" pos="2B" team="ari"/> 
+                        
+    <player id="429663" first="Chris" last="Burke" pos="2B" team="ari"/> 
+                        
+    <player id="452678" first="Asdrubal" last="Cabrera" pos="2B" team="cle"/> 
+                        
+    <player id="429664" first="Robinson" last="Cano" pos="2B" team="nya"/> 
+                        
+    <player id="425206" first="Jamey" last="Carroll" pos="2B" team="cle"/> 
+                        
+    <player id="458210" first="Alexi" last="Casilla" pos="2B" team="min"/> 
+                        
+    <player id="112116" first="Luis" last="Castillo" pos="2B" team="nyn"/> 
+                        
+    <player id="430592" first="Ronny" last="Cedeno" pos="2B" team="chn"/> 
+                        
+    <player id="472594" first="Yung Chi" last="Chen" pos="2B" team="sea"/> 
+                        
+    <player id="133321" first="Alex" last="Cora" pos="2B" team="bos"/> 
+                        
+    <player id="136660" first="Mark" last="DeRosa" pos="2B" team="chn"/> 
+                        
+    <player id="458239" first="Travis" last="Denker" pos="2B" team="sfn"/> 
+                        
+    <player id="458061" first="German" last="Duran" pos="2B" team="tex"/> 
+                        
+    <player id="113660" first="Ray" last="Durham" pos="2B" team="sfn"/> 
+                        
+    <player id="113702" first="Damion" last="Easley" pos="2B" team="nyn"/> 
+                        
+    <player id="407885" first="Mark" last="Ellis" pos="2B" team="oak"/> 
+                        
+    <player id="430917" first="Mike" last="Fontenot" pos="2B" team="chn"/> 
+                        
+    <player id="407397" first="Esteban" last="German" pos="2B" team="kca"/> 
+                        
+    <player id="452989" first="Edgar" last="Gonzalez" pos="2B" team="sdn"/> 
+                        
+    <player id="430905" first="Ruben" last="Gotay" pos="2B" team="atl"/> 
+                        
+    <player id="115210" first="Mark" last="Grudzielanek" pos="2B" team="kca"/> 
+                        
+    <player id="465705" first="Brad" last="Harman" pos="2B" team="phi"/> 
+                        
+    <player id="430593" first="Brendan" last="Harris" pos="2B" team="min"/> 
+                        
+    <player id="435038" first="Anderson" last="Hernandez" pos="2B" team="nyn"/> 
+                        
+    <player id="468406" first="Jonathan" last="Herrera" pos="2B" team="col"/> 
+                        
+    <player id="431094" first="Aaron" last="Hill" pos="2B" team="tor"/> 
+                        
+    <player id="459440" first="Jarrett" last="Hoffpauir" pos="2B" team="sln"/> 
+                        
+    <player id="464341" first="Chin-lung" last="Hu" pos="2B" team="lan"/> 
+                        
+    <player id="407861" first="Orlando" last="Hudson" pos="2B" team="ari"/> 
+                        
+    <player id="435338" first="Tadahito" last="Iguchi" pos="2B" team="sdn"/> 
+                        
+    <player id="408299" first="Omar" last="Infante" pos="2B" team="atl"/> 
+                        
+    <player id="493127" first="Akinori" last="Iwamura" pos="2B" team="tba"/> 
+                        
+    <player id="430895" first="Maicer" last="Izturis" pos="2B" team="ana"/> 
+                        
+    <player id="430637" first="Kelly" last="Johnson" pos="2B" team="atl"/> 
+                        
+    <player id="435062" first="Howie" last="Kendrick" pos="2B" team="ana"/> 
+                        
+    <player id="150456" first="Adam" last="Kennedy" pos="2B" team="sln"/> 
+                        
+    <player id="116999" first="Jeff" last="Kent" pos="2B" team="lan"/> 
+                        
+    <player id="435079" first="Ian" last="Kinsler" pos="2B" team="tex"/> 
+                        
+    <player id="150479" first="Felipe" last="Lopez" pos="2B" team="was"/> 
+                        
+    <player id="430946" first="Jose" last="Lopez" pos="2B" team="sea"/> 
+                        
+    <player id="117928" first="Mark" last="Loretta" pos="2B" team="hou"/> 
+                        
+    <player id="430565" first="Kazuo" last="Matsui" pos="2B" team="hou"/> 
+                        
+    <player id="425446" first="Aaron" last="Miles" pos="2B" team="sln"/> 
+                        
+    <player id="324432" first="Augie" last="Ojeda" pos="2B" team="ari"/> 
+                        
+    <player id="452221" first="Eric" last="Patterson" pos="2B" team="chn"/> 
+                        
+    <player id="456030" first="Dustin" last="Pedroia" pos="2B" team="bos"/> 
+                        
+    <player id="408252" first="Brandon" last="Phillips" pos="2B" team="cin"/> 
+                        
+    <player id="135784" first="Placido" last="Polanco" pos="2B" team="det"/> 
+                        
+    <player id="435560" first="Omar" last="Quintanilla" pos="2B" team="col"/> 
+                        
+    <player id="462950" first="Danny" last="Richar" pos="2B" team="cha"/> 
+                        
+    <player id="406878" first="Brian" last="Roberts" pos="2B" team="bal"/> 
+                        
+    <player id="425854" first="Oscar" last="Robles" pos="2B" team="phi"/> 
+                        
+    <player id="446481" first="Sean" last="Rodriguez" pos="2B" team="ana"/> 
+                        
+    <player id="408108" first="Freddy" last="Sanchez" pos="2B" team="pit"/> 
+                        
+    <player id="421124" first="Ramon" last="Santiago" pos="2B" team="det"/> 
+                        
+    <player id="444839" first="Craig" last="Stansberry" pos="2B" team="sdn"/> 
+                        
+    <player id="462855" first="Eider" last="Torres" pos="2B" team="bal"/> 
+                        
+    <player id="462564" first="Dan" last="Uggla" pos="2B" team="flo"/> 
+                        
+    <player id="346874" first="Juan" last="Uribe" pos="2B" team="cha"/> 
+                        
+    <player id="400284" first="Chase" last="Utley" pos="2B" team="phi"/> 
+                        
+    <player id="464299" first="Eugenio" last="Velez" pos="2B" team="sfn"/> 
+                        
+    <player id="430001" first="Rickie" last="Weeks" pos="2B" team="mil"/> 
+                        
+					
+			
+</player_tracker>

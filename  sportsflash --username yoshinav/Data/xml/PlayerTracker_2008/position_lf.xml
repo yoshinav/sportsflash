@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><player_tracker xmlns:xsp="http://apache.org/xsp" xmlns:xspdoc="http://apache.org/cocoon/XSPDoc/v1" xmlns:esql="http://apache.org/cocoon/SQL/v2" xmlns:xsp-request="http://apache.org/xsp/request/2.0">
+	
+			
+				
+				
+    <published>Wednesday, Jun 04, 2008 06:04:58 PM EDT</published>
+                        
+    <player id="110189" first="Moises" last="Alou" pos="LF" team="nyn"/> 
+                        
+    <player id="110236" first="Garret" last="Anderson" pos="LF" team="ana"/> 
+                        
+    <player id="449776" first="Drew T." last="Anderson" pos="LF" team="cin"/> 
+                        
+    <player id="136724" first="Marlon" last="Anderson" pos="LF" team="nyn"/> 
+                        
+    <player id="431158" first="Jeff" last="Bailey" pos="LF" team="bos"/> 
+                        
+    <player id="424726" first="Jason" last="Bay" pos="LF" team="pit"/> 
+                        
+    <player id="460267" first="Brandon" last="Boggs" pos="LF" team="tex"/> 
+                        
+    <player id="454533" first="T.J." last="Bohn" pos="LF" team="phi"/> 
+                        
+    <player id="460075" first="Ryan" last="Braun" pos="LF" team="mil"/> 
+                        
+    <player id="150100" first="Pat" last="Burrell" pos="LF" team="phi"/> 
+                        
+    <player id="291565" first="Eric" last="Byrnes" pos="LF" team="ari"/> 
+                        
+    <player id="457850" first="Kory" last="Casto" pos="LF" team="was"/> 
+                        
+    <player id="112131" first="Frank" last="Catalanotto" pos="LF" team="tex"/> 
+                        
+    <player id="425783" first="Shin-Soo" last="Choo" pos="LF" team="cle"/> 
+                        
+    <player id="459714" first="Buck" last="Coats" pos="LF" team="tor"/> 
+                        
+    <player id="430573" first="Shane" last="Costa" pos="LF" team="kca"/> 
+                        
+    <player id="408307" first="Carl" last="Crawford" pos="LF" team="tba"/> 
+                        
+    <player id="400091" first="Jack" last="Cust" pos="LF" team="oak"/> 
+                        
+    <player id="113028" first="Johnny" last="Damon" pos="LF" team="nya"/> 
+                        
+    <player id="113240" first="David" last="Dellucci" pos="LF" team="cle"/> 
+                        
+    <player id="429841" first="Matt" last="Diaz" pos="LF" team="atl"/> 
+                        
+    <player id="434338" first="Joe" last="Dillon" pos="LF" team="mil"/> 
+                        
+    <player id="408219" first="Chris" last="Duncan" pos="LF" team="sln"/> 
+                        
+    <player id="276055" first="Adam" last="Dunn" pos="LF" team="cin"/> 
+                        
+    <player id="452783" first="Nick" last="Evans" pos="LF" team="nyn"/> 
+                        
+    <player id="450204" first="Ben" last="Francisco" pos="LF" team="cle"/> 
+                        
+    <player id="425506" first="Jody" last="Gerut" pos="LF" team="sdn"/> 
+                        
+    <player id="114935" first="Luis" last="Gonzalez" pos="LF" team="flo"/> 
+                        
+    <player id="452646" first="Cody" last="Haerther" pos="LF" team="sln"/> 
+                        
+    <player id="407483" first="Willie" last="Harris" pos="LF" team="was"/> 
+                        
+    <player id="452104" first="Chase" last="Headley" pos="LF" team="sdn"/> 
+                        
+    <player id="407812" first="Matt" last="Holliday" pos="LF" team="col"/> 
+                        
+    <player id="408311" first="Justin" last="Huber" pos="LF" team="sdn"/> 
+                        
+    <player id="116380" first="Raul" last="Ibanez" pos="LF" team="sea"/> 
+                        
+    <player id="447761" first="Brandon" last="Jones" pos="LF" team="atl"/> 
+                        
+    <player id="150218" first="Jacque" last="Jones" pos="LF" team="flo"/> 
+                        
+    <player id="150324" first="Carlos" last="Lee" pos="LF" team="hou"/> 
+                        
+    <player id="430930" first="Fred" last="Lewis" pos="LF" team="sfn"/> 
+                        
+    <player id="406670" first="Rob" last="Mackowiak" pos="LF" team="was"/> 
+                        
+    <player id="434582" first="Paul" last="McAnulty" pos="LF" team="sdn"/> 
+                        
+    <player id="407891" first="Kevin" last="Mench" pos="LF" team="tor"/> 
+                        
+    <player id="346859" first="Jason" last="Michaels" pos="LF" team="pit"/> 
+                        
+    <player id="460579" first="Nyjer" last="Morgan" pos="LF" team="pit"/> 
+                        
+    <player id="444875" first="Matt" last="Murton" pos="LF" team="chn"/> 
+                        
+    <player id="435539" first="Jerry" last="Owens" pos="LF" team="cha"/> 
+                        
+    <player id="434636" first="Angel" last="Pagan" pos="LF" team="nyn"/> 
+                        
+    <player id="134341" first="Jay" last="Payton" pos="LF" team="bal"/> 
+                        
+    <player id="276377" first="Wily Mo" last="Pena" pos="LF" team="was"/> 
+                        
+    <player id="334393" first="Juan" last="Pierre" pos="LF" team="lan"/> 
+                        
+    <player id="325392" first="Scott" last="Podsednik" pos="LF" team="col"/> 
+                        
+    <player id="435041" first="Carlos" last="Quentin" pos="LF" team="cha"/> 
+                        
+    <player id="120903" first="Manny" last="Ramirez" pos="LF" team="bos"/> 
+                        
+    <player id="434705" first="Jason" last="Repko" pos="LF" team="lan"/> 
+                        
+    <player id="150353" first="Dave" last="Roberts" pos="LF" team="sfn"/> 
+                        
+    <player id="464900" first="Alex" last="Romero" pos="LF" team="ari"/> 
+                        
+    <player id="448605" first="Justin" last="Ruggiano" pos="LF" team="tba"/> 
+                        
+    <player id="432928" first="Luke" last="Scott" pos="LF" team="bal"/> 
+                        
+    <player id="122111" first="Gary" last="Sheffield" pos="LF" team="det"/> 
+                        
+    <player id="421684" first="Chris" last="Snelling" pos="LF" team="phi"/> 
+                        
+    <player id="150093" first="Alfonso" last="Soriano" pos="LF" team="chn"/> 
+                        
+    <player id="122784" first="Shannon" last="Stewart" pos="LF" team="tor"/> 
+                        
+    <player id="435626" first="Clay" last="Timpner" pos="LF" team="sfn"/> 
+                        
+    <player id="150415" first="Brad" last="Wilkerson" pos="LF" team="tor"/> 
+                        
+    <player id="425545" first="Josh" last="Willingham" pos="LF" team="flo"/> 
+                        
+    <player id="434704" first="Delwyn" last="Young" pos="LF" team="lan"/> 
+                        
+    <player id="430321" first="Delmon" last="Young" pos="LF" team="min"/> 
+                        
+					
+			
+</player_tracker>
