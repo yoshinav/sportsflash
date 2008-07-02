@@ -17,3 +17,5 @@ The following is the list of database tables:
   * MLBFantasyTeams - SportsFlash MLB Fantasy Teams
   * MLBPlayers - MLB Players (as of June 4, 2008)
   * MLBFantasyMessageBoards - SportsFlash message boards
+
+All data is available in the "Data" package of the source code.  DataBase diagram should be available from the downloads.
