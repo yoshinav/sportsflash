@@ -15,6 +15,5 @@ The data is loaded into the database using an Microsoft Business Intelligence In
 The following is the list of database tables:
   * MLBFantasyLeagues - SportsFlash MLB Fantasy Leagues
   * MLBFantasyTeams - SportsFlash MLB Fantasy Teams
-  * MLBPlayers = MLB Players (as of June 4, 2008)
+  * MLBPlayers - MLB Players (as of June 4, 2008)
   * MLBFantasyMessageBoards - SportsFlash message boards
-
