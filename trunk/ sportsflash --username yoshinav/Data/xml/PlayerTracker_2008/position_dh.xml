@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><player_tracker xmlns:xsp="http://apache.org/xsp" xmlns:xspdoc="http://apache.org/cocoon/XSPDoc/v1" xmlns:esql="http://apache.org/cocoon/SQL/v2" xmlns:xsp-request="http://apache.org/xsp/request/2.0">
+	
+			
+				
+				
+    <published>Wednesday, Jun 04, 2008 06:05:04 PM EDT</published>
+                        
+    <player id="150396" first="Milton" last="Bradley" pos="DH" team="tex"/> 
+                        
+    <player id="433697" first="Robinzon" last="Diaz" pos="DH" team="tor"/> 
+                        
+    <player id="430404" first="Jonny" last="Gomes" pos="DH" team="tba"/> 
+                        
+    <player id="400098" first="Travis" last="Hafner" pos="DH" team="cle"/> 
+                        
+    <player id="333492" first="Aubrey" last="Huff" pos="DH" team="bal"/> 
+                        
+    <player id="430585" first="Jason" last="Kubel" pos="DH" team="min"/> 
+                        
+    <player id="425686" first="Hideki" last="Matsui" pos="DH" team="nya"/> 
+                        
+    <player id="407155" first="Craig" last="Monroe" pos="DH" team="min"/> 
+                        
+    <player id="120074" first="David" last="Ortiz" pos="DH" team="bos"/> 
+                        
+    <player id="122644" first="Matt" last="Stairs" pos="DH" team="tor"/> 
+                        
+    <player id="123041" first="Mike" last="Sweeney" pos="DH" team="oak"/> 
+                        
+    <player id="123245" first="Frank" last="Thomas" pos="DH" team="oak"/> 
+                        
+    <player id="123272" first="Jim" last="Thome" pos="DH" team="cha"/> 
+                        
+    <player id="123723" first="Jose" last="Vidro" pos="DH" team="sea"/> 
+                        
+					
+			
+</player_tracker>

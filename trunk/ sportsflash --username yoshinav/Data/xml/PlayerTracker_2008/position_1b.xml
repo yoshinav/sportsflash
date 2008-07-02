@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><player_tracker xmlns:xsp="http://apache.org/xsp" xmlns:xspdoc="http://apache.org/cocoon/XSPDoc/v1" xmlns:esql="http://apache.org/cocoon/SQL/v2" xmlns:xsp-request="http://apache.org/xsp/request/2.0">
+	
+			
+				
+				
+    <published>Wednesday, Jun 04, 2008 06:05:02 PM EDT</published>
+                        
+    <player id="430956" first="Michael" last="Aubrey" pos="1B" team="cle"/> 
+                        
+    <player id="110383" first="Rich" last="Aurilia" pos="1B" team="sfn"/> 
+                        
+    <player id="435558" first="Daric" last="Barton" pos="1B" team="oak"/> 
+                        
+    <player id="204020" first="Lance" last="Berkman" pos="1B" team="hou"/> 
+                        
+    <player id="111213" first="Aaron" last="Boone" pos="1B" team="was"/> 
+                        
+    <player id="435624" first="John" last="Bowker" pos="1B" team="sfn"/> 
+                        
+    <player id="469085" first="Javier" last="Brito" pos="1B" team="ari"/> 
+                        
+    <player id="456714" first="Billy" last="Butler" pos="1B" team="kca"/> 
+                        
+    <player id="408234" first="Miguel" last="Cabrera" pos="1B" team="det"/> 
+                        
+    <player id="111867" first="Miguel" last="Cairo" pos="1B" team="sea"/> 
+                        
+    <player id="452080" first="Chris" last="Carter" pos="1B" team="bos"/> 
+                        
+    <player id="112087" first="Sean" last="Casey" pos="1B" team="bos"/> 
+                        
+    <player id="112316" first="Tony" last="Clark" pos="1B" team="sdn"/> 
+                        
+    <player id="113232" first="Carlos" last="Delgado" pos="1B" team="nyn"/> 
+                        
+    <player id="425785" first="Greg" last="Dobbs" pos="1B" team="phi"/> 
+                        
+    <player id="455167" first="Shelley" last="Duncan" pos="1B" team="nya"/> 
+                        
+    <player id="425902" first="Prince" last="Fielder" pos="1B" team="mil"/> 
+                        
+    <player id="434939" first="Ryan" last="Garko" pos="1B" team="cle"/> 
+                        
+    <player id="114739" first="Jason" last="Giambi" pos="1B" team="nya"/> 
+                        
+    <player id="340393" first="Ross" last="Gload" pos="1B" team="kca"/> 
+                        
+    <player id="408236" first="Adrian" last="Gonzalez" pos="1B" team="sdn"/> 
+                        
+    <player id="136722" first="Carlos" last="Guillen" pos="1B" team="det"/> 
+                        
+    <player id="136500" first="Wes" last="Helms" pos="1B" team="flo"/> 
+                        
+    <player id="115732" first="Todd" last="Helton" pos="1B" team="col"/> 
+                        
+    <player id="451687" first="Micah" last="Hoffpauir" pos="1B" team="chn"/> 
+                        
+    <player id="429667" first="Ryan" last="Howard" pos="1B" team="phi"/> 
+                        
+    <player id="448170" first="Travis" last="Ishikawa" pos="1B" team="sfn"/> 
+                        
+    <player id="433582" first="Conor" last="Jackson" pos="1B" team="ari"/> 
+                        
+    <player id="408312" first="Mike" last="Jacobs" pos="1B" team="flo"/> 
+                        
+    <player id="276376" first="Nick" last="Johnson" pos="1B" team="was"/> 
+                        
+    <player id="117244" first="Paul" last="Konerko" pos="1B" team="cha"/> 
+                        
+    <player id="459423" first="Joe" last="Koshansky" pos="1B" team="col"/> 
+                        
+    <player id="425773" first="Casey" last="Kotchman" pos="1B" team="ana"/> 
+                        
+    <player id="445933" first="Bryan" last="LaHair" pos="1B" team="sea"/> 
+                        
+    <player id="425560" first="Adam" last="LaRoche" pos="1B" team="pit"/> 
+                        
+    <player id="460252" first="Jeff" last="Larish" pos="1B" team="det"/> 
+                        
+    <player id="117601" first="Derrek" last="Lee" pos="1B" team="chn"/> 
+                        
+    <player id="425766" first="James" last="Loney" pos="1B" team="lan"/> 
+                        
+    <player id="137006" first="Doug" last="Mientkiewicz" pos="1B" team="pit"/> 
+                        
+    <player id="132788" first="Kevin" last="Millar" pos="1B" team="bal"/> 
+                        
+    <player id="506673" first="Juan" last="Miranda" pos="1B" team="nya"/> 
+                        
+    <player id="434778" first="Kendry" last="Morales" pos="1B" team="ana"/> 
+                        
+    <player id="408047" first="Justin" last="Morneau" pos="1B" team="min"/> 
+                        
+    <player id="434703" first="Brian" last="Myrow" pos="1B" team="sdn"/> 
+                        
+    <player id="434525" first="Brad" last="Nelson" pos="1B" team="mil"/> 
+                        
+    <player id="119853" first="Greg" last="Norton" pos="1B" team="atl"/> 
+                        
+    <player id="407489" first="Lyle" last="Overbay" pos="1B" team="tor"/> 
+                        
+    <player id="150289" first="Carlos" last="Pena" pos="1B" team="tba"/> 
+                        
+    <player id="425429" first="Andy" last="Phillips" pos="1B" team="cin"/> 
+                        
+    <player id="405395" first="Albert" last="Pujols" pos="1B" team="sln"/> 
+                        
+    <player id="122027" first="Richie" last="Sexson" pos="1B" team="sea"/> 
+                        
+    <player id="434626" first="Ryan" last="Shealy" pos="1B" team="kca"/> 
+                        
+    <player id="430828" first="Chris" last="Shelton" pos="1B" team="tex"/> 
+                        
+    <player id="123040" first="Mark" last="Sweeney" pos="1B" team="lan"/> 
+                        
+    <player id="407893" first="Mark" last="Teixeira" pos="1B" team="atl"/> 
+                        
+    <player id="458015" first="Joey" last="Votto" pos="1B" team="cin"/> 
+                        
+    <player id="132880" first="Daryle" last="Ward" pos="1B" team="chn"/> 
+                        
+    <player id="444882" first="Josh" last="Whitesell" pos="1B" team="ari"/> 
+                        
+    <player id="425903" first="Kevin" last="Youkilis" pos="1B" team="bos"/> 
+                        
+    <player id="124693" first="Dmitri" last="Young" pos="1B" team="was"/> 
+                        
+					
+			
+</player_tracker>

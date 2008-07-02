@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><player_tracker xmlns:xsp="http://apache.org/xsp" xmlns:xspdoc="http://apache.org/cocoon/XSPDoc/v1" xmlns:esql="http://apache.org/cocoon/SQL/v2" xmlns:xsp-request="http://apache.org/xsp/request/2.0">
+	
+			
+				
+				
+    <published>Wednesday, Jun 04, 2008 06:05:03 PM EDT</published>
+                        
+    <player id="150416" first="Danny" last="Ardoin" pos="C" team="lan"/> 
+                        
+    <player id="454573" first="Cole" last="Armstrong" pos="C" team="cha"/> 
+                        
+    <player id="110385" first="Brad" last="Ausmus" pos="C" team="hou"/> 
+                        
+    <player id="132720" first="Paul" last="Bako" pos="C" team="cin"/> 
+                        
+    <player id="150148" first="Rod" last="Barajas" pos="C" team="tor"/> 
+                        
+    <player id="408036" first="Josh" last="Bard" pos="C" team="sdn"/> 
+                        
+    <player id="136664" first="Michael" last="Barrett" pos="C" team="sdn"/> 
+                        
+    <player id="431143" first="Edwin" last="Bellorin" pos="C" team="col"/> 
+                        
+    <player id="110870" first="Gary" last="Bennett" pos="C" team="lan"/> 
+                        
+    <player id="111072" first="Henry" last="Blanco" pos="C" team="chn"/> 
+                        
+    <player id="425468" first="Rob" last="Bowen" pos="C" team="oak"/> 
+                        
+    <player id="451259" first="Dusty" last="Brown" pos="C" team="bos"/> 
+                        
+    <player id="407833" first="John" last="Buck" pos="C" team="kca"/> 
+                        
+    <player id="452150" first="Ryan" last="Budde" pos="C" team="ana"/> 
+                        
+    <player id="406550" first="Jamie" last="Burke" pos="C" team="sea"/> 
+                        
+    <player id="236155" first="Robinson" last="Cancel" pos="C" team="nyn"/> 
+                        
+    <player id="450192" first="Luke" last="Carlin" pos="C" team="sdn"/> 
+                        
+    <player id="408211" first="Kevin" last="Cash" pos="C" team="bos"/> 
+                        
+    <player id="446868" first="Wilkin" last="Castillo" pos="C" team="ari"/> 
+                        
+    <player id="135783" first="Ramon" last="Castro" pos="C" team="nyn"/> 
+                        
+    <player id="465041" first="Francisco" last="Cervelli" pos="C" team="nya"/> 
+                        
+    <player id="112223" first="Raul" last="Chavez" pos="C" team="pit"/> 
+                        
+    <player id="459943" first="Jeff" last="Clement" pos="C" team="sea"/> 
+                        
+    <player id="400120" first="Chris" last="Coste" pos="C" team="phi"/> 
+                        
+    <player id="425491" first="Ryan" last="Doumit" pos="C" team="pit"/> 
+                        
+    <player id="283051" first="Johnny" last="Estrada" pos="C" team="was"/> 
+                        
+    <player id="435520" first="Jesus" last="Flores" pos="C" team="was"/> 
+                        
+    <player id="444844" first="Jake" last="Fox" pos="C" team="chn"/> 
+                        
+    <player id="150134" first="Toby" last="Hall" pos="C" team="cha"/> 
+                        
+    <player id="425631" first="Robby" last="Hammock" pos="C" team="ari"/> 
+                        
+    <player id="452672" first="Ryan" last="Hanigan" pos="C" team="cin"/> 
+                        
+    <player id="150421" first="Ramon" last="Hernandez" pos="C" team="bal"/> 
+                        
+    <player id="455725" first="Steve" last="Holm" pos="C" team="sfn"/> 
+                        
+    <player id="150137" first="Paul" last="Hoover" pos="C" team="flo"/> 
+                        
+    <player id="455104" first="Chris" last="Iannetta" pos="C" team="col"/> 
+                        
+    <player id="452232" first="Jason" last="Jaramillo" pos="C" team="phi"/> 
+                        
+    <player id="444379" first="John" last="Jaso" pos="C" team="tba"/> 
+                        
+    <player id="492706" first="Kenji" last="Johjima" pos="C" team="sea"/> 
+                        
+    <player id="453531" first="Rob" last="Johnson" pos="C" team="sea"/> 
+                        
+    <player id="116974" first="Jason" last="Kendall" pos="C" team="mil"/> 
+                        
+    <player id="435459" first="George" last="Kottaras" pos="C" team="bos"/> 
+                        
+    <player id="150178" first="Jason" last="LaRue" pos="C" team="sln"/> 
+                        
+    <player id="408042" first="Gerald" last="Laird" pos="C" team="tex"/> 
+                        
+    <player id="134001" first="Paul" last="Lo Duca" pos="C" team="was"/> 
+                        
+    <player id="455113" first="Donny" last="Lucy" pos="C" team="cha"/> 
+                        
+    <player id="431145" first="Russell" last="Martin" pos="C" team="lan"/> 
+                        
+    <player id="400121" first="Victor" last="Martinez" pos="C" team="cle"/> 
+                        
+    <player id="425772" first="Jeff" last="Mathis" pos="C" team="ana"/> 
+                        
+    <player id="408045" first="Joe" last="Mauer" pos="C" team="min"/> 
+                        
+    <player id="461315" first="Lucas" last="May" pos="C" team="lan"/> 
+                        
+    <player id="435263" first="Brian" last="McCann" pos="C" team="atl"/> 
+                        
+    <player id="280061" first="Corky" last="Miller" pos="C" team="atl"/> 
+                        
+    <player id="150224" first="Chad" last="Moeller" pos="C" team="nya"/> 
+                        
+    <player id="134260" first="Bengie" last="Molina" pos="C" team="sfn"/> 
+                        
+    <player id="425877" first="Yadier" last="Molina" pos="C" team="sln"/> 
+                        
+    <player id="150040" first="Jose" last="Molina" pos="C" team="nya"/> 
+                        
+    <player id="435238" first="Gustavo" last="Molina" pos="C" team="nyn"/> 
+                        
+    <player id="471083" first="Miguel" last="Montero" pos="C" team="ari"/> 
+                        
+    <player id="458643" first="Jose" last="Morales" pos="C" team="min"/> 
+                        
+    <player id="451803" first="Colt" last="Morton" pos="C" team="sdn"/> 
+                        
+    <player id="435063" first="Mike" last="Napoli" pos="C" team="ana"/> 
+                        
+    <player id="425900" first="Dioner" last="Navarro" pos="C" team="tba"/> 
+                        
+    <player id="408242" first="Wil" last="Nieves" pos="C" team="was"/> 
+                        
+    <player id="400018" first="Miguel" last="Olivo" pos="C" team="kca"/> 
+                        
+    <player id="435139" first="Lou" last="Palmisano" pos="C" team="mil"/> 
+                        
+    <player id="425661" first="Ronny" last="Paulino" pos="C" team="pit"/> 
+                        
+    <player id="150229" first="A.J." last="Pierzynski" pos="C" team="cha"/> 
+                        
+    <player id="120691" first="Jorge" last="Posada" pos="C" team="nya"/> 
+                        
+    <player id="445169" first="Landon" last="Powell" pos="C" team="oak"/> 
+                        
+    <player id="425565" first="Guillermo" last="Quiroz" pos="C" team="bal"/> 
+                        
+    <player id="430958" first="Mike" last="Rabelo" pos="C" team="flo"/> 
+                        
+    <player id="445615" first="Max" last="Ramirez" pos="C" team="tex"/> 
+                        
+    <player id="133226" first="Mike" last="Redmond" pos="C" team="min"/> 
+                        
+    <player id="457493" first="Shawn" last="Riggans" pos="C" team="tba"/> 
+                        
+    <player id="407576" first="Mike" last="Rivera" pos="C" team="mil"/> 
+                        
+    <player id="276534" first="Guillermo" last="Rodriguez" pos="C" team="sfn"/> 
+                        
+    <player id="121358" first="Ivan" last="Rodriguez" pos="C" team="det"/> 
+                        
+    <player id="424325" first="David" last="Ross" pos="C" team="cin"/> 
+                        
+    <player id="457130" first="Vinny" last="Rottino" pos="C" team="mil"/> 
+                        
+    <player id="434563" first="Carlos" last="Ruiz" pos="C" team="phi"/> 
+                        
+    <player id="457454" first="Jarrod" last="Saltalamacchia" pos="C" team="tex"/> 
+                        
+    <player id="460261" first="Clint" last="Sammons" pos="C" team="atl"/> 
+                        
+    <player id="150411" first="Brian" last="Schneider" pos="C" team="nyn"/> 
+                        
+    <player id="431159" first="Kelly" last="Shoppach" pos="C" team="cle"/> 
+                        
+    <player id="430965" first="Chris" last="Snyder" pos="C" team="ari"/> 
+                        
+    <player id="434567" first="Geovany" last="Soto" pos="C" team="chn"/> 
+                        
+    <player id="455755" first="Chris" last="Stewart" pos="C" team="nya"/> 
+                        
+    <player id="435559" first="Kurt" last="Suzuki" pos="C" team="oak"/> 
+                        
+    <player id="461874" first="Craig" last="Tatum" pos="C" team="cin"/> 
+                        
+    <player id="450303" first="Curtis" last="Thigpen" pos="C" team="tor"/> 
+                        
+    <player id="444430" first="Wyatt" last="Toregas" pos="C" team="cle"/> 
+                        
+    <player id="150275" first="Yorvit" last="Torrealba" pos="C" team="col"/> 
+                        
+    <player id="453525" first="J.R." last="Towles" pos="C" team="hou"/> 
+                        
+    <player id="276354" first="Matt" last="Treanor" pos="C" team="flo"/> 
+                        
+    <player id="445584" first="Matt" last="Tupman" pos="C" team="kca"/> 
+                        
+    <player id="123609" first="Javier" last="Valentin" pos="C" team="cin"/> 
+                        
+    <player id="123660" first="Jason" last="Varitek" pos="C" team="bos"/> 
+                        
+    <player id="435064" first="Bobby" last="Wilson" pos="C" team="ana"/> 
+                        
+    <player id="136300" first="Vance" last="Wilson" pos="C" team="det"/> 
+                        
+    <player id="124748" first="Gregg" last="Zaun" pos="C" team="tor"/> 
+                        
+					
+			
+</player_tracker>

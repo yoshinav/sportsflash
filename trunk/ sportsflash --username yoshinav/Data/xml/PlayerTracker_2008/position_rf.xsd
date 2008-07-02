@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xspdoc="http://apache.org/cocoon/XSPDoc/v1" xmlns:xsp="http://apache.org/xsp" xmlns:xsp-request="http://apache.org/xsp/request/2.0" xmlns:esql="http://apache.org/cocoon/SQL/v2" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="player_tracker">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="published" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="player">
+          <xs:complexType>
+            <xs:attribute name="id" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="first" type="xs:string" use="optional" />
+            <xs:attribute name="last" type="xs:string" use="optional" />
+            <xs:attribute name="pos" type="xs:string" use="optional" />
+            <xs:attribute name="team" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

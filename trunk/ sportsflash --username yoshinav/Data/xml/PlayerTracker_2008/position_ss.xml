@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><player_tracker xmlns:xsp="http://apache.org/xsp" xmlns:xspdoc="http://apache.org/cocoon/XSPDoc/v1" xmlns:esql="http://apache.org/cocoon/SQL/v2" xmlns:xsp-request="http://apache.org/xsp/request/2.0">
+	
+			
+				
+				
+    <published>Wednesday, Jun 04, 2008 06:05:00 PM EDT</published>
+                        
+    <player id="435078" first="Joaquin" last="Arias" pos="SS" team="tex"/> 
+                        
+    <player id="449107" first="Mike" last="Aviles" pos="SS" team="kca"/> 
+                        
+    <player id="430947" first="Erick" last="Aybar" pos="SS" team="ana"/> 
+                        
+    <player id="425549" first="Clint" last="Barmes" pos="SS" team="col"/> 
+                        
+    <player id="430583" first="Jason" last="Bartlett" pos="SS" team="tba"/> 
+                        
+    <player id="435358" first="Yuniesky" last="Betancourt" pos="SS" team="sea"/> 
+                        
+    <player id="444448" first="Brian" last="Bixler" pos="SS" team="pit"/> 
+                        
+    <player id="501814" first="Brian" last="Bocock" pos="SS" team="sfn"/> 
+                        
+    <player id="429731" first="Eric" last="Bruntlett" pos="SS" team="phi"/> 
+                        
+    <player id="502034" first="Emmanuel" last="Burriss" pos="SS" team="sfn"/> 
+                        
+    <player id="425503" first="Freddie" last="Bynum" pos="SS" team="bal"/> 
+                        
+    <player id="111851" first="Orlando" last="Cabrera" pos="SS" team="cha"/> 
+                        
+    <player id="430948" first="Alberto" last="Callaspo" pos="SS" team="kca"/> 
+                        
+    <player id="400090" first="Alex" last="Cintron" pos="SS" team="bal"/> 
+                        
+    <player id="425853" first="Bobby" last="Crosby" pos="SS" team="oak"/> 
+                        
+    <player id="469810" first="Argenis" last="Diaz" pos="SS" team="bos"/> 
+                        
+    <player id="452220" first="Stephen" last="Drew" pos="SS" team="ari"/> 
+                        
+    <player id="275930" first="David" last="Eckstein" pos="SS" team="tor"/> 
+                        
+    <player id="444876" first="Alcides" last="Escobar" pos="SS" team="mil"/> 
+                        
+    <player id="488862" first="Yunel" last="Escobar" pos="SS" team="atl"/> 
+                        
+    <player id="276361" first="Adam" last="Everett" pos="SS" team="min"/> 
+                        
+    <player id="454994" first="Brandon" last="Fahey" pos="SS" team="bal"/> 
+                        
+    <player id="279577" first="Rafael" last="Furcal" pos="SS" team="lan"/> 
+                        
+    <player id="114909" first="Chris" last="Gomez" pos="SS" team="pit"/> 
+                        
+    <player id="471868" first="Alberto" last="Gonzalez" pos="SS" team="nya"/> 
+                        
+    <player id="425867" first="Khalil" last="Greene" pos="SS" team="sdn"/> 
+                        
+    <player id="150217" first="Cristian" last="Guzman" pos="SS" team="was"/> 
+                        
+    <player id="429666" first="J.J." last="Hardy" pos="SS" team="mil"/> 
+                        
+    <player id="446928" first="Joe" last="Inglett" pos="SS" team="tor"/> 
+                        
+    <player id="285131" first="Cesar" last="Izturis" pos="SS" team="sln"/> 
+                        
+    <player id="457926" first="Paul" last="Janish" pos="SS" team="cin"/> 
+                        
+    <player id="116539" first="Derek" last="Jeter" pos="SS" team="nya"/> 
+                        
+    <player id="471107" first="Elliot" last="Johnson" pos="SS" team="tba"/> 
+                        
+    <player id="433898" first="Jeff" last="Keppinger" pos="SS" team="cin"/> 
+                        
+    <player id="452121" first="Brent" last="Lillibridge" pos="SS" team="atl"/> 
+                        
+    <player id="476704" first="Jed" last="Lowrie" pos="SS" team="bos"/> 
+                        
+    <player id="150061" first="Julio" last="Lugo" pos="SS" team="bos"/> 
+                        
+    <player id="435402" first="Luis" last="Maza" pos="SS" team="lan"/> 
+                        
+    <player id="150348" first="John" last="McDonald" pos="SS" team="tor"/> 
+                        
+    <player id="430640" first="Tony" last="Pena" pos="SS" team="kca"/> 
+                        
+    <player id="425509" first="Jhonny" last="Peralta" pos="SS" team="cle"/> 
+                        
+    <player id="463610" first="Gregorio" last="Petit" pos="SS" team="oak"/> 
+                        
+    <player id="434670" first="Hanley" last="Ramirez" pos="SS" team="flo"/> 
+                        
+    <player id="121074" first="Edgar" last="Renteria" pos="SS" team="det"/> 
+                        
+    <player id="408314" first="Jose" last="Reyes" pos="SS" team="nyn"/> 
+                        
+    <player id="276372" first="Luis" last="Rivas" pos="SS" team="pit"/> 
+                        
+    <player id="276519" first="Jimmy" last="Rollins" pos="SS" team="phi"/> 
+                        
+    <player id="453895" first="Brendan" last="Ryan" pos="SS" team="sln"/> 
+                        
+    <player id="447816" first="Angel" last="Sanchez" pos="SS" team="kca"/> 
+                        
+    <player id="123173" first="Miguel" last="Tejada" pos="SS" team="hou"/> 
+                        
+    <player id="444135" first="Ryan" last="Theriot" pos="SS" team="chn"/> 
+                        
+    <player id="445196" first="Matt" last="Tolbert" pos="SS" team="min"/> 
+                        
+    <player id="453064" first="Troy" last="Tulowitzki" pos="SS" team="col"/> 
+                        
+    <player id="123744" first="Omar" last="Vizquel" pos="SS" team="sfn"/> 
+                        
+    <player id="333292" first="Jack" last="Wilson" pos="SS" team="pit"/> 
+                        
+    <player id="276545" first="Michael" last="Young" pos="SS" team="tex"/> 
+                        
+    <player id="450314" first="Ben" last="Zobrist" pos="SS" team="tba"/> 
+                        
+					
+			
+</player_tracker>
