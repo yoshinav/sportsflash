@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.google.android.sportsflash;
+package com.google.android.sportsflash.mlb.teammanagement;
 
 public final class R {
     public static final class attr {
