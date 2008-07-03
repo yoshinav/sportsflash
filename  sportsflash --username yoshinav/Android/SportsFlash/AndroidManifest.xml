@@ -2,12 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.google.android.sportsflash">
     <application android:icon="@drawable/icon">
-        <activity android:name=".SportsFlash" android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    <activity android:name="MLBPlayerView">
+        
+    <activity android:name="SportsFlash">
+</activity><activity android:name=".mlb.teammanagement.MLBPlayerView">
+</activity><activity android:name=".mlb.teammanagement.SportsFlashTeamManagement">
 </activity></application>
 </manifest> 
