@@ -20,9 +20,4 @@ public class Constants
 		//
 	}
 
-    public static string connectionStringTrusted = "Data Source=localhost;Initial Catalog=SportsFlash;Integrated Security=SSPI;";
-
-    public static string connectionString = "Data Source=localhost;Initial Catalog=SportsFlash;User Id=sportsflash;Password=k1mp@ct;";
-
-    public static string getMLBPlayers = "EXEC SP_GetMLBPlayers";
 }

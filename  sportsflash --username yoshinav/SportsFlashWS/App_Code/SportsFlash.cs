@@ -45,9 +45,23 @@ public class SportsFlash : System.Web.Services.WebService
     public XmlDocument GetMLBPlayers()
     {
 
-        SqlConnection conn = new SqlConnection(Constants.connectionString);
+        SqlConnection conn = new SqlConnection(DBHelper.connectionString);
         SqlDataAdapter a = new SqlDataAdapter
-       (Constants.getMLBPlayers, conn);
+       (DBHelper.getMLBPlayers, conn);
+        DataSet s = new DataSet();
+        a.Fill(s);
+        XmlDataDocument datasetXML = new XmlDataDocument(s);
+
+        return (XmlDocument)datasetXML; 
+
+    }
+
+    [WebMethod]
+    public XmlDocument GetMLBPlayersByPosition(string position)
+    {
+        SqlConnection conn = new SqlConnection(DBHelper.connectionString);
+        SqlDataAdapter a = new SqlDataAdapter
+       (DBHelper.GetMLBPlayersByPosition(position), conn);
         DataSet s = new DataSet();
         a.Fill(s);
         XmlDataDocument datasetXML = new XmlDataDocument(s);
