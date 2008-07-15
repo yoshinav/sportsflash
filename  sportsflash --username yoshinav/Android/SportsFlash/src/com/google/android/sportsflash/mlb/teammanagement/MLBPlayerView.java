@@ -135,8 +135,8 @@ public class MLBPlayerView extends ListActivity {
         // onDestroy?)
         new Thread() {
             public void run() {
-                players = rf.getMockPlayers();
-            	//players = rf.getMLBPlayers();
+                //players = rf.getMockPlayers();
+            	players = rf.getMLBPlayers();
                 handler.sendEmptyMessage(0);
             }
         }.start();
