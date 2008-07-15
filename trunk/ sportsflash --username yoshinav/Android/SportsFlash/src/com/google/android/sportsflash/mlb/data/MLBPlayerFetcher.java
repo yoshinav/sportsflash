@@ -32,7 +32,7 @@ import com.sun.syndication.io.XmlReader;
 public class MLBPlayerFetcher {
 
     private static final String CLASSTAG = MLBPlayerFetcher.class.getSimpleName();
-    private static final String QBASE = "http://localhost/sportsflashws/GetMLBPlayers";
+    private static final String QBASE = "http://10.30.2.74/sportsflashws/serviceSF.svc/rest/GetMLBPlayersByPosition?position=1b";
     // private static final SimpleDateFormat DATE_FORMAT = new
     // SimpleDateFormat("yyyy-MM-dd");
     // private static final String TEST_LOC = "30328";
@@ -111,7 +111,7 @@ public class MLBPlayerFetcher {
                     MLBPlayer player = new MLBPlayer();
                     player.setFirstName(e.getTitle());
                     player.setLastName(e.getAuthor());
-                    player.setPosition("C");
+                    player.setPosition("1b");
                     player.setTeam(e.getLink());
 
                     results.add(player);
