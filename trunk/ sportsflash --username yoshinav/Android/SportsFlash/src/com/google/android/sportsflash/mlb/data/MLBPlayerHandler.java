@@ -53,12 +53,8 @@ public class MLBPlayerHandler extends DefaultHandler {
     @Override
     public void startDocument() throws SAXException {
         //Log.v(Constants.LOGTAG, " " + CLASSTAG + " startDocument");
-        // initialize our RSSFeed object - this will hold our parsed contents
+        // initialize our MLBPlayer ArrayList object - this will hold our parsed contents
         _feed = new ArrayList<MLBPlayer>(20);
-        // initialize the RSSItem object - you will use this as a crutch to grab 
-		// the info from the channel
-        // because the channel and items have very similar entries..
-        _item = new MLBPlayer();
 
     }
 
@@ -74,6 +70,9 @@ public class MLBPlayerHandler extends DefaultHandler {
 
         if (localName.equals("Table"))
         {
+            // initialize the MLBPlayer object - 
+            _item = new MLBPlayer();
+            
             currentstate = 0;
             return;
         }
@@ -171,6 +170,7 @@ public class MLBPlayerHandler extends DefaultHandler {
         {
             // add our item to the list!
             _feed.add(_item);
+            _item = null;
             return;
         }
     	
