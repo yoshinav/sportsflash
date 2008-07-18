@@ -137,6 +137,7 @@ public class MLBPlayerView extends ListActivity {
             public void run() {
                 //players = rf.getMockPlayers();
             	players = rf.getMLBPlayers();
+            	//players.add(rf.getMLBPlayer());
                 handler.sendEmptyMessage(0);
             }
         }.start();
