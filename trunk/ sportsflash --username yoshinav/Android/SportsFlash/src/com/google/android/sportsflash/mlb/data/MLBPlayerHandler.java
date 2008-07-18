@@ -10,10 +10,24 @@ package com.google.android.sportsflash.mlb.data;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+import java.util.ArrayList;
+import java.util.List;
+import android.util.Log;
 
 public class MLBPlayerHandler extends DefaultHandler {
 
     //private static final String CLASSTAG = YWeatherHandler.class.getSimpleName();
+
+	List<MLBPlayer> _feed;
+	MLBPlayer _item;
+
+    final int MLBPLAYER_FIRSTNAME = 1;
+    final int MLBPLAYER_LASTNAME = 2;
+    final int MLBPLAYER_POSITION = 3;
+    final int MLBPLAYER_TEAM = 4;
+    
+    int depth = 0;
+    int currentstate = 0;
 
     private static final String YLOC = "yweather:location";
     private static final String YWIND = "yweather:wind";
@@ -28,10 +42,24 @@ public class MLBPlayerHandler extends DefaultHandler {
     public MLBPlayerHandler() {
         mlbPlayerRecord = new MLBPlayer();
     }
+    /*
+     * getFeed - this returns our feed when all of the parsing is complete
+     */
+    public List<MLBPlayer> getFeed()
+    {
+        return _feed;
+    }
 
     @Override
     public void startDocument() throws SAXException {
         //Log.v(Constants.LOGTAG, " " + CLASSTAG + " startDocument");
+        // initialize our RSSFeed object - this will hold our parsed contents
+        _feed = new ArrayList<MLBPlayer>(20);
+        // initialize the RSSItem object - you will use this as a crutch to grab 
+		// the info from the channel
+        // because the channel and items have very similar entries..
+        _item = new MLBPlayer();
+
     }
 
     @Override
@@ -41,6 +69,40 @@ public class MLBPlayerHandler extends DefaultHandler {
 
     @Override
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
+        
+    	depth++;
+
+        if (localName.equals("Table"))
+        {
+            currentstate = 0;
+            return;
+        }
+        
+        if (localName.equals("firstname"))
+        {
+            currentstate = 1;
+            return;
+        }
+
+        if (localName.equals("lastname"))
+        {
+            currentstate = 2;
+            return;
+        }
+        
+        if (localName.equals("position"))
+        {
+            currentstate = 3;
+            return;
+        }
+        
+        if (localName.equals("team"))
+        {
+            currentstate = 4;
+            return;
+        }
+        
+        currentstate = 0;
         
     	/*
     	if (localName.equals(YLOC)) {
@@ -102,10 +164,47 @@ public class MLBPlayerHandler extends DefaultHandler {
 
     @Override
     public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+
+    	depth--;
+
+        if (localName.equals("Table"))
+        {
+            // add our item to the list!
+            _feed.add(_item);
+            return;
+        }
+    	
     }
 
     @Override
     public void characters(char ch[], int start, int length) {
+    	
+        String theString = new String(ch,start,length);
+        //Log.i("RSSReader","characters[" + theString + "]");
+        
+        switch (currentstate)
+        {
+            case MLBPLAYER_FIRSTNAME:
+                _item.setFirstName(theString);
+                currentstate = 0;
+                break;
+            case MLBPLAYER_LASTNAME:
+                _item.setLastName(theString);
+                currentstate = 0;
+                break;
+            case MLBPLAYER_POSITION:
+                _item.setPosition(theString);
+                currentstate = 0;
+                break;
+            case MLBPLAYER_TEAM:
+                _item.setTeam(theString);
+                currentstate = 0;
+                break;
+
+            default:
+                return;
+        }
+    	
     }   
 
     private String getAttributeValue(String attName, Attributes atts) {

@@ -32,7 +32,7 @@ import com.sun.syndication.io.XmlReader;
 public class MLBPlayerFetcher {
 
     private static final String CLASSTAG = MLBPlayerFetcher.class.getSimpleName();
-    private static final String QBASE = "http://10.30.2.74/sportsflashws/serviceSF.svc/rest/GetMLBPlayersByPosition?position=1b";
+    private static final String QBASE = "http://192.168.1.108/sportsflashws/serviceSF.svc/rest/GetMLBPlayersbyPosition?position=2b";
     // private static final SimpleDateFormat DATE_FORMAT = new
     // SimpleDateFormat("yyyy-MM-dd");
     // private static final String TEST_LOC = "30328";
@@ -97,9 +97,31 @@ public class MLBPlayerFetcher {
 
         if (!debug) {
             try {
+            	//setup the url
                 URL feedUrl = new URL(this.query);
                 // TODO - huge delay here on build call, takes 15-20 seconds 
                 // (takes < second for same class outside Android)
+                
+                // create the factory
+                SAXParserFactory factory = SAXParserFactory.newInstance();
+                // create a parser
+                SAXParser parser = factory.newSAXParser();
+
+                // create the reader (scanner)
+                XMLReader xmlreader = parser.getXMLReader();
+                // instantiate our handler
+                MLBPlayerHandler theMLBPlayerHandler = new MLBPlayerHandler();
+                // assign our handler
+                xmlreader.setContentHandler(theMLBPlayerHandler);
+                // get our data through the url class
+                InputSource is = new InputSource(feedUrl.openStream());
+                // perform the synchronous parse           
+                xmlreader.parse(is);
+                // get the results - should be a fully populated RSSFeed instance, 
+     		   // or null on error
+                return theMLBPlayerHandler.getFeed();
+
+                /*
                 SyndFeed feed = new SyndFeedInput().build(new XmlReader(feedUrl));
                 List<SyndEntry> entries = feed.getEntries();
                 for (SyndEntry e : entries) {
@@ -111,11 +133,15 @@ public class MLBPlayerFetcher {
                     MLBPlayer player = new MLBPlayer();
                     player.setFirstName(e.getTitle());
                     player.setLastName(e.getAuthor());
-                    player.setPosition("1b");
+                    player.setPosition("C");
                     player.setTeam(e.getLink());
 
                     results.add(player);
                 }
+                
+                */
+                
+                
             } catch (Exception e) {
                 Log.e(Constants.LOGTAG, " " + CLASSTAG + " getReviews ERROR", e);
             }
