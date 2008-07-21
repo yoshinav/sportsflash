@@ -32,4 +32,44 @@ public class DBHelper
         //return "EXEC SP_GetMLBPlayersByPosition '1b'";
 
     }
+
+    public static string CreateMLBLeague(string name, string description)
+    {
+        return "EXEC SP_CreateMLBLeague '" + name + "','" + description + "'";
+    }
+
+    public static string CreateMLBTeam(int leagueid, string name, string description)
+    {
+        return "EXEC SP_CreateMLBTeam '" + leagueid + "','" + name + "','" + description + "'";
+    }
+
+    public static string DeleteMLBLeague(int leagueid)
+    {
+        return "EXEC SP_DeleteMLBLeague '" + leagueid + "'";
+    }
+
+    public static string DeleteMLBTeam(int teamid)
+    {
+        return "EXEC SP_DeleteMLBLTeam '" + teamid + "'";
+    }
+
+    public static string GetMLBLeague(int id)
+    {
+        return "EXEC SP_GetMLBLeague '" + id + "'";
+    }
+
+    public static string GetMLBTeam(int id)
+    {
+        return "EXEC SP_GetMLBTeam '" + id + "'";
+    }
+
+    public static string UpdateMLBLeague(int id, string name, string description)
+    {
+        return "EXEC SP_UpdateMLBLeague '" + id + "','" + name + "','" + description + "'";
+    }
+
+    public static string UpdateMLBTeam(int id, string position, int playerid)
+    {
+        return "EXEC SP_UpdateMLBTeam '" + id + "','" + position + "','" + playerid + "'";
+    }
 }
