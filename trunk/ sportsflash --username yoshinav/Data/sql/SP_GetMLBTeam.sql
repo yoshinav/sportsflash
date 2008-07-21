@@ -29,7 +29,10 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Select League
-	SELECT a.name, a.description, a.leagueid, a.[1bid], b.lastname, b.position, b.team FROM MLBFantasyLeagues a, MLBPlayers b WHERE a.teamid = @id, a.[1bid] = b.id
+	SELECT a.name, a.description, a.leagueid, a.[1bid], b.lastname, b.position, b.team,
+	a.[
+
+	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[1bid] = b.id
 
 END
 GO
