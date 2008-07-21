@@ -9,7 +9,7 @@ package com.google.android.sportsflash.mlb.teammanagement;
  */
 
 import com.google.android.sportsflash.mlb.teammanagement.MLBPlayerView;
-import com.google.android.sportsflash.mlb.teammanagement.R;
+import com.google.android.sportsflash.R;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -22,7 +22,9 @@ public class SportsFlashTeamManagement extends Activity {
     private static final int ACTIVITY_CREATE=0;
     private static final int ACTIVITY_EDIT=1;
     
-	public static final int INSERT_ID = Menu.FIRST;
+	public static final int VIEWROSTER_ID = Menu.FIRST;
+	public static final int CREATEMLBLEAGUE_ID = Menu.FIRST;
+	public static final int CREATEMLBTEAM_ID = Menu.FIRST;
 	
     /** Called when the activity is first created. */
     @Override
@@ -35,7 +37,9 @@ public class SportsFlashTeamManagement extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // TODO Auto-generated method stub
     	boolean result = super.onCreateOptionsMenu(menu);
-    	menu.add(0, INSERT_ID, R.string.menu_view_players);
+    	menu.add(0, VIEWROSTER_ID, R.string.menu_view_players);
+    	menu.add(1, CREATEMLBLEAGUE_ID, R.string.menu_view_league);
+    	menu.add(2, CREATEMLBTEAM_ID, R.string.menu_view_team);
     	return result;
     }
 
@@ -44,9 +48,10 @@ public class SportsFlashTeamManagement extends Activity {
         // TODO Auto-generated method stub
     	switch(item.getId())
     	{
-    	case INSERT_ID:
-    		viewPlayerRoster();
-    		return true;
+	    	case VIEWROSTER_ID:
+	    		viewPlayerRoster();
+	    		return true;
+    	
     	}
     	
         return super.onOptionsItemSelected(item);
@@ -58,6 +63,17 @@ public class SportsFlashTeamManagement extends Activity {
         startSubActivity(i, ACTIVITY_CREATE);	
     }
 
+    private void createMLBLeague()
+    {
+        Intent i = new Intent(this, MLBPlayerView.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+    }
+    
+    private void createMLBTeam()
+    {
+        Intent i = new Intent(this, MLBPlayerView.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, String data, Bundle extras) {
         super.onActivityResult(requestCode, resultCode, data, extras);

@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import com.google.android.sportsflash.R;
 
 public class MLBPlayerView extends ListActivity {
 
