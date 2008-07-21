@@ -95,62 +95,6 @@ public class MLBPlayerHandler extends DefaultHandler {
         
         currentstate = 0;
         
-    	/*
-    	if (localName.equals(YLOC)) {
-            mlbPlayerRecord.setCity(getAttributeValue("city", atts));
-            mlbPlayerRecord.setRegion(getAttributeValue("region", atts));
-            mlbPlayerRecord.setCountry(getAttributeValue("country", atts));
-        }
-
-        if (localName.equals(YWIND)) {
-            mlbPlayerRecord.setWindChill(getAttributeValue("chill", atts));
-            int windDirectionDegrees = Integer.parseInt(getAttributeValue("direction", atts));
-            mlbPlayerRecord.setWindDirection(convertDirection(windDirectionDegrees));
-            mlbPlayerRecord.setWindSpeed(Integer.parseInt(getAttributeValue("speed", atts)));
-        }
-
-        if (localName.equals(YATMO)) {
-            mlbPlayerRecord.setHumidity(Integer.parseInt(getAttributeValue("humidity", atts)));
-            mlbPlayerRecord.setVisibility(Integer.parseInt(getAttributeValue("visibility", atts)));
-            mlbPlayerRecord.setPressure(Double.parseDouble(getAttributeValue("pressure", atts)));
-            String pressureState = getAttributeValue("rising", atts);
-            if (pressureState.equals("0")) {
-                mlbPlayerRecord.setPressureState(MLBPlayerRecord.PRESSURE_STEADY);
-            } else if (pressureState.equals("1")) {
-                mlbPlayerRecord.setPressureState(MLBPlayerRecord.PRESSURE_FALLING);
-            } else if (pressureState.equals("2")) {
-                mlbPlayerRecord.setPressureState(MLBPlayerRecord.PRESSURE_RISING);
-            }
-        }
-
-        if (localName.equals(YASTRO)) {
-            mlbPlayerRecord.setSunrise(getAttributeValue("sunrise", atts));
-            mlbPlayerRecord.setSunset(getAttributeValue("sunset", atts));
-        }
-
-        if (localName.equals(YCOND)) {
-            mlbPlayerRecord.setTemp(Integer.parseInt(getAttributeValue("temp", atts)));
-            int code = Integer.parseInt(getAttributeValue("code", atts));
-            WeatherCondition cond = WeatherCondition.getWeatherCondition(code);
-            mlbPlayerRecord.setCondition(cond);
-            mlbPlayerRecord.setDate(getAttributeValue("date", atts));
-        }
-
-        if (localName.equals(YFCAST)) {
-            if (forecastCount < 2) {
-                WeatherForecast forecast = new WeatherForecast();
-                forecast.setDate(getAttributeValue("date", atts));
-                forecast.setDay(getAttributeValue("day", atts));
-                forecast.setHigh(Integer.parseInt(getAttributeValue("high", atts)));
-                forecast.setLow(Integer.parseInt(getAttributeValue("low", atts)));
-                int code = Integer.parseInt(getAttributeValue("code", atts));
-                WeatherCondition cond = WeatherCondition.getWeatherCondition(code);
-                forecast.setCondition(cond);
-                mlbPlayerRecord.getForecasts()[forecastCount] = forecast;
-            }
-            forecastCount++;
-        }
-        */
     }
 
     @Override

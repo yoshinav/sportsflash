@@ -10,6 +10,7 @@ package com.google.android.sportsflash.mlb.teammanagement;
 
 import android.app.Activity;
 import android.os.Bundle;
+import com.google.android.sportsflash.R;
 
 public class Draft extends Activity {
 

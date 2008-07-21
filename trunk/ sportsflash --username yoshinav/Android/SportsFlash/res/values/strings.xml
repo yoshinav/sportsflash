@@ -4,4 +4,6 @@
      <string name="no_players">No Players</string>
      <string name="menu_team_management">Team Management</string>
      <string name="menu_view_players">View MLB Roster</string>
+     <string name="menu_view_league">Create MLB Fantasy League</string>
+     <string name="menu_view_team">Create MLB Fantasy Team</string>
 </resources>

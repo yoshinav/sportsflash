@@ -32,7 +32,7 @@ BEGIN
 	INSERT INTO MLBFantasyLeagues (name, description) VALUES (@name, @description)
 	
 	--Return ID
-	select @@IDENTITY	
+	select @@IDENTITY AS ID	
 
 END
 GO

@@ -28,12 +28,8 @@ import com.google.android.sportsflash.Configuration;
 public class MLBPlayerFetcher {
 
     private static final String CLASSTAG = MLBPlayerFetcher.class.getSimpleName();
-    // private static final SimpleDateFormat DATE_FORMAT = new
-    // SimpleDateFormat("yyyy-MM-dd");
-    // private static final String TEST_LOC = "30328";
 
     private String query;
-    private String zip;
     private boolean debug;
 
     public MLBPlayerFetcher(boolean debug) {
