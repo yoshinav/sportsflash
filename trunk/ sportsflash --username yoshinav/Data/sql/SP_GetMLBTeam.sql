@@ -28,11 +28,36 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-    -- Select League
-	SELECT a.name, a.description, a.leagueid, a.[1bid], b.lastname, b.position, b.team,
-	a.[
+    -- Select Team
 
+	SELECT a.name, a.description, a.leagueid, a.[1bid], b.lastname AS [1bLastName], b.position AS [1b], b.team AS [1bTeam]
 	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[1bid] = b.id
-
+	UNION
+	SELECT null, null, null, a.[2bid], b.lastname AS [2bLastName], b.position AS [2b], b.team AS [2bTeam]
+	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[2bid] = b.id
+	UNION
+	SELECT null, null, null, a.[3bid], b.lastname AS [3bLastName], b.position AS [3b], b.team AS [3bTeam]
+	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[3bid] = b.id
+	UNION
+	SELECT null, null, null, a.[ssid], b.lastname AS [ssLastName], b.position AS [ss], b.team AS [ssTeam]
+	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[ssid] = b.id
+	UNION
+	SELECT null, null, null, a.[cid], b.lastname AS [cLastName], b.position AS [c], b.team AS [cTeam]
+	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[cid] = b.id
+	UNION
+	SELECT null, null, null, a.[pid], b.lastname AS [pLastName], b.position AS [p], b.team AS [pTeam]
+	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[pid] = b.id
+	UNION
+	SELECT null, null, null, a.[rfid], b.lastname AS [rfLastName], b.position AS [rf], b.team AS [rfTeam]
+	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[rfid] = b.id
+	UNION
+	SELECT null, null, null, a.[cfid], b.lastname AS [cfLastName], b.position AS [cf], b.team AS [cfTeam]
+	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[cfid] = b.id
+	UNION
+	SELECT null, null, null, a.[lfid], b.lastname AS [lfLastName], b.position AS [lf], b.team AS [lfTeam]
+	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[lfid] = b.id
+	UNION
+	SELECT null, null, null, a.[dhid], b.lastname AS [dhLastName], b.position AS [dh], b.team AS [dhTeam]
+	FROM MLBFantasyTeams a, MLBPlayers b WHERE a.teamid = @id AND a.[dhid] = b.id
 END
 GO
