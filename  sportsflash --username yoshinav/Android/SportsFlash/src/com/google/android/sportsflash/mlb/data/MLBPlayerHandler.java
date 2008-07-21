@@ -29,14 +29,6 @@ public class MLBPlayerHandler extends DefaultHandler {
     int depth = 0;
     int currentstate = 0;
 
-    private static final String YLOC = "yweather:location";
-    private static final String YWIND = "yweather:wind";
-    private static final String YATMO = "yweather:atmosphere";
-    private static final String YASTRO = "yweather:astronomy";
-    private static final String YCOND = "yweather:condition";
-    private static final String YFCAST = "yweather:forecast";
-
-    private int forecastCount;
     private MLBPlayer mlbPlayerRecord;
 
     public MLBPlayerHandler() {

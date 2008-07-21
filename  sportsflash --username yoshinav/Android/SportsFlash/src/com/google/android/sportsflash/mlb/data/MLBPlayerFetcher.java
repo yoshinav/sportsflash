@@ -15,12 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.android.sportsflash.mlb.teammanagement.Constants;
+import com.google.android.sportsflash.Configuration;
 
-import com.sun.syndication.feed.synd.SyndContent;
-import com.sun.syndication.feed.synd.SyndEntry;
-import com.sun.syndication.feed.synd.SyndFeed;
-import com.sun.syndication.io.SyndFeedInput;
-import com.sun.syndication.io.XmlReader;
 
 /**
  * MLBPlayerFetcher:  Get Player roster for MLB
@@ -32,7 +28,6 @@ import com.sun.syndication.io.XmlReader;
 public class MLBPlayerFetcher {
 
     private static final String CLASSTAG = MLBPlayerFetcher.class.getSimpleName();
-    private static final String QBASE = "http://192.168.1.108/sportsflashws/serviceSF.svc/rest/GetMLBPlayersbyPosition?position=2b";
     // private static final SimpleDateFormat DATE_FORMAT = new
     // SimpleDateFormat("yyyy-MM-dd");
     // private static final String TEST_LOC = "30328";
@@ -46,7 +41,7 @@ public class MLBPlayerFetcher {
         this.debug = debug;
 
         // build query
-        this.query = QBASE;
+        this.query = Configuration.urlGetMLBPlayersByPosition;
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " query - " + query);
     }
     
@@ -54,13 +49,13 @@ public class MLBPlayerFetcher {
         this(false);
     }
 
-    public MLBPlayer getMLBPlayer() {
+    public MLBPlayer getMLBPlayer(String position) {
         long start = System.currentTimeMillis();
         MLBPlayer r = new MLBPlayer();
 
         if (!debug) {
             try {
-                URL url = new URL(this.query);
+                URL url = new URL(this.query + position);
                 SAXParserFactory spf = SAXParserFactory.newInstance();
                 SAXParser sp = spf.newSAXParser();
                 XMLReader xr = sp.getXMLReader();
@@ -89,7 +84,7 @@ public class MLBPlayerFetcher {
      * 
      * @return
      */
-    public List<MLBPlayer> getMLBPlayers() {
+    public List<MLBPlayer> getMLBPlayers(String position) {
 
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " getReviews");
         long start = System.currentTimeMillis();
@@ -98,7 +93,7 @@ public class MLBPlayerFetcher {
         if (!debug) {
             try {
             	//setup the url
-                URL feedUrl = new URL(this.query);
+                URL feedUrl = new URL(this.query + position);
                 // TODO - huge delay here on build call, takes 15-20 seconds 
                 // (takes < second for same class outside Android)
                 
@@ -120,27 +115,7 @@ public class MLBPlayerFetcher {
                 // get the results - should be a fully populated RSSFeed instance, 
      		   // or null on error
                 return theMLBPlayerHandler.getFeed();
-
-                /*
-                SyndFeed feed = new SyndFeedInput().build(new XmlReader(feedUrl));
-                List<SyndEntry> entries = feed.getEntries();
-                for (SyndEntry e : entries) {
-                    Log.v(Constants.LOGTAG, " " + CLASSTAG + " processing entry " + e.getTitle());
-
-                    if (results == null)
-                        results = new ArrayList<MLBPlayer>(3);
-
-                    MLBPlayer player = new MLBPlayer();
-                    player.setFirstName(e.getTitle());
-                    player.setLastName(e.getAuthor());
-                    player.setPosition("C");
-                    player.setTeam(e.getLink());
-
-                    results.add(player);
-                }
-                
-                */
-                
+  
                 
             } catch (Exception e) {
                 Log.e(Constants.LOGTAG, " " + CLASSTAG + " getReviews ERROR", e);
@@ -182,10 +157,10 @@ public class MLBPlayerFetcher {
         results.add(r);
         
         MLBPlayer r1 = new MLBPlayer();
-        r1.setFirstName("Sabrina");
+        r1.setFirstName("Larry");
         r1.setLastName("Walker");
-        r1.setPosition("C");
-        r1.setTeam("bos");
+        r1.setPosition("LF");
+        r1.setTeam("mtl");
         r1.setHR(12);
         r1.setRBI(12);
         r1.setAVG(0.265);

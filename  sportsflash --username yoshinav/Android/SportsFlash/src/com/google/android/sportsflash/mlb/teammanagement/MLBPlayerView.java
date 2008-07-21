@@ -77,7 +77,7 @@ public class MLBPlayerView extends ListActivity {
         //SportsFlashPlayersApplication application = (SportsFlashPlayersApplication) this.getApplication();
         //MLBPlayer reviewPlayer = application.getCurrentPlayer();
 
-        loadPlayers();
+        loadPlayers("1b");
         //fillData();
     }
 
@@ -121,10 +121,11 @@ public class MLBPlayerView extends ListActivity {
 
 	}
 	
-    private void loadPlayers() {
+    private void loadPlayers(String position) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " loadPlayers");
  
         final MLBPlayerFetcher rf = new MLBPlayerFetcher();
+        final String playerPosition = position;
 
         progressDialog = ProgressDialog.show(this, " Working...", " Retrieving players", true, false);
 
@@ -136,7 +137,7 @@ public class MLBPlayerView extends ListActivity {
         new Thread() {
             public void run() {
                 //players = rf.getMockPlayers();
-            	players = rf.getMLBPlayers();
+            	players = rf.getMLBPlayers(playerPosition);
             	//players.add(rf.getMLBPlayer());
                 handler.sendEmptyMessage(0);
             }
