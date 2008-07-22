@@ -1,7 +1,7 @@
 package com.google.android.sportsflash.mlb.data;
 
 /**
- * MLBPlayerHandler:  SAX Handler
+ * MLBLeagueHandler:  SAX Handler
  * 
  * @author Navdeep Alam, with credit to charliecollins
  * @version CS 893 Summer 2008 Version 1.0
@@ -10,9 +10,7 @@ package com.google.android.sportsflash.mlb.data;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import java.util.ArrayList;
-import java.util.List;
-import android.util.Log;
+
 
 public class MLBLeagueHandler extends DefaultHandler {
 

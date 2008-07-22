@@ -8,7 +8,7 @@ package com.google.android.sportsflash;
  */
 public final class Configuration {
 	
-	public static final String urlServer = "192.168.1.108";
+	public static final String urlServer = "10.30.2.74";
 	
 	public static final String urlGetMLBPlayersByPosition = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBPlayersbyPosition?position="; 
 
