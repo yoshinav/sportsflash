@@ -1,10 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.google.android.sportsflash">
-    <application android:icon="@drawable/icon">
-        
-    <activity android:name="SportsFlash">
-</activity><activity android:name=".mlb.teammanagement.MLBPlayerView">
-</activity><activity android:name=".mlb.teammanagement.SportsFlashTeamManagement">
-</activity></application>
-</manifest> 
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.google.android.sportsflash">
+<application android:icon="@drawable/icon">
+<activity android:name="SportsFlash" android:label="SportsFlash">
+</activity><activity android:name=".mlb.teammanagement.SportsFlashTeamManagement" android:label="SportsFlash TeamManagement">
+</activity><activity android:name=".mlb.teammanagement.MLBPlayerView" android:label="MLB PlayerView">
+</activity><activity android:name=".mlb.teammanagement.Draft" android:label="MLB Draft">
+</activity></application></manifest>
