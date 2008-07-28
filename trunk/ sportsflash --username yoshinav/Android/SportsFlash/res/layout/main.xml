@@ -4,14 +4,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="Welcome to SportsFlash"
-    />
 <ImageView  
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent" 
-    android:src="@drawable/baseballtexture2"
+    android:src="@drawable/baseball"
     />    
 </LinearLayout>

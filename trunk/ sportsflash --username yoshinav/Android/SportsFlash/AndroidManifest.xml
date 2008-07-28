@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.google.android.sportsflash">
 <application android:icon="@drawable/icon">
-<activity android:name="SportsFlash" android:label="SportsFlash">
-</activity><activity android:name=".mlb.teammanagement.SportsFlashTeamManagement" android:label="SportsFlash TeamManagement">
-</activity><activity android:name=".mlb.teammanagement.MLBPlayerView" android:label="MLB PlayerView">
-</activity><activity android:name=".mlb.teammanagement.Draft" android:label="MLB Draft">
+<activity android:name="SportsFlash" android:label="SportsFlash - Sports Fantasy League" android:icon="@drawable/icon2">
+</activity><activity android:name=".mlb.teammanagement.SportsFlashTeamManagement" android:label="SportsFlash MLB" android:icon="@drawable/icon2">
+</activity><activity android:name=".mlb.teammanagement.MLBPlayerView" android:label="MLB PlayerView" android:icon="@drawable/icon2">
+</activity><activity android:name=".mlb.teammanagement.Draft" android:label="MLB Draft" android:icon="@drawable/icon2">
+</activity><activity android:name=".mlb.teammanagement.CreateLeague" android:label="Create MLB Fantasy League" android:icon="@drawable/icon2">
+</activity><activity android:name=".mlb.teammanagement.CreateTeam" android:label="Create MLB Fantasy Team" android:icon="@drawable/icon2">
 </activity></application></manifest>
