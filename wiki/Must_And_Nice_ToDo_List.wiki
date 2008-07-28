@@ -1,4 +1,6 @@
+#summary Must and Nice to do list for SportsFlash Project
 #labels Phase-Requirements,Phase-Design
+
 ==Must do list:==
   *	Access sports data posted to the web, say via Yahoo! Sports or some other online service. 
   *	Create and modify fantasy baseball teams using real world player data.
