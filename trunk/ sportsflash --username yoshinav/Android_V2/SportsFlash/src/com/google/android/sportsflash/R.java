@@ -36,7 +36,8 @@ public final class R {
         public static final int yellow=0x7f02000d;
     }
     public static final class id {
-        public static final int empty=0x7f070000;
+        public static final int empty=0x7f070001;
+        public static final int image=0x7f070000;
     }
     public static final class layout {
         public static final int create_league=0x7f030000;

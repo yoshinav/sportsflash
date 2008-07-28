@@ -17,9 +17,9 @@ import android.view.Menu;
 import android.view.Menu.Item;
 import android.app.AlertDialog;
 import android.os.*;
-import java.net.*;
-import java.io.*;
 import android.graphics.*;
+import android.widget.*;
+import android.util.Log;
 
 public class SportsFlash extends Activity {
 	
@@ -36,56 +36,51 @@ public class SportsFlash extends Activity {
 	public static final int NBA_TM = 3;
 	public static final int NHL_TM = 4;
 	
+	private Handler uiThreadHandler;
+	private ImageView image;
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.main);
+        this.image = (ImageView) findViewById(R.id.image);
         
-        /*
         WorkerThread worker = new WorkerThread();
         worker.start();
         while(!worker.ready){
-        try{
-        Thread.sleep(10);
-        }catch(InterruptedException e){
-        ;
+        	try{
+        		Thread.sleep(10);
+        	}catch(InterruptedException e){
+        		;
+        	}
         }
-        }
-        final String[] images = new String[] {
-        "http://farm3.static.flickr.com/2026/2311989084_7d0cc111e7.jpg",
-        "http://farm3.static.flickr.com/2222/2311179031_5d86804353.jpg",
-        "http://farm3.static.flickr.com/2016/2317637608_fb13e58bbd.jpg",
-        "http://farm4.static.flickr.com/3070/2316828415_d1c3542048.jpg"
+        final int[] images = new int[] {
+        R.drawable.basketball,
+        R.drawable.football,
+        R.drawable.hockey,
+        R.drawable.baseball
         };
         for(int i = 0; i < images.length; i++){
-        final String toFetch = images[i];
-        Runnable r = new Runnable(){
-        public void run(){
-        try {
-        URL url =
-        new URL(toFetch);
-        URLConnection conn = url.openConnection();
-        conn.connect();
-        BufferedInputStream bis =
-        new BufferedInputStream(conn.getInputStream());
-        final Bitmap bm = BitmapFactory.decodeStream(bis);
-        bis.close();
-        uiThreadHandler.post(new Runnable(){
-        public void run(){
-        image.setImageBitmap(bm);
-        }
-        });
-        } catch (IOException e) {
-        //Log.e("ThreadActivity", null, e);
-        }
-        }
-        };
-        worker.timerHandler.postDelayed(r , i * 10000);
+        	final int toFetch = images[i];
+        	Runnable r = new Runnable(){
+        		public void run(){
+        			try {
+        				final Bitmap bm = BitmapFactory.decodeResource(getResources(), toFetch);
+        				uiThreadHandler.post(new Runnable(){
+        					public void run(){
+        						image.setImageBitmap(bm);
+        					}
+        				});
+        			} catch (Exception e) {
+        				Log.e("ThreadActivity", null, e);
+        			}
+        		}
+        	};
+        	worker.timerHandler.postDelayed(r , i * 10000);
         }
         
-        */
+        
     }
     
     @Override
