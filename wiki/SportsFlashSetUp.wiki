@@ -17,7 +17,7 @@ SportsFlash, the mobile application for Sports Fantasy Leagues comprises of thre
 2)  Web Service:  This REST Web Service is written in .Net version 3.5, using Windows Communication Foundation (WCF).  To deploy the web service, do the following:
 
   *  From SVN:  SportsFlashWS, contains the web service code.  Create a virtual directory using IIS for this web service.  Ensure that your system has .Net 3.5 installed.
-  *  The DBHelper.cs file (in the App_Code folder of SportsFlashWS), contains the connections string variable to your SportsFlash database (i.e. connectionString).  Update this with your database user credentials.
+  *  The DBHelper.cs file (in the App_Code folder of SportsFlashWS), contains the connection string variables to your SportsFlash database (i.e. connectionString).  Update this with your database user credentials.
 
 3)  Google Android:  This is the application that will communicate with the Web Service to interact with the database hosting the sports fantasy leagues.  For configuration, do the following:
 
