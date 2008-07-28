@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SportsFlash Android Project</string>
+     <string name="no_players">Searching Players ...</string>
+     <string name="menu_MLB_TM">MLB</string>
+     <string name="menu_NFL_TM">NFL</string>
+     <string name="menu_NBA_TM">NBA</string>
+     <string name="menu_NHL_TM">NHL</string>
+     <string name="menu_view_players">View MLB Roster</string>
+     <string name="menu_view_league">Create MLB Fantasy League</string>
+     <string name="menu_view_team">Create MLB Fantasy Team</string>
+     <string name="sportsflash_welcome_message">Welcome to SportsFlash!  Your Sports Fantasy League Mobile Application</string>
+     <string name="createleague_instructions_1">League Name:</string>
+     <string name="createleague_instructions_2">League Description:</string>
+     <string name="createteam_instructions_1">Team Name:</string>
+     <string name="createleague_cancel">Cancel</string>
+     <string name="createleague_ok">OK</string>
+</resources>
