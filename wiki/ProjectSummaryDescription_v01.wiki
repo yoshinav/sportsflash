@@ -1,4 +1,6 @@
+#summary Summary Description
 #labels Phase-Requirements,Phase-Design,Phase-Implementation
+
 ==1.0	Summary Description (v0.1)==
 
 We propose building an application that can be used to monitor and manage fantasy sports leagues or pools.  The idea starts by making use of the people in your address book, which could be used to build out your social network of fantasy league participants.  Eventually other people on the cell network would be able to participate in your managed/monitored league.  The data for your league would be derived from either one of two possibilities:
