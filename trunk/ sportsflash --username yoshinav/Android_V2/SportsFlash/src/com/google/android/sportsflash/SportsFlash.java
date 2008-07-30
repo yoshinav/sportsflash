@@ -44,7 +44,10 @@ public class SportsFlash extends Activity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.main);
+        
+        //Add Sports Image Slide Show Using Our DrawAbles - Utilizing Threading and Power Management
         this.image = (ImageView) findViewById(R.id.image);
+        this.uiThreadHandler = new Handler();
         
         WorkerThread worker = new WorkerThread();
         worker.start();
@@ -59,28 +62,41 @@ public class SportsFlash extends Activity {
         R.drawable.basketball,
         R.drawable.football,
         R.drawable.hockey,
+        R.drawable.baseball,
+        R.drawable.baseballtexture2,
+        R.drawable.bballtexture2,
+        R.drawable.footballtexture2,
         R.drawable.baseball
         };
-        for(int i = 0; i < images.length; i++){
-        	final int toFetch = images[i];
-        	Runnable r = new Runnable(){
-        		public void run(){
-        			try {
-        				final Bitmap bm = BitmapFactory.decodeResource(getResources(), toFetch);
-        				uiThreadHandler.post(new Runnable(){
-        					public void run(){
-        						image.setImageBitmap(bm);
-        					}
-        				});
-        			} catch (Exception e) {
-        				Log.e("ThreadActivity", null, e);
-        			}
-        		}
-        	};
-        	worker.timerHandler.postDelayed(r , i * 10000);
-        }
         
+        //Define PowerManagement
+        PowerManager power =
+        	(PowerManager) getSystemService(POWER_SERVICE);
+        	final PowerManager.WakeLock screenLock = power.newWakeLock(
+        	PowerManager.SCREEN_BRIGHT_WAKE_LOCK,
+        	"ThreadActivity" );
+        	screenLock.acquire();
         
+	        for(int i = 0; i < images.length; i++){
+	        	final int toFetch = images[i];
+	        	Runnable r = new Runnable(){
+	        		public void run(){
+	        			try {
+	        				final Bitmap bm = BitmapFactory.decodeResource(getResources(), toFetch);
+	        				uiThreadHandler.post(new Runnable(){
+	        					public void run(){
+	        						image.setImageBitmap(bm);
+	        					}
+	        				});
+	        				screenLock.release();	//Release lock
+	        			} catch (Exception e) {
+	        				Log.e("ThreadActivity", null, e);
+	        			}
+	        		}
+	        	};
+	
+	        	worker.timerHandler.postDelayed( r, i * 5000 );        	
+	        }
     }
     
     @Override
@@ -123,7 +139,7 @@ public class SportsFlash extends Activity {
         startSubActivity(i, ACTIVITY_CREATE);	
     }
 
-    
+    //Worker Thread for SlideShow
     private static class WorkerThread extends Thread {
     	private volatile boolean ready = false;
     	private Handler timerHandler;
