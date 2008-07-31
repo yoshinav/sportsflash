@@ -32,7 +32,12 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/createteam_instructions_1"/>
+        android:text="Player Info"/>
+            
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mlbPlayerHR"/>
 
     <!--
         Followed by the EditText field...
@@ -42,7 +47,7 @@
         means it is system resource rather than
         an application resource.
     -->
-    <EditText android:id="@+id/teamName"
+    <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"/>
@@ -50,21 +55,49 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/createteam_instructions_1"/>
+        android:text="@string/mlbPlayerRBI"/>
 
-    <!--
-        Followed by the EditText field...
-
-        Also give it a standard background (the "android:"
-        part in @android:drawable/editbox_background
-        means it is system resource rather than
-        an application resource.
-    -->
-    <EditText android:id="@+id/teamDescription"
+    <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"/>
         
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mlbPlayerBA"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"/>
+                
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mlbPlayerSaves"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mlbPlayerWins"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"/>
+        
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mlbPlayerERA"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"/>        
+        
+                       
     <!--
         Use a horizontal layout to hold the two buttons.
         This item has layout_gravity="right". This means the whole
@@ -79,16 +112,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right" >
 
-        <Button android:id="@+id/teamCancelButton"
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/createleague_cancel"/>
+            android:text="@string/sportsflash_update"/>
 
-        <Button android:id="@+id/teamOkButton"
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dip"
-            android:text="@string/createleague_ok" />
+            android:text="@string/createleague_cancel" />
 
     </LinearLayout>
 

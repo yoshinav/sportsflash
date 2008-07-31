@@ -51,7 +51,7 @@ public class MLBPlayerAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         MLBPlayer player = this.players.get(position);
-        return new MLBPlayerListView(this.context, player.getLastName(), player.getPosition());
+        return new MLBPlayersListView(this.context, player.getLastName() + ", " + player.getFirstName(), player.getPosition(), player.getTeam());
     }
 
     /**
@@ -60,13 +60,13 @@ public class MLBPlayerAdapter extends BaseAdapter {
      * @author charliecollins
      *
      */
-    private class MLBPlayerListView extends LinearLayout {
+    private class MLBPlayersListView extends LinearLayout {
 
         private TextView name;
         private TextView rating;
         private TextView date;
 
-        public MLBPlayerListView(Context context, String name, String rating) {
+        public MLBPlayersListView(Context context, String name, String position, String team) {
             super(context);
 
             // TODO display rating as stars
@@ -83,7 +83,7 @@ public class MLBPlayerAdapter extends BaseAdapter {
             addView(this.name, params);
 
             this.rating = new TextView(context);
-            this.rating.setText(rating);
+            this.rating.setText(team + " - " + position);
             this.rating.setTextSize(16f);
             addView(this.rating, params);            
         }

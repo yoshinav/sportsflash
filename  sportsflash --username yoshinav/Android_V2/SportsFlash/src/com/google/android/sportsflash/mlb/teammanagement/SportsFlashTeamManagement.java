@@ -8,7 +8,7 @@ package com.google.android.sportsflash.mlb.teammanagement;
  * 
  */
 
-import com.google.android.sportsflash.mlb.teammanagement.MLBPlayerView;
+import com.google.android.sportsflash.mlb.teammanagement.MLBPlayersView;
 import com.google.android.sportsflash.R;
 
 import android.app.Activity;
@@ -67,7 +67,7 @@ public class SportsFlashTeamManagement extends Activity {
  
     private void viewPlayerRoster()
     {
-        Intent i = new Intent(this, MLBPlayerView.class);
+        Intent i = new Intent(this, MLBPlayersView.class);
         startSubActivity(i, ACTIVITY_CREATE);	
     }
 
