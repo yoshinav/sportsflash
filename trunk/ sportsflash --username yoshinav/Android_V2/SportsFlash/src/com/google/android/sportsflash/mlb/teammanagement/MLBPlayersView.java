@@ -26,13 +26,13 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import com.google.android.sportsflash.R;
-import android.app.Activity;
 
-public class MLBPlayerView extends Activity {
+public class MLBPlayersView extends ListActivity {
 
 	 private SportsFlashTeamDBHelper mDbHelper;
+	 private static final int ACTIVITY_CREATE=0;
 	 
-	    private static final String CLASSTAG = MLBPlayerView.class.getSimpleName();
+	    private static final String CLASSTAG = MLBPlayersView.class.getSimpleName();
 	    private static final int NUM_RESULTS_PER_PAGE = 5;
 	    private static final int MENU_GET_NEXT_PAGE = Menu.FIRST;
 
@@ -43,11 +43,24 @@ public class MLBPlayerView extends Activity {
 
 	    private TextView empty;
 
-	    public MLBPlayerView() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
-	    
+	    // use a Handler in order to update UI thread after worker done
+	    // (cannot update UI thread inline (not done yet), or from separate thread)
+	    private Handler handler = new Handler() {
+
+	        @Override
+	        public void handleMessage(Message msg) {
+
+	            Log.v(Constants.LOGTAG, " " + CLASSTAG + " worker thread done, setup ReviewAdapter");
+	            progressDialog.dismiss();
+	            if (players == null || players.size() == 0) {
+	                empty.setText("No Players");
+	            } else {
+	            	playerAdapter = new MLBPlayerAdapter(MLBPlayersView.this, players);
+	                setListAdapter(playerAdapter);
+	            }
+	        }
+
+	    };
 	    
     /** Called when the activity is first created. */
     @Override
@@ -57,9 +70,19 @@ public class MLBPlayerView extends Activity {
 
         setDefaultKeyMode(SHORTCUT_DEFAULT_KEYS);
         
-        setContentView(R.layout.update_mlbplayer);
+        setContentView(R.layout.mlbplayer_list);
         
-        //loadPlayer(2);
+        // Tell the list view which view to display when the list is empty
+        getListView().setEmptyView(findViewById(R.id.empty));
+
+        empty = (TextView) findViewById(R.id.empty);
+
+        // get the current review criteria from the Application (global state
+        // placed there)
+        //SportsFlashPlayersApplication application = (SportsFlashPlayersApplication) this.getApplication();
+        //MLBPlayer reviewPlayer = application.getCurrentPlayer();
+
+        loadPlayers("1b");
         //fillData();
     }
 
@@ -103,9 +126,9 @@ public class MLBPlayerView extends Activity {
 
 	}
 	
-    private void loadPlayer(String position) {
+    private void loadPlayers(String position) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " loadPlayers");
- /*
+ 
         final MLBPlayerFetcher rf = new MLBPlayerFetcher();
         final String playerPosition = position;
 
@@ -119,12 +142,18 @@ public class MLBPlayerView extends Activity {
         new Thread() {
             public void run() {
                 //players = rf.getMockPlayers();
-            	players = rf.getMLBPlayer(position);
+            	players = rf.getMLBPlayers(playerPosition);
             	//players.add(rf.getMLBPlayer());
                 handler.sendEmptyMessage(0);
             }
         }.start();
-        */
     }	
-   
+    
+	protected void onListItemClick(ListView listView, View view, int position, long id)
+	{
+        Intent i = new Intent(this, MLBPlayerView.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+
+	}
+    
 }

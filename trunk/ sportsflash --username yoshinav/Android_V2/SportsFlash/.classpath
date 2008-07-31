@@ -4,7 +4,7 @@
 	<classpathentry kind="lib" path="lib/beans.jar"/>
 	<classpathentry kind="lib" path="lib/jdom-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/rome-0.9.jar"/>
-	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="bin"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

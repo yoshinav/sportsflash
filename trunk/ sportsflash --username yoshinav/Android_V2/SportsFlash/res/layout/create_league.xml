@@ -42,7 +42,7 @@
         means it is system resource rather than
         an application resource.
     -->
-    <EditText
+    <EditText android:id="@+id/leagueName"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"/>
@@ -63,7 +63,7 @@
         means it is system resource rather than
         an application resource.
     -->
-    <EditText
+    <EditText android:id="@+id/leagueDescription"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"/>
@@ -81,12 +81,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right" >
 
-        <Button
+        <Button android:id="@+id/leagueCancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/createleague_cancel"/>
 
-        <Button
+        <Button android:id="@+id/leagueOkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dip"

@@ -6,4 +6,5 @@
 </activity><activity android:name=".mlb.teammanagement.Draft" android:label="MLB Draft" android:icon="@drawable/icon2">
 </activity><activity android:name=".mlb.teammanagement.CreateLeague" android:label="Create MLB Fantasy League" android:icon="@drawable/icon2">
 </activity><activity android:name=".mlb.teammanagement.CreateTeam" android:label="Create MLB Fantasy Team" android:icon="@drawable/icon2">
+</activity><activity android:name=".mlb.teammanagement.MLBPlayersView" android:label="MLB PlayersView" android:icon="@drawable/icon2">
 </activity></application></manifest>
