@@ -51,6 +51,8 @@ public class MLBCreateLeague {
     {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " getReviews");
         long start = System.currentTimeMillis();
+        
+        //Check for Apostrophies and double them up to allow for safe sql against SProcs
         name = name.replaceAll("'", "''");
         description = description.replaceAll("'", "''");
 

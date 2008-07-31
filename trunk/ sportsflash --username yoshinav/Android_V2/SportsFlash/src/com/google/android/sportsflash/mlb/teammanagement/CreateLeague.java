@@ -17,6 +17,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.database.Cursor;
 
+/**
+ * CreateLeague:  Create MLB Fantasy League 
+ * 
+ * @author Navdeep Alam
+ * @version CS 893 Summer 2008 Version 1.0
+ * 
+ */
+
 public class CreateLeague extends Activity
 {
 	private SportsFlashLeagueDBHelper mDbHelper;
@@ -68,10 +76,7 @@ public class CreateLeague extends Activity
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {  
-                mLeagueNameValue = mLeagueName.getText().toString();
-                mLeagueDescriptionValue = mLeagueDescription.getText().toString();
-            	CreateNewLeague(mLeagueNameValue, mLeagueDescriptionValue);
-            	
+            	CreateNewLeague();       	
            }
           
         });
@@ -87,18 +92,17 @@ public class CreateLeague extends Activity
         });        
     }
 	
-	public void CreateNewLeague(String leagueName, String leagueDescription)
+	public void CreateNewLeague()
 	{
         progressDialog = ProgressDialog.show(this, " Working...", " Creating League", true, false);
 
         new Thread() {
             public void run() {
-            	
                 mLeagueNameValue = mLeagueName.getText().toString();
                 mLeagueDescriptionValue = mLeagueDescription.getText().toString();
-            	//mDbHelper.createRow(mLeagueNameValue, mLeagueDescriptionValue);
-                Log.i(Constants.LOGTAG,"mLeagueNameValue= " + mLeagueNameValue + ", mLeagueDescriptionValue=" + mLeagueDescriptionValue);
-            	mWSHelper.CreateLeague(mLeagueNameValue, mLeagueDescriptionValue);
+            	//Log.i(Constants.LOGTAG,"mLeagueNameValue= " + mLeagueNameValue + ", mLeagueDescriptionValue=" + mLeagueDescriptionValue);
+            	mDbHelper.createRow(mLeagueNameValue, mLeagueDescriptionValue);
+            	com.google.android.sportsflash.SportsFlash.currentLeagueID = mWSHelper.CreateLeague(mLeagueNameValue, mLeagueDescriptionValue);
             	handler.sendEmptyMessage(0);
             }
         }.start();	
