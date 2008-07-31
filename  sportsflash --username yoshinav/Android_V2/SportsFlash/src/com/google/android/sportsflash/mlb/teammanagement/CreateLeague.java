@@ -34,7 +34,6 @@ public class CreateLeague extends Activity
 	private String mLeagueNameValue;
     private String mLeagueDescriptionValue;
     private Long mRowId;
-    private static final int ACTIVITY_CREATE=0;
     private ProgressDialog progressDialog;
     
     // use a Handler in order to update UI thread after worker done
@@ -76,7 +75,9 @@ public class CreateLeague extends Activity
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {  
-            	CreateNewLeague();       	
+            	CreateNewLeague();    
+                Intent i = new Intent(CreateLeague.this, CreateTeam.class);
+                startSubActivity(i, Constants.SUB_ACTIVITY_REQUEST_CODE);
            }
           
         });
@@ -84,8 +85,8 @@ public class CreateLeague extends Activity
         cancelButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {        
-               // Intent i = new Intent(this, SportsFlashTeamManagement.class);
-               // startSubActivity(i, ACTIVITY_CREATE);
+               Intent i = new Intent(CreateLeague.this, SportsFlashTeamManagement.class);
+               startSubActivity(i, Constants.SUB_ACTIVITY_REQUEST_CODE);
             	
             }
           

@@ -27,7 +27,7 @@ public class SportsFlashLeagueDBHelper {
     private static final String CLASSTAG = SportsFlashLeagueDBHelper.class.getSimpleName();
     public static final String KEY_ROWID="_id";
     
-    class Row extends Object {
+    public class Row extends Object {
         public long rowId;
         public String leagueName;
         public String leagueDescription;
@@ -78,18 +78,18 @@ public class SportsFlashLeagueDBHelper {
         db.delete(DATABASE_TABLE, "leagueName=" + leagueName, null);
     }
 
-    public List<Row> fetchAllRows() {
+    public List<MLBLeague> fetchAllRows() {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " fetchAllRows");
-        ArrayList<Row> ret = new ArrayList<Row>();
+        ArrayList<MLBLeague> ret = new ArrayList<MLBLeague>();
         try {
             Cursor c = db.query(DATABASE_TABLE, new String[] { "rowid", "leagueName", "leagueDescription" }, null, null, null, null, null);
             int numRows = c.count();
             c.first();
             for (int i = 0; i < numRows; ++i) {
-                Row row = new Row();
-                row.rowId = c.getLong(0);
-                row.leagueName = c.getString(1);
-                row.leagueDescription = c.getString(2);
+            	MLBLeague row = new MLBLeague();
+                row.setLeagueID(c.getInt(0));
+                row.setLeagueName( c.getString(1));
+                row.setLeagueDescription(c.getString(2));
                 ret.add(row);
                 c.next();
             }
