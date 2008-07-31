@@ -4,8 +4,12 @@ import com.google.android.sportsflash.mlb.data.*;
 import com.google.android.sportsflash.R;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.Menu.Item;
@@ -23,6 +27,18 @@ public class CreateLeague extends Activity
     private String mLeagueDescriptionValue;
     private Long mRowId;
     private static final int ACTIVITY_CREATE=0;
+    private ProgressDialog progressDialog;
+    
+    // use a Handler in order to update UI thread after worker done
+    // (cannot update UI thread inline (not done yet), or from separate thread)
+    private Handler handler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            progressDialog.dismiss();
+        }
+
+    };
     
     public CreateLeague() {
 		super();
@@ -38,8 +54,6 @@ public class CreateLeague extends Activity
        
         mLeagueName = (EditText) findViewById(R.id.leagueName);
         mLeagueDescription = (EditText) findViewById(R.id.leagueDescription);
-        mLeagueNameValue = mLeagueName.getText().toString();
-        mLeagueDescriptionValue = mLeagueDescription.getText().toString();
         
         Button confirmButton = (Button) findViewById(R.id.leagueOkButton);
         Button cancelButton = (Button) findViewById(R.id.leagueCancelButton);
@@ -53,11 +67,12 @@ public class CreateLeague extends Activity
           
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View view) {        
-            	mDbHelper.createRow(mLeagueNameValue, mLeagueDescriptionValue);
-            	mWSHelper.CreateLeague(mLeagueNameValue, mLeagueDescriptionValue);
+            public void onClick(View view) {  
+                mLeagueNameValue = mLeagueName.getText().toString();
+                mLeagueDescriptionValue = mLeagueDescription.getText().toString();
+            	CreateNewLeague(mLeagueNameValue, mLeagueDescriptionValue);
             	
-            }
+           }
           
         });
         
@@ -70,6 +85,23 @@ public class CreateLeague extends Activity
             }
           
         });        
-    }	
+    }
+	
+	public void CreateNewLeague(String leagueName, String leagueDescription)
+	{
+        progressDialog = ProgressDialog.show(this, " Working...", " Creating League", true, false);
+
+        new Thread() {
+            public void run() {
+            	
+                mLeagueNameValue = mLeagueName.getText().toString();
+                mLeagueDescriptionValue = mLeagueDescription.getText().toString();
+            	//mDbHelper.createRow(mLeagueNameValue, mLeagueDescriptionValue);
+                Log.i(Constants.LOGTAG,"mLeagueNameValue= " + mLeagueNameValue + ", mLeagueDescriptionValue=" + mLeagueDescriptionValue);
+            	mWSHelper.CreateLeague(mLeagueNameValue, mLeagueDescriptionValue);
+            	handler.sendEmptyMessage(0);
+            }
+        }.start();	
+	}
 
 }

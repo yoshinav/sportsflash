@@ -38,10 +38,8 @@ public class CreateTeam extends Activity {
         mWSHelper = new MLBCreateTeam();
        
         mTeamName = (EditText) findViewById(R.id.teamName);
-        mTeamNameValue = mTeamName.getText().toString();
         mTeamDescription = (EditText) findViewById(R.id.teamDescription);
-        mTeamNameDescription = mTeamDescription.getText().toString();        
-        
+       
         Button confirmButton = (Button) findViewById(R.id.teamOkButton);
         Button cancelButton = (Button) findViewById(R.id.teamCancelButton);
         
@@ -54,11 +52,12 @@ public class CreateTeam extends Activity {
           
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View view) {        
+            public void onClick(View view) { 
+                mTeamNameValue = mTeamName.getText().toString();
+                mTeamNameDescription = mTeamDescription.getText().toString();              	
             	mDbHelper.createRow(mTeamNameValue, mTeamNameDescription);
             	mWSHelper.CreateTeam(99, mTeamNameValue, mTeamNameDescription);         	
-            }
-          
+            }         
         });
         
         cancelButton.setOnClickListener(new View.OnClickListener() {

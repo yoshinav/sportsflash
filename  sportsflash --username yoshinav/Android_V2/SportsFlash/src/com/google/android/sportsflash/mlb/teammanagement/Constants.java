@@ -9,7 +9,7 @@ package com.google.android.sportsflash.mlb.teammanagement;
  */
 public class Constants {
     
-    public static final String LOGTAG = "WeatherReporter";
+    public static final String LOGTAG = "SportsFlash";
     public static final String PREFS = "RCP";
 
     public static final String INTENT_ACTION_VIEW_DETAIL = "com.google.android.sportsflash.VIEW_DETAIL";
