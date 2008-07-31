@@ -1,6 +1,7 @@
 package com.google.android.sportsflash.mlb.data;
 
 import java.net.URL;
+import java.net.URLEncoder;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -50,12 +51,13 @@ public class MLBCreateLeague {
     {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " getReviews");
         long start = System.currentTimeMillis();
-
+        name = name.replaceAll("'", "''");
+        description = description.replaceAll("'", "''");
 
         if (!debug) {
             try {
             	//setup the url
-                URL feedUrl = new URL(this.query + "name=" + name + "&description=" + description);
+                URL feedUrl = new URL(this.query + "name=" + URLEncoder.encode(name,"UTF-8") + "&description=" + URLEncoder.encode(description,"UTF-8"));
                 // TODO - huge delay here on build call, takes 15-20 seconds 
                 // (takes < second for same class outside Android)
                 
