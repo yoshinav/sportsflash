@@ -79,16 +79,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right" >
 
-        <Button android:id="@+id/teamCancelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/createleague_cancel"/>
-
         <Button android:id="@+id/teamOkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dip"
             android:text="@string/createleague_ok" />
+            
+        <Button android:id="@+id/teamCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/createleague_cancel"/>
 
     </LinearLayout>
 
