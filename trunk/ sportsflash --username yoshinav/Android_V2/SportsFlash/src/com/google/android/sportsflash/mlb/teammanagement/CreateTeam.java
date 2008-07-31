@@ -77,16 +77,17 @@ public class CreateTeam extends Activity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) { 
-            	CreateNewTeam();        	
+            	CreateNewTeam(); 
+                Intent i = new Intent(CreateTeam.this, SportsFlashTeamManagement.class);
+                startSubActivity(i, Constants.SUB_ACTIVITY_REQUEST_CODE);             	
             }         
         });
         
         cancelButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {        
-               // Intent i = new Intent(this, SportsFlashTeamManagement.class);
-               // startSubActivity(i, ACTIVITY_CREATE);
-            	
+                Intent i = new Intent(CreateTeam.this, SportsFlashTeamManagement.class);
+                startSubActivity(i, Constants.SUB_ACTIVITY_REQUEST_CODE);        	
             }
           
         });        

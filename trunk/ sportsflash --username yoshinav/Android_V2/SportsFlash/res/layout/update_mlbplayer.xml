@@ -47,7 +47,7 @@
         means it is system resource rather than
         an application resource.
     -->
-    <EditText
+    <EditText android:id="@+id/playerHR"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"/>
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:text="@string/mlbPlayerRBI"/>
 
-    <EditText
+    <EditText android:id="@+id/playerRBI"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"/>
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:text="@string/mlbPlayerBA"/>
 
-    <EditText
+    <EditText android:id="@+id/playerBA"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"/>
@@ -77,12 +77,17 @@
         android:layout_height="wrap_content"
         android:text="@string/mlbPlayerSaves"/>
 
+    <EditText android:id="@+id/playerSaves"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"/>
+        
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/mlbPlayerWins"/>
 
-    <EditText
+    <EditText android:id="@+id/playerWins"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"/>
@@ -92,7 +97,7 @@
         android:layout_height="wrap_content"
         android:text="@string/mlbPlayerERA"/>
 
-    <EditText
+    <EditText android:id="@+id/playerERA"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"/>        
@@ -112,12 +117,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right" >
 
-        <Button
+        <Button android:id="@+id/playerOkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sportsflash_update"/>
+            android:text="@string/createleague_ok"/>
 
-        <Button
+        <Button android:id="@+id/playerCancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dip"

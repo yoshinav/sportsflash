@@ -24,6 +24,7 @@ import android.util.Log;
 public class SportsFlash extends Activity {
 	
 	public static int currentLeagueID = 0;
+	public static int currentTeamID = 0;
 	
     public SportsFlash() {
 		super();

@@ -151,7 +151,7 @@ public class MLBPlayersView extends ListActivity {
     
 	protected void onListItemClick(ListView listView, View view, int position, long id)
 	{
-        Intent i = new Intent(this, MLBPlayerView.class);
+        Intent i = new Intent(this, UpdatePlayer.class);
         startSubActivity(i, ACTIVITY_CREATE);	
 
 	}

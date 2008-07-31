@@ -7,6 +7,7 @@
      <string name="menu_NBA_TM">NBA</string>
      <string name="menu_NHL_TM">NHL</string>
      <string name="menu_view_players">View MLB Roster</string>
+     <string name="menu_view_your_league">View your MLB Fantasy Team</string>
      <string name="menu_view_league">Create MLB Fantasy League</string>
      <string name="menu_view_team">Create MLB Fantasy Team</string>
      <string name="sportsflash_welcome_message">Welcome to SportsFlash!  Your Sports Fantasy League Mobile Application</string>
