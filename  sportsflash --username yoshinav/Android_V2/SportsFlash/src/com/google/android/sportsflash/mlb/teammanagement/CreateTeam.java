@@ -32,7 +32,7 @@ public class CreateTeam extends Activity {
 
 	@Override    protected void onCreate(Bundle icicle) { 
     	super.onCreate(icicle); 
-    	setContentView(R.layout.create_league);
+    	setContentView(R.layout.create_team);
     	
         mDbHelper = new SportsFlashTeamDBHelper(this);
         mWSHelper = new MLBCreateTeam();

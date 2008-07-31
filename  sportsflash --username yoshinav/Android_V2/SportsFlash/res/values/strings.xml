@@ -13,6 +13,7 @@
      <string name="createleague_instructions_1">League Name:</string>
      <string name="createleague_instructions_2">League Description:</string>
      <string name="createteam_instructions_1">Team Name:</string>
+     <string name="createteam_instructions_2">Team Description:</string>
      <string name="mlbPlayerTitle">MLB Player:</string>
      <string name="mlbPlayerHR">Home Runs:</string>
      <string name="mlbPlayerRBI">RBI:</string>
