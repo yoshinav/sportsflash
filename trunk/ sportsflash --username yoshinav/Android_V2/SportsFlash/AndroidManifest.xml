@@ -1,13 +1,43 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.google.android.sportsflash">
 <application android:icon="@drawable/icon">
 <activity android:name="SportsFlash" android:label="SportsFlash - Sports Fantasy League" android:icon="@drawable/icon2">
-</activity><activity android:name=".mlb.teammanagement.SportsFlashTeamManagement" android:label="SportsFlash MLB" android:icon="@drawable/icon2">
-</activity><activity android:name=".mlb.teammanagement.MLBPlayerView" android:label="MLB PlayerView" android:icon="@drawable/icon2">
-</activity><activity android:name=".mlb.teammanagement.Draft" android:label="MLB Draft" android:icon="@drawable/icon2">
-</activity><activity android:name=".mlb.teammanagement.CreateLeague" android:label="Create MLB Fantasy League" android:icon="@drawable/icon2">
-</activity><activity android:name=".mlb.teammanagement.CreateTeam" android:label="Create MLB Fantasy Team" android:icon="@drawable/icon2">
-</activity><activity android:name=".mlb.teammanagement.MLBPlayersView" android:label="MLB PlayersView" android:icon="@drawable/icon2">
-</activity><activity android:name=".mlb.teammanagement.UpdatePlayer" android:label="Update MLB Player" android:icon="@drawable/icon2">
-</activity><activity android:name=".mlb.teammanagement.ViewCurrentLeagues" android:icon="@drawable/icon2" android:label="View Current Leagues">
-</activity><activity android:name=".mlb.teammanagement.ViewCurrentTeams" android:icon="@drawable/icon2" android:label="View Current Teams">
-</activity></application></manifest>
+<intent-filter>
+<action android:name="android.intent.action.MAIN">
+</action><category android:name="android.intent.category.LAUNCHER">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.SportsFlashTeamManagement" android:label="SportsFlash MLB" android:icon="@drawable/icon2">
+<intent-filter>
+<action android:name="android.intent.action.PICK">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.MLBPlayerView" android:label="MLB PlayerView" android:icon="@drawable/icon2">
+<intent-filter>
+<action android:name="android.intent.action.VIEW">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.Draft" android:label="MLB Draft" android:icon="@drawable/icon2">
+<intent-filter>
+<action android:name="android.intent.action.EDIT">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.CreateLeague" android:label="Create MLB Fantasy League" android:icon="@drawable/icon2">
+<intent-filter>
+<action android:name="android.intent.action.EDIT">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.CreateTeam" android:label="Create MLB Fantasy Team" android:icon="@drawable/icon2">
+<intent-filter>
+<action android:name="android.intent.action.EDIT">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.MLBPlayersView" android:label="MLB PlayersView" android:icon="@drawable/icon2">
+<intent-filter>
+<action android:name="android.intent.action.VIEW">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.UpdatePlayer" android:label="Update MLB Player" android:icon="@drawable/icon2">
+<intent-filter>
+<action android:name="android.intent.action.EDIT">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.ViewCurrentLeagues" android:icon="@drawable/icon2" android:label="View Current Leagues">
+<intent-filter>
+<action android:name="android.intent.action.VIEW">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.ViewCurrentTeams" android:icon="@drawable/icon2" android:label="View Current Teams">
+<intent-filter>
+<action android:name="android.intent.action.VIEW">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity></application></manifest>
