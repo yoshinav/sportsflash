@@ -5,20 +5,13 @@ import java.util.List;
 import com.google.android.sportsflash.R;
 import com.google.android.sportsflash.mlb.data.MLBLeague;
 import com.google.android.sportsflash.mlb.data.SportsFlashLeagueDBHelper;
-import com.google.android.sportsflash.mlb.data.SportsFlashLeagueDBHelper.Row;
-
 import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.database.Cursor;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.LinearLayout.LayoutParams;
+
 
 public class ViewCurrentLeagues extends ListActivity {
 	
@@ -34,7 +27,9 @@ public class ViewCurrentLeagues extends ListActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         //Log.v(Constants.LOGTAG, " " + CLASSTAG + " onCreate");
-
+        
+        mDbHelper = new SportsFlashLeagueDBHelper(this);
+        
         setDefaultKeyMode(SHORTCUT_DEFAULT_KEYS);
         
         setContentView(R.layout.mlbleague_list);
@@ -74,7 +69,7 @@ public class ViewCurrentLeagues extends ListActivity {
 	}
 	
 	 private void loadLeagues() {
-        progressDialog = ProgressDialog.show(this, " Working...", " Retrieving players", true, false);
+        progressDialog = ProgressDialog.show(this, " Working...", " Retrieving leagues", true, false);
         
         // get reviews in a separate thread for ProgressDialog/Handler
         // when complete send "empty" message to handler indicating thread is

@@ -101,7 +101,7 @@ public class CreateTeam extends Activity {
             public void run() {
                 mTeamNameValue = mTeamName.getText().toString();
                 mTeamDescriptionValue = mTeamDescription.getText().toString();            	
-             	mDbHelper.createRow(mTeamNameValue, mTeamDescriptionValue);
+             	mDbHelper.createRow(com.google.android.sportsflash.SportsFlash.currentLeagueID, mTeamNameValue, mTeamDescriptionValue);
             	mWSHelper.CreateTeam(com.google.android.sportsflash.SportsFlash.currentLeagueID, mTeamNameValue, mTeamDescriptionValue);  
             	handler.sendEmptyMessage(0);
             }
