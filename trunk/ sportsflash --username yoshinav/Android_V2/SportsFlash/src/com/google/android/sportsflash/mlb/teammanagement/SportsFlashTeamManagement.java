@@ -24,8 +24,9 @@ public class SportsFlashTeamManagement extends Activity {
     
 	public static final int VIEWROSTER_ID = Menu.FIRST;
 	public static final int VIEWLEAGUE_ID = 2;
-	public static final int CREATEMLBLEAGUE_ID = 3;
-	public static final int CREATEMLBTEAM_ID = 4;
+	public static final int VIEWTEAM_ID = 3;	
+	public static final int CREATEMLBLEAGUE_ID = 4;
+	public static final int CREATEMLBTEAM_ID = 5;
 	
     /** Called when the activity is first created. */
     @Override
@@ -40,8 +41,9 @@ public class SportsFlashTeamManagement extends Activity {
     	boolean result = super.onCreateOptionsMenu(menu);
     	menu.add(0, VIEWROSTER_ID, R.string.menu_view_players);
     	menu.add(1, VIEWLEAGUE_ID, R.string.menu_view_your_league);
-    	menu.add(2, CREATEMLBLEAGUE_ID, R.string.menu_view_league);
-    	menu.add(3, CREATEMLBTEAM_ID, R.string.menu_view_team);
+    	menu.add(2, VIEWTEAM_ID, R.string.menu_view_your_team);    	
+    	menu.add(3, CREATEMLBLEAGUE_ID, R.string.menu_view_league);
+    	menu.add(4, CREATEMLBTEAM_ID, R.string.menu_view_team);
     	return result;
     }
 
@@ -56,6 +58,10 @@ public class SportsFlashTeamManagement extends Activity {
 	    		
 	    	case VIEWLEAGUE_ID:
 	    		viewLeagueRoster();
+	    		return true;
+	    		
+	    	case VIEWTEAM_ID:
+	    		viewTeamRoster();
 	    		return true;
 	    		
 	    	case CREATEMLBLEAGUE_ID:
@@ -80,6 +86,12 @@ public class SportsFlashTeamManagement extends Activity {
     private void viewLeagueRoster()
     {
         Intent i = new Intent(this, ViewCurrentLeagues.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+    }
+    
+    private void viewTeamRoster()
+    {
+        Intent i = new Intent(this, ViewCurrentTeams.class);
         startSubActivity(i, ACTIVITY_CREATE);	
     }
     
