@@ -23,8 +23,8 @@ import android.util.Log;
 
 public class SportsFlash extends Activity {
 	
-	public static int currentLeagueID = 0;
-	public static int currentTeamID = 0;
+	private static int currentLeagueID = 0;
+	private static int currentTeamID = 0;
 	
     public SportsFlash() {
 		super();
@@ -142,6 +142,29 @@ public class SportsFlash extends Activity {
         startSubActivity(i, ACTIVITY_CREATE);	
     }
 
+    //Getter and Setters for Current League and Team IDs
+    public static int getCurrentLeagueID()
+    {
+    	return currentLeagueID;
+    }
+    
+    public static void setCurrentLeagueID(int value)
+    {
+    	currentLeagueID = value;
+    	
+    }
+    
+    public static int getCurrentTeamID()
+    {
+    	return currentTeamID;
+    }
+    
+    public static void setCurrentTeamID(int value)
+    {
+    	currentTeamID = value;
+    	
+    }
+    
     //Worker Thread for SlideShow
     private static class WorkerThread extends Thread {
     	private volatile boolean ready = false;

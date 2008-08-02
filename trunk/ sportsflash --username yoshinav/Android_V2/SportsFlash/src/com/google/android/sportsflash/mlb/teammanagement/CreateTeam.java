@@ -1,5 +1,6 @@
 package com.google.android.sportsflash.mlb.teammanagement;
 
+import com.google.android.sportsflash.SportsFlash;
 import com.google.android.sportsflash.R;
 import com.google.android.sportsflash.mlb.data.MLBCreateTeam;
 import com.google.android.sportsflash.mlb.data.SportsFlashTeamDBHelper;
@@ -101,8 +102,8 @@ public class CreateTeam extends Activity {
             public void run() {
                 mTeamNameValue = mTeamName.getText().toString();
                 mTeamDescriptionValue = mTeamDescription.getText().toString();            	
-             	mDbHelper.createRow(com.google.android.sportsflash.SportsFlash.currentLeagueID, mTeamNameValue, mTeamDescriptionValue);
-            	mWSHelper.CreateTeam(com.google.android.sportsflash.SportsFlash.currentLeagueID, mTeamNameValue, mTeamDescriptionValue);  
+             	mDbHelper.createRow(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue);
+            	mWSHelper.CreateTeam(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue);  
             	handler.sendEmptyMessage(0);
             }
         }.start();	
