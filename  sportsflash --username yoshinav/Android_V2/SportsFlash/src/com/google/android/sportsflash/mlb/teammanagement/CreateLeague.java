@@ -2,6 +2,7 @@ package com.google.android.sportsflash.mlb.teammanagement;
 
 import com.google.android.sportsflash.mlb.data.*;
 import com.google.android.sportsflash.R;
+import com.google.android.sportsflash.SportsFlash;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -103,7 +104,7 @@ public class CreateLeague extends Activity
                 mLeagueDescriptionValue = mLeagueDescription.getText().toString();
             	//Log.i(Constants.LOGTAG,"mLeagueNameValue= " + mLeagueNameValue + ", mLeagueDescriptionValue=" + mLeagueDescriptionValue);
             	mDbHelper.createRow(mLeagueNameValue, mLeagueDescriptionValue);
-            	com.google.android.sportsflash.SportsFlash.currentLeagueID = mWSHelper.CreateLeague(mLeagueNameValue, mLeagueDescriptionValue);
+            	SportsFlash.setCurrentLeagueID(mWSHelper.CreateLeague(mLeagueNameValue, mLeagueDescriptionValue));
             	handler.sendEmptyMessage(0);
             }
         }.start();	

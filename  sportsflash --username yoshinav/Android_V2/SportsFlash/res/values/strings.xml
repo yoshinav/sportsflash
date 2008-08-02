@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SportsFlash Android Project</string>
-     <string name="no_players">Searching Players ...</string>
+     <string name="no_players">Searching ...</string>
      <string name="menu_MLB_TM">MLB</string>
      <string name="menu_NFL_TM">NFL</string>
      <string name="menu_NBA_TM">NBA</string>
