@@ -72,4 +72,26 @@ public class DBHelper
     {
         return "EXEC SP_UpdateMLBTeam '" + id + "','" + position + "','" + playerid + "'";
     }
+
+    public static string ApostrophieReplace(string value)
+    {
+        try
+        {
+            if (value != null)
+            {
+                return value.Replace("'", "''");
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch
+        {
+            return null;
+        }
+
+    }
+        
 }

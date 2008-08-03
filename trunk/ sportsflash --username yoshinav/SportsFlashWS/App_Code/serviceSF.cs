@@ -101,7 +101,7 @@ namespace com.google.android.sportsflash
             //XmlDataDocument datasetXML = new XmlDataDocument(s);
             XmlDocument datasetXML = new XmlDocument();
             datasetXML.LoadXml(s.GetXml());
-            return datasetXML;
+            return datasetXML;           
         }
 
         public XmlDocument UpdateMLBLeague(int id, string name, string description)
