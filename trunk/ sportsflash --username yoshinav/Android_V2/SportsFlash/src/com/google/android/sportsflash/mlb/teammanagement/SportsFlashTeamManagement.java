@@ -8,6 +8,7 @@ package com.google.android.sportsflash.mlb.teammanagement;
  * 
  */
 
+import com.google.android.sportsflash.animation.Rotate3dAnimation;
 import com.google.android.sportsflash.mlb.teammanagement.MLBPlayersView;
 import com.google.android.sportsflash.R;
 
@@ -15,10 +16,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Menu.Item;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.ViewFlipper;
 
-public class SportsFlashTeamManagement extends Activity {
-	
+public class SportsFlashTeamManagement extends Activity   {
+
     private static final int ACTIVITY_CREATE=0;
     private static final int ACTIVITY_EDIT=1;
     
@@ -28,12 +40,57 @@ public class SportsFlashTeamManagement extends Activity {
 	public static final int CREATEMLBLEAGUE_ID = 4;
 	public static final int CREATEMLBTEAM_ID = 5;
 	
+    private ViewGroup mContainer;
+    private ImageView mImageView;
+    private ViewFlipper mFlipper;
+    
+    private int imagePositionCounter = 0;
+    
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        setContentView(R.layout.team_management);
+        setContentView(R.layout.animations_mlb_main_screen);
+        
+        mImageView = (ImageView) findViewById(R.id.picture);
+        mContainer = (ViewGroup) findViewById(R.id.container); 
+
+        //Prepare Message Flipper
+        mFlipper = ((ViewFlipper) this.findViewById(R.id.flipper));
+        mFlipper.setInAnimation(AnimationUtils.loadAnimation(this,
+                android.R.anim.fade_in));
+        mFlipper.setOutAnimation(AnimationUtils.loadAnimation(this,
+                android.R.anim.fade_out));        
+        mFlipper.startFlipping();        
+       
+        // Prepare the ImageView
+        mImageView.setClickable(true);
+        mImageView.setFocusable(true);
+        
+        mImageView.setOnClickListener(new View.OnClickListener() { 
+
+        	public void onClick(View v) {
+                imagePositionCounter++;  
+            	if(imagePositionCounter >= PHOTOS_RESOURCES.length)
+            	{
+            		imagePositionCounter = 0;
+            	}
+            	
+                applyRotation(imagePositionCounter, 0, 90);            	
+                mImageView.setImageResource(PHOTOS_RESOURCES[imagePositionCounter]);         
+        		}
+        	}
+        );
+          
     }
+    
+    
+    // Resource identifiers for the photos we want to display
+    private static final int[] PHOTOS_RESOURCES = new int[] {
+        R.drawable.baseballtexture2,
+        R.drawable.baseball_firstbase,
+        R.drawable.mario_baseball,
+    };
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,4 +167,78 @@ public class SportsFlashTeamManagement extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, String data, Bundle extras) {
         super.onActivityResult(requestCode, resultCode, data, extras);
     }
+    
+    /**
+     * Setup a new 3D rotation on the container view.
+     *
+     * @param position the item that was clicked to show a picture, or -1 to show the list
+     * @param start the start angle at which the rotation must begin
+     * @param end the end angle of the rotation
+     */
+    private void applyRotation(int position, float start, float end) {
+        // Find the center of the container
+        final float centerX = mContainer.getWidth() / 2.0f;
+        final float centerY = mContainer.getHeight() / 2.0f;
+
+        // Create a new 3D rotation with the supplied parameter
+        // The animation listener is used to trigger the next animation
+        final Rotate3dAnimation rotation =
+                new Rotate3dAnimation(start, end, centerX, centerY, 310.0f, true);
+        rotation.setDuration(500);
+        rotation.setFillAfter(true);
+        rotation.setInterpolator(new AccelerateInterpolator());
+        rotation.setAnimationListener(new DisplayNextView());
+
+        mImageView.startAnimation(rotation);
+    }
+
+
+    
+    /**
+     * This class listens for the end of the first half of the animation.
+     * It then posts a new action that effectively swaps the views when the container
+     * is rotated 90 degrees and thus invisible.
+     */
+    private final class DisplayNextView implements Animation.AnimationListener {
+
+        private DisplayNextView() {
+        }
+
+        public void onAnimationStart() {
+        }
+
+        public void onAnimationEnd() {
+        	mImageView.post(new SwapImages());
+        }
+
+        public void onAnimationRepeat() {
+        }
+    }
+
+    /**
+     * This class is responsible for swapping the views and start the second
+     * half of the animation.
+     */
+    private final class SwapImages implements Runnable {
+
+        public SwapImages() {
+        }
+
+        public void run() {
+            final float centerX = mContainer.getWidth() / 2.0f;
+            final float centerY = mContainer.getHeight() / 2.0f;
+            Rotate3dAnimation rotation;
+
+            mImageView.setVisibility(View.VISIBLE);
+            mImageView.requestFocus();            	
+            rotation = new Rotate3dAnimation(90, 180, centerX, centerY, 310.0f, false);
+           
+            rotation.setDuration(500);
+            rotation.setFillAfter(true);
+            rotation.setInterpolator(new DecelerateInterpolator());
+
+            mImageView.startAnimation(rotation);
+        }
+    }
+        
 }
