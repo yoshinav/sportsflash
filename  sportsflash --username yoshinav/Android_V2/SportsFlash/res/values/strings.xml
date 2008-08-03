@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- ================================== -->
+    <!--  SportsFlash Main Messages			-->
+    <!-- ================================== -->
+    
     <string name="app_name">SportsFlash Android Project</string>
      <string name="no_players">Searching ...</string>
      <string name="menu_MLB_TM">MLB</string>
-     <string name="menu_NFL_TM">NFL</string>
-     <string name="menu_NBA_TM">NBA</string>
-     <string name="menu_NHL_TM">NHL</string>
-     <string name="menu_view_players">View MLB Roster</string>
-     <string name="menu_view_your_league">View your MLB Fantasy League</string>
-     <string name="menu_view_your_team">View your MLB Fantasy Team</string>     
-     <string name="menu_view_league">Create MLB Fantasy League</string>
-     <string name="menu_view_team">Create MLB Fantasy Team</string>
-     <string name="sportsflash_welcome_message">Welcome to SportsFlash!  Your Sports Fantasy League Mobile Application</string>
+     <string name="menu_NFL_TM">NFL ... coming soon</string>
+     <string name="menu_NBA_TM">NBA ... coming soon</string>
+     <string name="menu_NHL_TM">NHL ... coming soon</string>
      <string name="createleague_instructions_1">League Name:</string>
      <string name="createleague_instructions_2">League Description:</string>
      <string name="createteam_instructions_1">Team Name:</string>
-     <string name="createteam_instructions_2">Team Description:</string>
-     <string name="mlbPlayerTitle">MLB Player:</string>
-     <string name="mlbPlayerHR">Home Runs:</string>
-     <string name="mlbPlayerRBI">RBI:</string>
-     <string name="mlbPlayerBA">Batting Average:</string>
-     <string name="mlbPlayerSaves">Saves:</string>
-     <string name="mlbPlayerWins">Wins:</string>
-     <string name="mlbPlayerERA">Earned Run Avarage:</string>
+     <string name="createteam_instructions_2">Team Description:</string>     
+     <string name="sportsflash_welcome_message">Welcome to SportsFlash!  Your Sports Fantasy League Mobile Application</string>
      <string name="createleague_cancel">Cancel</string>
      <string name="createleague_ok">OK</string>
      <string name="sportsflash_update">Update</string>
@@ -31,6 +23,19 @@
     <!-- ================================== -->
     <!--  MLB Instruction Messages			-->
     <!-- ================================== -->
-	<string name="sportsflash_mlb_instruction1">Use Menu to select options</string>
-	<string name="sportsflash_mlb_instruction2">or click image to see gallery</string>      
+     <string name="menu_view_players">View MLB Roster</string>
+     <string name="menu_view_your_league">View your MLB Fantasy League</string>
+     <string name="menu_view_your_team">View your MLB Fantasy Team</string>     
+     <string name="menu_view_league">Create MLB Fantasy League</string>
+     <string name="menu_view_team">Create MLB Fantasy Team</string>
+     <string name="mlbPlayerTitle">MLB Player:</string>
+     <string name="mlbPlayerHR">Home Runs:</string>
+     <string name="mlbPlayerRBI">RBI:</string>
+     <string name="mlbPlayerBA">Batting Average:</string>
+     <string name="mlbPlayerSaves">Saves:</string>
+     <string name="mlbPlayerWins">Wins:</string>
+     <string name="mlbPlayerERA">Earned Run Avarage:</string>    
+	 <string name="sportsflash_mlb_instruction1">Use MENU to select options</string>
+	 <string name="sportsflash_mlb_instruction2">Click image to see gallery</string>      
+	
 </resources>

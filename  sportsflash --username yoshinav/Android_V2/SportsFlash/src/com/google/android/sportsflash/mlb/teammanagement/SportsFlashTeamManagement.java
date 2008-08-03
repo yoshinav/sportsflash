@@ -10,6 +10,7 @@ package com.google.android.sportsflash.mlb.teammanagement;
 
 import com.google.android.sportsflash.animation.Rotate3dAnimation;
 import com.google.android.sportsflash.mlb.teammanagement.MLBPlayersView;
+import com.google.android.sportsflash.Personalization;
 import com.google.android.sportsflash.R;
 
 import android.app.Activity;
@@ -60,8 +61,9 @@ public class SportsFlashTeamManagement extends Activity   {
         mFlipper.setInAnimation(AnimationUtils.loadAnimation(this,
                 android.R.anim.fade_in));
         mFlipper.setOutAnimation(AnimationUtils.loadAnimation(this,
-                android.R.anim.fade_out));        
-        mFlipper.startFlipping();        
+                android.R.anim.fade_out));     
+        mFlipper.startFlipping();    
+        
        
         // Prepare the ImageView
         mImageView.setClickable(true);
@@ -71,26 +73,18 @@ public class SportsFlashTeamManagement extends Activity   {
 
         	public void onClick(View v) {
                 imagePositionCounter++;  
-            	if(imagePositionCounter >= PHOTOS_RESOURCES.length)
+            	if(imagePositionCounter >= Personalization.PHOTOS_RESOURCES_MLB.length)
             	{
             		imagePositionCounter = 0;
             	}
             	
                 applyRotation(imagePositionCounter, 0, 90);            	
-                mImageView.setImageResource(PHOTOS_RESOURCES[imagePositionCounter]);         
+                mImageView.setImageResource(Personalization.PHOTOS_RESOURCES_MLB[imagePositionCounter]);         
         		}
         	}
         );
           
     }
-    
-    
-    // Resource identifiers for the photos we want to display
-    private static final int[] PHOTOS_RESOURCES = new int[] {
-        R.drawable.baseballtexture2,
-        R.drawable.baseball_firstbase,
-        R.drawable.mario_baseball,
-    };
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

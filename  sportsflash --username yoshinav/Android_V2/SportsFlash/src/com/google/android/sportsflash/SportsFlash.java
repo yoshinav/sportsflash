@@ -11,6 +11,7 @@ package com.google.android.sportsflash;
 import com.google.android.sportsflash.mlb.teammanagement.*;
 import com.google.android.sportsflash.mlb.teammanagement.ViewCurrentLeagues;
 import com.google.android.sportsflash.R;
+import com.google.android.sportsflash.Personalization;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -47,17 +48,6 @@ public class SportsFlash extends Activity
 	
 	private Handler uiThreadHandler;
 	
-    // Resource identifiers for the photos we want to display
-    private static final int[] PHOTOS_RESOURCES = new int[] {
-        R.drawable.baseball,
-        R.drawable.football,
-        R.drawable.hockey,
-        R.drawable.basketball,
-        R.drawable.baseballtexture2,
-        R.drawable.bballtexture2,
-        R.drawable.footballtexture2,
-        R.drawable.baseball
-    };
     
     /** Called when the activity is first created. */
     @Override
@@ -103,8 +93,8 @@ public class SportsFlash extends Activity
         	"ThreadActivity" );
         	screenLock.acquire();
         
-	        for(int i = 0; i < PHOTOS_RESOURCES.length; i++){
-	        	final int toFetch = PHOTOS_RESOURCES[i];
+	        for(int i = 0; i < Personalization.PHOTOS_RESOURCES_MAIN.length; i++){
+	        	final int toFetch = Personalization.PHOTOS_RESOURCES_MAIN[i];
 	        	Runnable r = new Runnable(){
 	        		public void run(){
 	        			try {
