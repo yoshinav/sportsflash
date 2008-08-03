@@ -7,13 +7,16 @@ package com.google.android.sportsflash;
  * 
  */
 
+
 import com.google.android.sportsflash.mlb.teammanagement.*;
+import com.google.android.sportsflash.mlb.teammanagement.ViewCurrentLeagues;
 import com.google.android.sportsflash.R;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.view.Menu.Item;
 import android.app.AlertDialog;
 import android.os.*;
@@ -21,8 +24,11 @@ import android.graphics.*;
 import android.widget.*;
 import android.util.Log;
 
-public class SportsFlash extends Activity {
-	
+public class SportsFlash extends Activity
+{
+
+    private ImageView mImageView;
+    
 	private static int currentLeagueID = 0;
 	private static int currentTeamID = 0;
 	
@@ -40,8 +46,19 @@ public class SportsFlash extends Activity {
 	public static final int NHL_TM = 4;
 	
 	private Handler uiThreadHandler;
-	private ImageView image;
 	
+    // Resource identifiers for the photos we want to display
+    private static final int[] PHOTOS_RESOURCES = new int[] {
+        R.drawable.baseball,
+        R.drawable.football,
+        R.drawable.hockey,
+        R.drawable.basketball,
+        R.drawable.baseballtexture2,
+        R.drawable.bballtexture2,
+        R.drawable.footballtexture2,
+        R.drawable.baseball
+    };
+    
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
@@ -49,9 +66,25 @@ public class SportsFlash extends Activity {
         setContentView(R.layout.main);
         
         //Add Sports Image Slide Show Using Our DrawAbles - Utilizing Threading and Power Management
-        this.image = (ImageView) findViewById(R.id.image);
-        this.uiThreadHandler = new Handler();
+        mImageView = (ImageView) findViewById(R.id.picture);
+      
+        // Prepare the ImageView
+        mImageView.setClickable(true);
+        mImageView.setFocusable(true);
         
+        mImageView.setOnClickListener(new View.OnClickListener() { 
+
+        	public void onClick(View v) {  
+        		//ToDo - List Current League Standings
+                Intent i = new Intent(SportsFlash.this, ViewCurrentLeagues.class);
+                startSubActivity(i, ACTIVITY_CREATE);	        			
+        	}
+        }
+        );        
+        
+        //this.image = (ImageView) findViewById(R.id.image);
+        this.uiThreadHandler = new Handler();
+                   
         WorkerThread worker = new WorkerThread();
         worker.start();
         while(!worker.ready){
@@ -61,16 +94,6 @@ public class SportsFlash extends Activity {
         		;
         	}
         }
-        final int[] images = new int[] {
-        R.drawable.basketball,
-        R.drawable.football,
-        R.drawable.hockey,
-        R.drawable.baseball,
-        R.drawable.baseballtexture2,
-        R.drawable.bballtexture2,
-        R.drawable.footballtexture2,
-        R.drawable.baseball
-        };
         
         //Define PowerManagement
         PowerManager power =
@@ -80,15 +103,15 @@ public class SportsFlash extends Activity {
         	"ThreadActivity" );
         	screenLock.acquire();
         
-	        for(int i = 0; i < images.length; i++){
-	        	final int toFetch = images[i];
+	        for(int i = 0; i < PHOTOS_RESOURCES.length; i++){
+	        	final int toFetch = PHOTOS_RESOURCES[i];
 	        	Runnable r = new Runnable(){
 	        		public void run(){
 	        			try {
 	        				final Bitmap bm = BitmapFactory.decodeResource(getResources(), toFetch);
 	        				uiThreadHandler.post(new Runnable(){
 	        					public void run(){
-	        						image.setImageBitmap(bm);
+	        						mImageView.setImageBitmap(bm);
 	        					}
 	        				});
 	        				screenLock.release();	//Release lock
@@ -164,7 +187,7 @@ public class SportsFlash extends Activity {
     	currentTeamID = value;
     	
     }
-    
+       
     //Worker Thread for SlideShow
     private static class WorkerThread extends Thread {
     	private volatile boolean ready = false;
@@ -175,6 +198,8 @@ public class SportsFlash extends Activity {
     	this.ready = true;
     	Looper.loop();
     	}
-    }    
+    } 
+    
+ 
 }
 

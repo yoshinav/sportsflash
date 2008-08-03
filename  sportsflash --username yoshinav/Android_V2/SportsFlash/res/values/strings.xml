@@ -26,4 +26,11 @@
      <string name="createleague_cancel">Cancel</string>
      <string name="createleague_ok">OK</string>
      <string name="sportsflash_update">Update</string>
+     <string name="sportsflash_standings">Check League Standings</string>
+     
+    <!-- ================================== -->
+    <!--  MLB Instruction Messages			-->
+    <!-- ================================== -->
+	<string name="sportsflash_mlb_instruction1">Use Menu to select options</string>
+	<string name="sportsflash_mlb_instruction2">or click image to see gallery</string>      
 </resources>
