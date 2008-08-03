@@ -34,10 +34,10 @@ public class SportsFlashTeamDBHelper {
     }
 
     private static final String DATABASE_CREATE = "create table sportsflashMLBFantasyTeam (rowId integer primary key autoincrement, "
-            + "teamName text unique not null, teamDescription text unique not null, leagueId integer unique not null" +
-            ", 1bid integer null, 2bid integer null, 3bid integer null" +
-            ", ssid integer null, pid integer null, rfid integer null" +
-            ", cfid integer null, lfid integer null, dhid integer null, cid integer null);";
+            + "leagueId integer not null, teamName text not null, teamDescription text not null" +
+            ", [1bid] integer null, [2bid] integer null, [3bid] integer null" +
+            ", [ssid] integer null, [pid] integer null, [rfid] integer null" +
+            ", [cfid] integer null, [lfid] integer null, [dhid] integer null, [cid] integer null);";
     private static final String DATABASE_NAME = "sportsflashdb";
     private static final String DATABASE_TABLE = "sportsflashMLBFantasyTeam";
     private static final int DATABASE_VERSION = 1;
@@ -45,6 +45,7 @@ public class SportsFlashTeamDBHelper {
     private SQLiteDatabase db;
 
     public SportsFlashTeamDBHelper(Context ctx) {
+    	//Check for existence of Database
         try {
             db = ctx.openDatabase(DATABASE_NAME, null);
             Log.v(Constants.LOGTAG, " " + CLASSTAG + " opened database");
@@ -57,6 +58,18 @@ public class SportsFlashTeamDBHelper {
                 db = null;
             }
         }
+        
+        //Check for Existence of Table
+        try
+        {
+        	if(db != null)
+        	{
+        		db.query(DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "leagueId", "[1bid]", "[2bid]", "[3bid]", "[ssid]", "[pid]", "[rfid]", "[cfid]", "[lfid]", "[dhid]", "[cid]" }, null, null, null, null, null);        	}
+        }
+        catch (Exception e)
+        {
+        	db.execSQL(DATABASE_CREATE);
+        }
     }
 
     public void close() {
@@ -66,9 +79,24 @@ public class SportsFlashTeamDBHelper {
     public int createRow(int leagueId, String teamName, String teamDescription) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " create row - " + teamName + " , " + teamDescription);
         ContentValues initialValues = new ContentValues();
+       //if(leagueId < 0)
+        {
+        	leagueId = 99;
+        }
+        
         initialValues.put("leagueId", leagueId);
         initialValues.put("teamName", teamName);
         initialValues.put("teamDescription", teamDescription);
+        initialValues.put("[1bid]", "");
+        initialValues.put("[2bid]", "");
+        initialValues.put("[3bid]", "");
+        initialValues.put("[ssid]", "");
+        initialValues.put("[pid]", "");
+        initialValues.put("[rfid]", "");
+        initialValues.put("[cfid]", "");
+        initialValues.put("[lfid]", "");
+        initialValues.put("[dhid]", "");
+        initialValues.put("[cid]", "");
         return (int) db.insert(DATABASE_TABLE, null, initialValues);
     }
 
@@ -86,7 +114,7 @@ public class SportsFlashTeamDBHelper {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " fetchAllRows");
         ArrayList<MLBTeam> ret = new ArrayList<MLBTeam>();
         try {
-            Cursor c = db.query(DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "leagueId", "1bid", "2bid", "3bid", "ssid", "pid", "rfid", "cfid", "lfid", "dhid", "cid" }, null, null, null, null, null);
+            Cursor c = db.query(DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "leagueId", "[1bid]", "[2bid]", "[3bid]", "[ssid]", "[pid]", "[rfid]", "[cfid]", "[lfid]", "[dhid]", "[cid]" }, null, null, null, null, null);
             int numRows = c.count();
             c.first();
             for (int i = 0; i < numRows; ++i) {
@@ -106,7 +134,7 @@ public class SportsFlashTeamDBHelper {
     private Row fetchRow(String where, boolean hack) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " fetchRow");
         Row row = new Row();
-        Cursor c = db.query(true, DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "leagueId", "1bid", "2bid", "3bid", "ssid", "pid", "rfid", "cfid", "lfid", "dhid", "cid" }, where, null, null, null, null);
+        Cursor c = db.query(true, DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "leagueId", "[1bid]", "[2bid]", "[3bid]", "[ssid]", "[pid]", "[rfid]", "[cfid]", "[lfid]", "[dhid]", "[cid]" }, where, null, null, null, null);
         row.rowId = c.getLong(0);
         row.teamName = c.getString(1);
         row.teamDescription = c.getString(2);

@@ -96,7 +96,7 @@ public class ViewCurrentTeams extends ListActivity {
            // Log.v(Constants.LOGTAG, " " + CLASSTAG + " worker thread done, setup ReviewAdapter");
             progressDialog.dismiss();
             if (teams == null || teams.size() == 0) {
-                empty.setText("No Players");
+                empty.setText("No Teams");
             } else {
             	teamAdapter = new MLBTeamAdapter(ViewCurrentTeams.this, teams);
                 setListAdapter(teamAdapter);
