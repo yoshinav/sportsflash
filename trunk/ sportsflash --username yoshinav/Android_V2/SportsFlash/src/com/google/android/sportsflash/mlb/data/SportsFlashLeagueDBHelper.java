@@ -34,7 +34,7 @@ public class SportsFlashLeagueDBHelper {
     }
 
     private static final String DATABASE_CREATE = "create table sportsflashMLBFantasyLeague (rowId integer primary key autoincrement, "
-            + "leagueName text unique not null, leagueDescription text unique not null);";
+            + "leagueName text not null, leagueDescription text not null);";
     private static final String DATABASE_NAME = "sportsflashdb";
     private static final String DATABASE_TABLE = "sportsflashMLBFantasyLeague";
     private static final int DATABASE_VERSION = 1;
@@ -42,6 +42,7 @@ public class SportsFlashLeagueDBHelper {
     private SQLiteDatabase db;
 
     public SportsFlashLeagueDBHelper(Context ctx) {
+    	//Check for existence of Database
         try {
             db = ctx.openDatabase(DATABASE_NAME, null);
             Log.v(Constants.LOGTAG, " " + CLASSTAG + " opened database");
@@ -54,6 +55,20 @@ public class SportsFlashLeagueDBHelper {
                 db = null;
             }
         }
+        
+        //Check for Existence of Table
+        try
+        {
+        	if(db != null)
+        	{
+        		db.query(DATABASE_TABLE, new String[] { "rowid", "leagueName", "leagueDescription" }, null, null, null, null, null);
+        	}
+        }
+  		catch (Exception e)
+        {
+        	db.execSQL(DATABASE_CREATE);
+        }
+        
     }
 
     public void close() {

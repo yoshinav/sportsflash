@@ -1,0 +1,6 @@
+abd shell
+cd data/data/com.google.android.sportsflash/databases
+sqlite3 sportsflashdb
+.tables (show tables)
+select * from sportsflashMLBFantasyLeague;
+

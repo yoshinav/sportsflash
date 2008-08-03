@@ -96,7 +96,7 @@ public class ViewCurrentLeagues extends ListActivity {
            // Log.v(Constants.LOGTAG, " " + CLASSTAG + " worker thread done, setup ReviewAdapter");
             progressDialog.dismiss();
             if (leagues == null || leagues.size() == 0) {
-                empty.setText("No Players");
+                empty.setText("No Leagues");
             } else {
             	leagueAdapter = new MLBLeagueAdapter(ViewCurrentLeagues.this, leagues);
                 setListAdapter(leagueAdapter);
