@@ -9,7 +9,9 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 
 /// <summary>
-/// Summary description for Constants
+// Author Navdeep Alam - CS 893
+// July 2008
+// Constants File
 /// </summary>
 public class Constants
 {

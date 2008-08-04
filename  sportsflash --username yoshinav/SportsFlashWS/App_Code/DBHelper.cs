@@ -9,7 +9,9 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 
 /// <summary>
-/// Summary description for DBHelper
+/// Author Navdeep Alam - CS 893
+/// July 2008
+/// Stored Procedures and DB Helper Class
 /// </summary>
 public class DBHelper
 {
