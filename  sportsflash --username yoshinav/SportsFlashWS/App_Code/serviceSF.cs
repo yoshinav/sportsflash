@@ -143,11 +143,11 @@ namespace com.google.android.sportsflash
             return datasetXML;        
         }
 
-        public XmlDocument CreateMLBTeam(int leagueId, string name, string description)
+        public XmlDocument CreateMLBTeam(int leagueId, string name, string description, int firstbase, int secondbase, int thirdbase, int shortstop, int catcher, int pitcher, int rightfield, int centerfield, int leftfield, int dhitter)
         {
             SqlConnection conn = new SqlConnection(DBHelper.connectionString);
             SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.CreateMLBTeam(leagueId, name, description), conn);
+           (DBHelper.CreateMLBTeam(leagueId, name, description, firstbase, secondbase, thirdbase, shortstop, catcher, pitcher, rightfield, centerfield, leftfield, dhitter), conn);
             DataSet s = new DataSet();
             a.Fill(s);
             //XmlDataDocument datasetXML = new XmlDataDocument(s);

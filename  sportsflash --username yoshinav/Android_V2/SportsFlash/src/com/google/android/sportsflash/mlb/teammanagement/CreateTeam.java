@@ -42,7 +42,27 @@ public class CreateTeam extends Activity {
 	private EditText mTeamName;
 	private String mTeamNameValue;
 	private EditText mTeamDescription;
-	private String mTeamDescriptionValue;	
+	private String mTeamDescriptionValue;
+	private Spinner s1;
+	private int s1Value;
+	private Spinner s2;
+	private int s2Value;
+	private Spinner s3;
+	private int s3Value;
+	private Spinner s4;
+	private int s4Value;
+	private Spinner s5;
+	private int s5Value;
+	private Spinner s6;
+	private int s6Value;
+	private Spinner s7;
+	private int s7Value;
+	private Spinner s8;
+	private int s8Value;
+	private Spinner s9;
+	private int s9Value;
+	private Spinner s10;
+	private int s10Value;
     private Long mRowId;
     private static final int ACTIVITY_CREATE=0;
     private ProgressDialog progressDialog;
@@ -76,7 +96,7 @@ public class CreateTeam extends Activity {
             progressDialog.dismiss();
             if (players1B != null && players1B.size() != 0) {
             	playerAdapter1B = new MLBPlayerAdapter(CreateTeam.this, players1B);
-            	Spinner s1 = (Spinner) findViewById(R.id.teamFirstBase);
+            	s1 = (Spinner) findViewById(R.id.teamFirstBase);
             	s1.setAdapter(playerAdapter1B);
             }
             if (players2B != null && players2B.size() != 0) {
@@ -184,8 +204,9 @@ public class CreateTeam extends Activity {
             public void run() {
                 mTeamNameValue = mTeamName.getText().toString();
                 mTeamDescriptionValue = mTeamDescription.getText().toString();   
-                mDbHelper.createRow(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue); 	
-             	mWSHelper.CreateTeam(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue);  
+                String test = s1.getSelectedItem().toString();
+               // mDbHelper.createRow(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue); 	
+             //	mWSHelper.CreateTeam(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue);  
             	handler.sendEmptyMessage(0);
             }
         }.start();	

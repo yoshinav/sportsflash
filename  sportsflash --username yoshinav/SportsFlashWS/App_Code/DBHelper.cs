@@ -38,9 +38,9 @@ public class DBHelper
         return "EXEC SP_CreateMLBLeague '" + name + "','" + description + "'";
     }
 
-    public static string CreateMLBTeam(int leagueid, string name, string description)
+    public static string CreateMLBTeam(int leagueid, string name, string description, int firstbase, int secondbase, int thirdbase, int shortstop, int catcher, int pitcher, int rightfield, int centerfield, int leftfield, int dhitter)
     {
-        return "EXEC SP_CreateMLBTeam '" + leagueid + "','" + name + "','" + description + "'";
+        return "EXEC SP_CreateMLBTeam '" + leagueid + "','" + name + "','" + description + "'" + firstbase + "','" + secondbase + "','" + thirdbase + "','" + shortstop + "','" + catcher + "','" + pitcher + "','" + rightfield + "','" + centerfield + "','" + leftfield + "','" + dhitter + "'";
     }
 
     public static string DeleteMLBLeague(int leagueid)

@@ -133,6 +133,7 @@ public class MLBPlayer {
         sb.append(" Saves-" + this.saves);
         sb.append(" Wins-" + this.wins);
         sb.append(" ERA-" + this.era);
+        sb.append(" ID-" + this.id);
 
         return sb.toString();
     }
