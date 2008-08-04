@@ -11,6 +11,11 @@ using System.ServiceModel.Configuration;
 using System.ServiceModel.Description;
 using System.ServiceModel.Channels;
 
+/// <summary>
+/// Author Navdeep Alam - CS 893
+/// July 2008
+/// XMLDocument methods from Stored Procedures
+/// </summary>
 namespace com.google.android.sportsflash
 {
 
@@ -33,7 +38,7 @@ namespace com.google.android.sportsflash
         [OperationContract, WebGet]
         XmlDocument GetMLBLeague(int id);
         [OperationContract, WebGet]
-        XmlDocument CreateMLBTeam(int leagueId, string name, string description);
+        XmlDocument CreateMLBTeam(int leagueId, string name, string description, int firstbase, int secondbase, int thirdbase, int shortstop, int catcher, int pitcher, int rightfield, int centerfield, int leftfield, int dhitter);
         [OperationContract, WebGet]
         XmlDocument UpdateMLBTeam(int id, string position, int playerId);
         [OperationContract, WebGet]
@@ -66,133 +71,236 @@ namespace com.google.android.sportsflash
 
         public XmlDocument GetMLBPlayers()
         {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.getMLBPlayers, conn))
+                    {
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
 
-            SqlConnection conn = new SqlConnection(DBHelper.connectionString);
-            SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.getMLBPlayers, conn);
-            DataSet s = new DataSet();
-            a.Fill(s);
-            //XmlDataDocument datasetXML = new XmlDataDocument(s);
-            XmlDocument datasetXML = new XmlDocument();
-            datasetXML.LoadXml(s.GetXml());
-            return datasetXML;
+                        return datasetXML;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
         }
 
         public XmlDocument GetMLBPlayersByPosition(string position)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.connectionString);
-            SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.GetMLBPlayersByPosition(position), conn);
-            DataSet s = new DataSet();
-            a.Fill(s);
-            //XmlDataDocument datasetXML = new XmlDataDocument(s);
-            XmlDocument datasetXML = new XmlDocument();
-            datasetXML.LoadXml(s.GetXml());
-            return datasetXML;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBPlayersByPosition(position), conn))
+                    {
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
+                        return datasetXML;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public XmlDocument CreateMLBLeague(string name, string description)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.connectionString);
-            SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.CreateMLBLeague(name,description), conn);
-            DataSet s = new DataSet();
-            a.Fill(s);
-            //XmlDataDocument datasetXML = new XmlDataDocument(s);
-            XmlDocument datasetXML = new XmlDocument();
-            datasetXML.LoadXml(s.GetXml());
-            return datasetXML;           
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.CreateMLBLeague(name, description), conn))
+                    {
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
+                        return datasetXML;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public XmlDocument UpdateMLBLeague(int id, string name, string description)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.connectionString);
-            SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.UpdateMLBLeague(id,name, description), conn);
-            DataSet s = new DataSet();
-            a.Fill(s);
-            //XmlDataDocument datasetXML = new XmlDataDocument(s);
-            XmlDocument datasetXML = new XmlDocument();
-            datasetXML.LoadXml(s.GetXml());
-            return datasetXML;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.UpdateMLBLeague(id, name, description), conn))
+                    {
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
+                        return datasetXML;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
         }
 
         public XmlDocument DeleteMLBLeague(int id)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.connectionString);
-            SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.DeleteMLBLeague(id), conn);
-            DataSet s = new DataSet();
-            a.Fill(s);
-            //XmlDataDocument datasetXML = new XmlDataDocument(s);
-            XmlDocument datasetXML = new XmlDocument();
-            datasetXML.LoadXml(s.GetXml());
-            return datasetXML;        
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.DeleteMLBLeague(id), conn))
+                    {
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
+                        return datasetXML;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public XmlDocument GetMLBLeague(int id)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.connectionString);
-            SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.GetMLBLeague(id), conn);
-            DataSet s = new DataSet();
-            a.Fill(s);
-            //XmlDataDocument datasetXML = new XmlDataDocument(s);
-            XmlDocument datasetXML = new XmlDocument();
-            datasetXML.LoadXml(s.GetXml());
-            return datasetXML;        
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBLeague(id), conn))
+                    {
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
+                        return datasetXML;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public XmlDocument CreateMLBTeam(int leagueId, string name, string description, int firstbase, int secondbase, int thirdbase, int shortstop, int catcher, int pitcher, int rightfield, int centerfield, int leftfield, int dhitter)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.connectionString);
-            SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.CreateMLBTeam(leagueId, name, description, firstbase, secondbase, thirdbase, shortstop, catcher, pitcher, rightfield, centerfield, leftfield, dhitter), conn);
-            DataSet s = new DataSet();
-            a.Fill(s);
-            //XmlDataDocument datasetXML = new XmlDataDocument(s);
-            XmlDocument datasetXML = new XmlDocument();
-            datasetXML.LoadXml(s.GetXml());
-            return datasetXML;        
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.CreateMLBTeam(leagueId, name, description, firstbase, secondbase, thirdbase, shortstop, catcher, pitcher, rightfield, centerfield, leftfield, dhitter), conn))
+                    {
+
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
+                        return datasetXML;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public XmlDocument UpdateMLBTeam(int id, string position, int playerId)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.connectionString);
-            SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.UpdateMLBTeam(id, position, playerId), conn);
-            DataSet s = new DataSet();
-            a.Fill(s);
-            //XmlDataDocument datasetXML = new XmlDataDocument(s);
-            XmlDocument datasetXML = new XmlDocument();
-            datasetXML.LoadXml(s.GetXml());
-            return datasetXML;        
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.UpdateMLBTeam(id, position, playerId), conn))
+                    {
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
+                        return datasetXML;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public XmlDocument DeleteMLBTeam(int id)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.connectionString);
-            SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.DeleteMLBTeam(id), conn);
-            DataSet s = new DataSet();
-            a.Fill(s);
-            //XmlDataDocument datasetXML = new XmlDataDocument(s);
-            XmlDocument datasetXML = new XmlDocument();
-            datasetXML.LoadXml(s.GetXml());
-            return datasetXML;        
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.DeleteMLBTeam(id), conn))
+                    {
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
+                        return datasetXML;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public XmlDocument GetMLBTeam(int id)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.connectionString);
-            SqlDataAdapter a = new SqlDataAdapter
-           (DBHelper.GetMLBTeam(id), conn);
-            DataSet s = new DataSet();
-            a.Fill(s);
-            //XmlDataDocument datasetXML = new XmlDataDocument(s);
-            XmlDocument datasetXML = new XmlDocument();
-            datasetXML.LoadXml(s.GetXml());
-            return datasetXML;        
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBTeam(id), conn))
+                    {
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
+                        return datasetXML;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }
