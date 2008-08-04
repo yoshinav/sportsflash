@@ -23,6 +23,7 @@ public final class R {
         public static final int basketball=0x7f020003;
         public static final int bballtexture2=0x7f020004;
         public static final int blue=0x7f02000d;
+        public static final int bluegreen=0x7f020010;
         public static final int football=0x7f020005;
         public static final int footballtexture2=0x7f020006;
         public static final int green=0x7f02000e;
@@ -31,33 +32,43 @@ public final class R {
         public static final int icon2=0x7f020009;
         public static final int mario_baseball=0x7f02000a;
         public static final int red=0x7f02000c;
-        public static final int screen_background_black=0x7f020010;
+        public static final int screen_background_black=0x7f020011;
         public static final int swing=0x7f02000b;
-        public static final int translucent_background=0x7f020011;
-        public static final int transparent_background=0x7f020012;
+        public static final int translucent_background=0x7f020012;
+        public static final int transparent_background=0x7f020013;
         public static final int yellow=0x7f02000f;
     }
     public static final class id {
         public static final int container=0x7f070000;
-        public static final int empty=0x7f07000b;
+        public static final int empty=0x7f070015;
         public static final int flipper=0x7f070001;
         public static final int leagueCancelButton=0x7f070006;
         public static final int leagueDescription=0x7f070004;
         public static final int leagueName=0x7f070003;
         public static final int leagueOkButton=0x7f070005;
         public static final int picture=0x7f070002;
-        public static final int playerBA=0x7f07000e;
-        public static final int playerCancelButton=0x7f070013;
-        public static final int playerERA=0x7f070011;
-        public static final int playerHR=0x7f07000c;
-        public static final int playerOkButton=0x7f070012;
-        public static final int playerRBI=0x7f07000d;
-        public static final int playerSaves=0x7f07000f;
-        public static final int playerWins=0x7f070010;
-        public static final int teamCancelButton=0x7f07000a;
+        public static final int playerBA=0x7f070018;
+        public static final int playerCancelButton=0x7f07001d;
+        public static final int playerERA=0x7f07001b;
+        public static final int playerHR=0x7f070016;
+        public static final int playerOkButton=0x7f07001c;
+        public static final int playerRBI=0x7f070017;
+        public static final int playerSaves=0x7f070019;
+        public static final int playerWins=0x7f07001a;
+        public static final int teamCancelButton=0x7f070014;
+        public static final int teamCatcher=0x7f07000e;
+        public static final int teamCenterField=0x7f070010;
+        public static final int teamDHitter=0x7f070012;
         public static final int teamDescription=0x7f070008;
+        public static final int teamFirstBase=0x7f070009;
+        public static final int teamLeftField=0x7f07000f;
         public static final int teamName=0x7f070007;
-        public static final int teamOkButton=0x7f070009;
+        public static final int teamOkButton=0x7f070013;
+        public static final int teamPitcher=0x7f07000d;
+        public static final int teamRightField=0x7f070011;
+        public static final int teamSecondBase=0x7f07000a;
+        public static final int teamShortStop=0x7f07000c;
+        public static final int teamThirdBase=0x7f07000b;
     }
     public static final class layout {
         public static final int animations_mlb_main_screen=0x7f030000;
@@ -76,6 +87,16 @@ public final class R {
  ================================== 
          */
         public static final int app_name=0x7f050000;
+        public static final int create_team_catcher=0x7f050022;
+        public static final int create_team_centerfield=0x7f050024;
+        public static final int create_team_dhitter=0x7f050026;
+        public static final int create_team_firstbase=0x7f05001d;
+        public static final int create_team_leftfield=0x7f050023;
+        public static final int create_team_pitcher=0x7f050021;
+        public static final int create_team_rightfield=0x7f050025;
+        public static final int create_team_secondbase=0x7f05001e;
+        public static final int create_team_shortstop=0x7f050020;
+        public static final int create_team_thirdbase=0x7f05001f;
         public static final int createleague_cancel=0x7f05000b;
         public static final int createleague_instructions_1=0x7f050006;
         public static final int createleague_instructions_2=0x7f050007;

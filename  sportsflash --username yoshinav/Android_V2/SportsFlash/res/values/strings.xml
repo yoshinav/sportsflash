@@ -37,5 +37,14 @@
      <string name="mlbPlayerERA">Earned Run Avarage:</string>    
 	 <string name="sportsflash_mlb_instruction1">Use MENU to select options</string>
 	 <string name="sportsflash_mlb_instruction2">Click image to see gallery</string>      
-	
+	 <string name="create_team_firstbase">Select First Baseman</string> 
+	 <string name="create_team_secondbase">Select Second Baseman</string> 
+	 <string name="create_team_thirdbase">Select Third Baseman</string> 
+	 <string name="create_team_shortstop">Select Short Stop</string> 
+	 <string name="create_team_pitcher">Select Pitcher</string>
+	 <string name="create_team_catcher">Select Catcher</string>
+	 <string name="create_team_leftfield">Select Left Field</string>   
+	 <string name="create_team_centerfield">Select Center Field</string>
+	 <string name="create_team_rightfield">Select Right Field</string>
+	 <string name="create_team_dhitter">Select Designated Hitter</string>	 
 </resources>

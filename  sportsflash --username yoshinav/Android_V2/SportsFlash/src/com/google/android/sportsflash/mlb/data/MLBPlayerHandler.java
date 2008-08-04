@@ -25,6 +25,14 @@ public class MLBPlayerHandler extends DefaultHandler {
     final int MLBPLAYER_LASTNAME = 2;
     final int MLBPLAYER_POSITION = 3;
     final int MLBPLAYER_TEAM = 4;
+    final int MLBPLAYER_ID = 5;
+    final int MLBPLAYER_STATS_HR = 6;
+    final int MLBPLAYER_STATS_RBI = 7;
+    final int MLBPLAYER_STATS_BATTINGAVERAGE = 8;
+    final int MLBPLAYER_STATS_SAVES = 9;    
+    final int MLBPLAYER_STATS_WINS = 10;
+    final int MLBPLAYER_STATS_ERA = 11;
+
     
     int depth = 0;
     int currentstate = 0;
@@ -93,6 +101,48 @@ public class MLBPlayerHandler extends DefaultHandler {
             return;
         }
         
+        if (localName.equals("id"))
+        {
+            currentstate = 5;
+            return;
+        }        
+        
+        if (localName.equals("stats_hr"))
+        {
+            currentstate = 6;
+            return;
+        }
+        
+        if (localName.equals("stats_rbi"))
+        {
+            currentstate = 7;
+            return;
+        }        
+
+        if (localName.equals("stats_battingaverage"))
+        {
+            currentstate = 8;
+            return;
+        }        
+        
+        if (localName.equals("stats_saves"))
+        {
+            currentstate = 9;
+            return;
+        }        
+        
+        if (localName.equals("stats_wins"))
+        {
+            currentstate = 10;
+            return;
+        }        
+        
+        if (localName.equals("stats_era"))
+        {
+            currentstate = 11;
+            return;
+        }        
+        
         currentstate = 0;
         
     }
@@ -136,7 +186,34 @@ public class MLBPlayerHandler extends DefaultHandler {
                 _item.setTeam(theString);
                 currentstate = 0;
                 break;
-
+            case MLBPLAYER_ID:
+                _item.setPlayerID(Integer.parseInt(theString));
+                currentstate = 0;
+                break;
+            case MLBPLAYER_STATS_HR:
+                _item.setHR(Integer.parseInt(theString));
+                currentstate = 0;
+                break;      
+            case MLBPLAYER_STATS_RBI:
+                _item.setRBI(Integer.parseInt(theString));
+                currentstate = 0;
+                break;  
+            case MLBPLAYER_STATS_BATTINGAVERAGE:
+                _item.setAVG(Integer.parseInt(theString));
+                currentstate = 0;
+                break;      
+            case MLBPLAYER_STATS_SAVES:
+                _item.setSaves(Integer.parseInt(theString));
+                currentstate = 0;
+                break;
+            case MLBPLAYER_STATS_WINS:
+                _item.setWins(Integer.parseInt(theString));
+                currentstate = 0;
+                break;       
+            case MLBPLAYER_STATS_ERA:
+                _item.setERA(Integer.parseInt(theString));
+                currentstate = 0;
+                break;                
             default:
                 return;
         }

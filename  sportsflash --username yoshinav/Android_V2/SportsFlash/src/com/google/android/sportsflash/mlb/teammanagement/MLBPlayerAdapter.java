@@ -28,12 +28,12 @@ public class MLBPlayerAdapter extends BaseAdapter {
     private Context context;
     private List<MLBPlayer> players;
 
-    public MLBPlayerAdapter(Context context, List<MLBPlayer> reviews) {
+    public MLBPlayerAdapter(Context context, List<MLBPlayer> players) {
 
-        Log.v(Constants.LOGTAG, " " + CLASSTAG + " ReviewAdapter const - reviews.size - " + reviews.size());
+        Log.v(Constants.LOGTAG, " " + CLASSTAG + " ReviewAdapter const - reviews.size - " + players.size());
 
         this.context = context;
-        this.players = reviews;
+        this.players = players;
     }
 
     public int getCount() {
@@ -51,15 +51,10 @@ public class MLBPlayerAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         MLBPlayer player = this.players.get(position);
-        return new MLBPlayersListView(this.context, player.getLastName() + ", " + player.getFirstName(), player.getPosition(), player.getTeam());
+        return new MLBPlayersListView(this.context, player.getLastName() + ", " + player.getFirstName() + " (" + player.getPlayerID() + ")", player.getPosition(), player.getTeam());
     }
 
-    /**
-     * ReviewListView that adapter returns as it's view item per row. 
-     * 
-     * @author charliecollins
-     *
-     */
+
     private class MLBPlayersListView extends LinearLayout {
 
         private TextView name;
@@ -75,7 +70,7 @@ public class MLBPlayerAdapter extends BaseAdapter {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
                     LayoutParams.WRAP_CONTENT);
             params.setMargins(5, 3, 5, 0);
-
+ 
             this.name = new TextView(context);
             this.name.setText(name);
             this.name.setTextSize(16f);
