@@ -136,4 +136,13 @@ public class MLBPlayer {
 
         return sb.toString();
     }
+    
+    public String toStringShort() {
+        StringBuffer sb = new StringBuffer();
+        sb.append(this.lastName + ",");
+        sb.append(this.firstName + ": ");
+        sb.append(this.team + " - ");
+        sb.append(this.id);
+        return sb.toString();
+    }    
 }
