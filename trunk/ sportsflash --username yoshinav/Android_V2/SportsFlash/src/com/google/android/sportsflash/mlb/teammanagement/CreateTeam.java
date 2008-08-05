@@ -93,7 +93,6 @@ public class CreateTeam extends Activity {
 
         @Override
         public void handleMessage(Message msg) {
-            progressDialog.dismiss();
             if (players1B != null && players1B.size() != 0) {
             	playerAdapter1B = new MLBPlayerAdapter(CreateTeam.this, players1B);
             	s1 = (Spinner) findViewById(R.id.teamFirstBase);
@@ -101,49 +100,51 @@ public class CreateTeam extends Activity {
             }
             if (players2B != null && players2B.size() != 0) {
             	playerAdapter2B = new MLBPlayerAdapter(CreateTeam.this, players2B);
-            	Spinner s2 = (Spinner) findViewById(R.id.teamSecondBase);
+            	s2 = (Spinner) findViewById(R.id.teamSecondBase);
             	s2.setAdapter(playerAdapter2B);
             }       
             if (players3B != null && players3B.size() != 0) {
             	playerAdapter3B = new MLBPlayerAdapter(CreateTeam.this, players3B);
-            	Spinner s3 = (Spinner) findViewById(R.id.teamThirdBase);
+            	s3 = (Spinner) findViewById(R.id.teamThirdBase);
             	s3.setAdapter(playerAdapter3B);
             }            
             if (playersSS != null && playersSS.size() != 0) {
             	playerAdapterSS = new MLBPlayerAdapter(CreateTeam.this, playersSS);
-            	Spinner s4 = (Spinner) findViewById(R.id.teamShortStop);
+            	s4 = (Spinner) findViewById(R.id.teamShortStop);
             	s4.setAdapter(playerAdapterSS);
             }     
             if (playersP != null && playersP.size() != 0) {
             	playerAdapterP = new MLBPlayerAdapter(CreateTeam.this, playersP);
-            	Spinner s5 = (Spinner) findViewById(R.id.teamPitcher);
+            	s5 = (Spinner) findViewById(R.id.teamPitcher);
             	s5.setAdapter(playerAdapterP);
             }            
             if (playersC != null && playersC.size() != 0) {
             	playerAdapterC = new MLBPlayerAdapter(CreateTeam.this, playersC);
-            	Spinner s6 = (Spinner) findViewById(R.id.teamCatcher);
+            	s6 = (Spinner) findViewById(R.id.teamCatcher);
             	s6.setAdapter(playerAdapterC);
             }     
             if (playersLF != null && playersLF.size() != 0) {
             	playerAdapterLF = new MLBPlayerAdapter(CreateTeam.this, playersLF);
-            	Spinner s7 = (Spinner) findViewById(R.id.teamLeftField);
+            	s7 = (Spinner) findViewById(R.id.teamLeftField);
             	s7.setAdapter(playerAdapterLF);
             }     
             if (playersCF != null && playersCF.size() != 0) {
             	playerAdapterCF = new MLBPlayerAdapter(CreateTeam.this, playersCF);
-            	Spinner s8 = (Spinner) findViewById(R.id.teamCenterField);
+            	s8 = (Spinner) findViewById(R.id.teamCenterField);
             	s8.setAdapter(playerAdapterCF);
             }            
             if (playersRF != null && playersRF.size() != 0) {
             	playerAdapterRF = new MLBPlayerAdapter(CreateTeam.this, playersRF);
-            	Spinner s9 = (Spinner) findViewById(R.id.teamRightField);
+            	s9 = (Spinner) findViewById(R.id.teamRightField);
             	s9.setAdapter(playerAdapterRF);
             }            
             if (playersDH != null && playersDH.size() != 0) {
             	playerAdapterDH = new MLBPlayerAdapter(CreateTeam.this, playersDH);
-            	Spinner s10 = (Spinner) findViewById(R.id.teamDHitter);
+            	s10 = (Spinner) findViewById(R.id.teamDHitter);
             	s10.setAdapter(playerAdapterDH);
-            }            
+            }          
+            
+            progressDialog.dismiss();            
         }
 
     };
@@ -204,9 +205,87 @@ public class CreateTeam extends Activity {
             public void run() {
                 mTeamNameValue = mTeamName.getText().toString();
                 mTeamDescriptionValue = mTeamDescription.getText().toString();   
-                String test = s1.getSelectedItem().toString();
-               // mDbHelper.createRow(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue); 	
-             //	mWSHelper.CreateTeam(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue);  
+                MLBPlayer p1 = (MLBPlayer)s1.getSelectedItem();
+                s1Value = p1.getPlayerID();
+                if(s1Value < 0)
+                {
+                	s1Value = 0;
+                }
+                p1 = null;
+                p1 = (MLBPlayer)s2.getSelectedItem();
+                s2Value = p1.getPlayerID();
+                if(s2Value < 0)
+                {
+                	s2Value = 0;
+                }
+                p1 = null;
+                p1 = (MLBPlayer)s3.getSelectedItem();
+                s3Value = p1.getPlayerID();
+                if(s3Value < 0)
+                {
+                	s3Value = 0;
+                }           
+                p1 = null;
+                p1 = (MLBPlayer)s4.getSelectedItem();
+                s4Value = p1.getPlayerID();
+                if(s4Value < 0)
+                {
+                	s4Value = 0;
+                }           
+                p1 = null;
+                p1 = (MLBPlayer)s5.getSelectedItem();
+                s5Value = p1.getPlayerID();
+                if(s5Value < 0)
+                {
+                	s5Value = 0;
+                }           
+                p1 = null;
+                p1 = (MLBPlayer)s6.getSelectedItem();
+                s6Value = p1.getPlayerID();
+                if(s6Value < 0)
+                {
+                	s6Value = 0;
+                }           
+                p1 = null;
+                p1 = (MLBPlayer)s7.getSelectedItem();
+                s7Value = p1.getPlayerID();
+                if(s7Value < 0)
+                {
+                	s7Value = 0;
+                }           
+                p1 = null;
+                p1 = (MLBPlayer)s8.getSelectedItem();
+                s8Value = p1.getPlayerID();
+                if(s8Value < 0)
+                {
+                	s8Value = 0;
+                }           
+                p1 = null;
+                p1 = (MLBPlayer)s9.getSelectedItem();
+                s9Value = p1.getPlayerID();
+                if(s9Value < 0)
+                {
+                	s9Value = 0;
+                }           
+                p1 = null;
+                
+                //TODO:  Null Exceptions for last Spinner sometimes
+                if(s10 != null)
+                {
+	                p1 = (MLBPlayer)s10.getSelectedItem();
+	                s10Value = p1.getPlayerID();
+	                if(s10Value < 0)
+	                {
+	                	s10Value = 421;  //TODO:  Default to Ortiz - Get around error for now
+	                }   
+                }
+                else
+                {
+                	s10Value = 421; //Default to Ortiz
+                }
+                
+                mDbHelper.createRow(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue, s1Value, s2Value, s3Value, s4Value, s5Value, s6Value, s7Value, s8Value, s9Value, s10Value); 	
+                mWSHelper.CreateTeam(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue, s1Value, s2Value, s3Value, s4Value, s5Value, s6Value, s7Value, s8Value, s9Value, s10Value);  
             	handler.sendEmptyMessage(0);
             }
         }.start();	

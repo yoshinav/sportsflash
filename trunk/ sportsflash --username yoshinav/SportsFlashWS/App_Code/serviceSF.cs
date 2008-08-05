@@ -38,7 +38,9 @@ namespace com.google.android.sportsflash
         [OperationContract, WebGet]
         XmlDocument GetMLBLeague(int id);
         [OperationContract, WebGet]
-        XmlDocument CreateMLBTeam(int leagueId, string name, string description, int firstbase, int secondbase, int thirdbase, int shortstop, int catcher, int pitcher, int rightfield, int centerfield, int leftfield, int dhitter);
+        XmlDocument CreateMLBTeam(string leagueId, string name, string description, string firstbase, string secondbase, string thirdbase, string shortstop, string catcher, string pitcher, string rightfield, string centerfield, string leftfield, string dhitter);
+        //[OperationContract, WebGet]
+        //XmlDocument CreateMLBTeam2(string leagueId, string name, string description);
         [OperationContract, WebGet]
         XmlDocument UpdateMLBTeam(int id, string position, int playerId);
         [OperationContract, WebGet]
@@ -210,7 +212,7 @@ namespace com.google.android.sportsflash
             }
         }
 
-        public XmlDocument CreateMLBTeam(int leagueId, string name, string description, int firstbase, int secondbase, int thirdbase, int shortstop, int catcher, int pitcher, int rightfield, int centerfield, int leftfield, int dhitter)
+        public XmlDocument CreateMLBTeam(string leagueId, string name, string description, string firstbase, string secondbase, string thirdbase, string shortstop, string catcher, string pitcher, string rightfield, string centerfield, string leftfield, string dhitter)
         {
             try
             {
@@ -218,13 +220,14 @@ namespace com.google.android.sportsflash
                 {
                     using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.CreateMLBTeam(leagueId, name, description, firstbase, secondbase, thirdbase, shortstop, catcher, pitcher, rightfield, centerfield, leftfield, dhitter), conn))
                     {
-
                         DataSet s = new DataSet();
                         a.Fill(s);
                         //XmlDataDocument datasetXML = new XmlDataDocument(s);
                         XmlDocument datasetXML = new XmlDocument();
                         datasetXML.LoadXml(s.GetXml());
                         return datasetXML;
+                      
+                        return null;
                     }
                 }
             }
@@ -233,6 +236,41 @@ namespace com.google.android.sportsflash
                 return null;
             }
         }
+
+        /*
+         * // Debugging Example
+        public XmlDocument CreateMLBTeam2(string leagueId, string name, string description)
+        {
+            try
+            {
+                            
+                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                {
+
+                    //return DBHelper.CreateMLBTeam("45", "des", "test", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70");
+                    //using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.CreateMLBTeam(Convert.ToInt32(leagueId), name, description, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70), conn))
+                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.CreateMLBTeam("45", name, description, "61", "62", "63", "64", "65", "66", "67", "68", "69", "70"), conn))
+                    {
+                        DataSet s = new DataSet();
+                        a.Fill(s);
+                        XmlDocument datasetXML = new XmlDocument();
+                        datasetXML.LoadXml(s.GetXml());
+                        //return s.GetXml();
+                        return datasetXML;
+                    }
+                }
+                
+            }
+            catch (Exception e)
+            {
+                XmlDocument errorXML = new XmlDocument();
+                errorXML.LoadXml(e.ToString());
+                return errorXML;
+                //return null;
+                //return e.ToString();
+            }
+        }
+        */
 
         public XmlDocument UpdateMLBTeam(int id, string position, int playerId)
         {

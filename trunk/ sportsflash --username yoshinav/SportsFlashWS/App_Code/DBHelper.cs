@@ -40,10 +40,11 @@ public class DBHelper
         return "EXEC SP_CreateMLBLeague '" + name + "','" + description + "'";
     }
 
-    public static string CreateMLBTeam(int leagueid, string name, string description, int firstbase, int secondbase, int thirdbase, int shortstop, int catcher, int pitcher, int rightfield, int centerfield, int leftfield, int dhitter)
+    public static string CreateMLBTeam(string leagueid, string name, string description, string firstbase, string secondbase, string thirdbase, string shortstop, string catcher, string pitcher, string rightfield, string centerfield, string leftfield, string dhitter)
     {
-        return "EXEC SP_CreateMLBTeam '" + leagueid + "','" + name + "','" + description + "'" + firstbase + "','" + secondbase + "','" + thirdbase + "','" + shortstop + "','" + catcher + "','" + pitcher + "','" + rightfield + "','" + centerfield + "','" + leftfield + "','" + dhitter + "'";
+        return "EXEC SP_CreateMLBTeam " + leagueid + ",N'" + name + "',N'" + description + "'," + firstbase + "," + secondbase + "," + thirdbase + "," + shortstop + "," + catcher + "," + pitcher + "," + rightfield + "," + centerfield + "," + leftfield + "," + dhitter;
     }
+
 
     public static string DeleteMLBLeague(int leagueid)
     {

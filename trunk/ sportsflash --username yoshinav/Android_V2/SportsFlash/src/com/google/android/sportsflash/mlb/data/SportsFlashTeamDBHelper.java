@@ -76,27 +76,25 @@ public class SportsFlashTeamDBHelper {
         db.close();
     }
 
-    public int createRow(int leagueId, String teamName, String teamDescription) {
+    public int createRow(int leagueId, String teamName, String teamDescription,
+    		int firstbase, int secondbase, int thirdbase, int shortstop, int pitcher, int catcher,
+    		int rightfield, int centerfield, int leftfield, int dhitter) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " create row - " + teamName + " , " + teamDescription);
         ContentValues initialValues = new ContentValues();
-       //if(leagueId < 0)
-        {
-        	leagueId = 99;
-        }
         
         initialValues.put("leagueId", leagueId);
         initialValues.put("teamName", teamName);
         initialValues.put("teamDescription", teamDescription);
-        initialValues.put("[1bid]", "");
-        initialValues.put("[2bid]", "");
-        initialValues.put("[3bid]", "");
-        initialValues.put("[ssid]", "");
-        initialValues.put("[pid]", "");
-        initialValues.put("[rfid]", "");
-        initialValues.put("[cfid]", "");
-        initialValues.put("[lfid]", "");
-        initialValues.put("[dhid]", "");
-        initialValues.put("[cid]", "");
+        initialValues.put("[1bid]", firstbase);
+        initialValues.put("[2bid]", secondbase);
+        initialValues.put("[3bid]", thirdbase);
+        initialValues.put("[ssid]", shortstop);
+        initialValues.put("[pid]", pitcher);
+        initialValues.put("[rfid]", rightfield);
+        initialValues.put("[cfid]", centerfield);
+        initialValues.put("[lfid]", leftfield);
+        initialValues.put("[dhid]", dhitter);
+        initialValues.put("[cid]", catcher);
         return (int) db.insert(DATABASE_TABLE, null, initialValues);
     }
 
