@@ -44,12 +44,9 @@ public class MLBCreateTeam {
         this(false);
     }
     
-    public int CreateTeam()
-    {
-    	return CreateTeam(99,"Navi Team", "This is a test");
-    }
-    
-    public int CreateTeam(int leagueid, String name, String description)
+    public int CreateTeam(int leagueid, String name, String description,
+    		int firstbase, int secondbase, int thirdbase, int shortstop, int pitcher, int catcher,
+    		int rightfield, int centerfield, int leftfield, int dhitter)
     {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " getReviews");
         long start = System.currentTimeMillis();
@@ -61,7 +58,9 @@ public class MLBCreateTeam {
         if (!debug) {
             try {
             	//setup the url
-                URL feedUrl = new URL(this.query + "leagueId=" + leagueid + "&name=" + URLEncoder.encode(name,"UTF-8") + "&description=" + URLEncoder.encode(description,"UTF-8"));
+                URL feedUrl = new URL(this.query + "leagueId=" + leagueid + "&name=" + URLEncoder.encode(name,"UTF-8") + "&description=" + URLEncoder.encode(description,"UTF-8") + "&firstbase=" + firstbase + "&secondbase=" + secondbase + "&thirdbase=" + thirdbase
+                		+ "&shortstop=" + shortstop + "&catcher=" + catcher + "&pitcher=" + pitcher + "&rightfield=" + rightfield + "&centerfield=" + centerfield + "&leftfield=" + leftfield + "&dhitter=" + dhitter); 
+
                 // TODO - huge delay here on build call, takes 15-20 seconds 
                 // (takes < second for same class outside Android)
 
