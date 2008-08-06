@@ -41,7 +41,7 @@ public class MLBPlayerFetcher {
         // build query
         this.query = Configuration.urlGetMLBPlayersByPosition;
         this.queryPlayers = Configuration.urlGetMLBPlayers;
-        this.queryPlayerID = Configuration.urlGetMLBPlayersByID;
+        this.queryPlayerID = Configuration.urlGetMLBPlayerByID;
         
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " query - " + query);
     }
