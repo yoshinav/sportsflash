@@ -11,6 +11,7 @@ package com.google.android.sportsflash.mlb.teammanagement;
 import java.util.List;
 
 import com.google.android.sportsflash.mlb.data.*;
+import com.google.android.sportsflash.SportsFlash;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -37,7 +38,7 @@ public class UpdatePlayer extends Activity {
 
 	    private ProgressDialog progressDialog;
 
-	    private List<MLBPlayer> players;
+	    private MLBPlayer player;
 	    private MLBPlayerAdapter playerAdapter;
 
 	    private TextView empty;
@@ -66,6 +67,14 @@ public class UpdatePlayer extends Activity {
 
 	        @Override
 	        public void handleMessage(Message msg) {
+	        	
+	            mPlayerHR.setText(player.getHR());
+	            mPlayerBA.setText(player.getAVG());
+	            mPlayerRBI.setText(player.getRBI());
+	            mPlayerWins.setText(player.getWins());
+	            mPlayerSaves.setText(player.getSaves());
+	            mPlayerERA.setText(player.getERA());
+	            
 	            progressDialog.dismiss();
 	        }
 
@@ -84,25 +93,18 @@ public class UpdatePlayer extends Activity {
         mDbHelper = new SportsFlashTeamDBHelper(this);
         mWSHelper = new MLBCreateTeam();
        
+        loadPlayer(SportsFlash.getCurrentPlayerID());
+        
         mPlayerHR = (EditText) findViewById(R.id.playerHR);
         mPlayerBA = (EditText) findViewById(R.id.playerBA);
         mPlayerRBI = (EditText) findViewById(R.id.playerRBI);
         mPlayerWins = (EditText) findViewById(R.id.playerWins);
         mPlayerSaves = (EditText) findViewById(R.id.playerSaves);
         mPlayerERA = (EditText) findViewById(R.id.playerERA);
-        
+           
         Button confirmButton = (Button) findViewById(R.id.playerOkButton);
         Button cancelButton = (Button) findViewById(R.id.playerCancelButton);
         
-        mRowId = icicle != null ? icicle.getLong(mDbHelper.KEY_ROWID) : null;
-        if(mRowId == null)
-        {
-        	Bundle extras = getIntent().getExtras();
-        	mRowId = extras != null ? extras.getLong(mDbHelper.KEY_ROWID) : null;       	
-        }
-        
-        //loadPlayer(2);
-        //fillData();
         
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
@@ -164,12 +166,12 @@ public class UpdatePlayer extends Activity {
 
 	}
 	
-    private void loadPlayer(String position) {
- /*
+    private void loadPlayer(int id) {
+        //Log.v(Constants.LOGTAG, " " + CLASSTAG + " loadPlayers");
+        
         final MLBPlayerFetcher rf = new MLBPlayerFetcher();
-        final String playerPosition = position;
-
-        progressDialog = ProgressDialog.show(this, " Working...", " Retrieving players", true, false);
+        final int idValue = id;
+        progressDialog = ProgressDialog.show(this, " Working...", " Retrieving player's Data", true, false);
 
         // get reviews in a separate thread for ProgressDialog/Handler
         // when complete send "empty" message to handler indicating thread is
@@ -178,13 +180,10 @@ public class UpdatePlayer extends Activity {
         // onDestroy?)
         new Thread() {
             public void run() {
-                //players = rf.getMockPlayers();
-            	players = rf.getMLBPlayer(position);
-            	//players.add(rf.getMLBPlayer());
+            	player = rf.getMLBPlayerByID(idValue);
                 handler.sendEmptyMessage(0);
             }
         }.start();
-        */
     }
     
 	public void UpdatePlayer()

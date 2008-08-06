@@ -22,24 +22,25 @@ import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import com.google.android.sportsflash.R;
+import com.google.android.sportsflash.SportsFlash;
 
 public class MLBPlayersView extends ListActivity {
 
-	 private SportsFlashTeamDBHelper mDbHelper;
 	 private static final int ACTIVITY_CREATE=0;
 	 
 	    private static final String CLASSTAG = MLBPlayersView.class.getSimpleName();
-	    private static final int NUM_RESULTS_PER_PAGE = 5;
-	    private static final int MENU_GET_NEXT_PAGE = Menu.FIRST;
 
 	    private ProgressDialog progressDialog;
 
 	    private List<MLBPlayer> players;
 	    private MLBPlayerAdapter playerAdapter;
+	    private MLBPlayerAdapter playerAdapterAC;
 
 	    private TextView empty;
 
@@ -58,6 +59,10 @@ public class MLBPlayersView extends ListActivity {
 	            	playerAdapter = new MLBPlayerAdapter(MLBPlayersView.this, players);
 	                setListAdapter(playerAdapter);
 	            }
+	            
+	            playerAdapterAC = new MLBPlayerAdapter(MLBPlayersView.this, players);
+	            AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.edit);
+	            textView.setAdapter(playerAdapterAC);
 	        }
 
 	    };
@@ -77,33 +82,10 @@ public class MLBPlayersView extends ListActivity {
 
         empty = (TextView) findViewById(R.id.empty);
 
-        // get the current review criteria from the Application (global state
-        // placed there)
-        //SportsFlashPlayersApplication application = (SportsFlashPlayersApplication) this.getApplication();
-        //MLBPlayer reviewPlayer = application.getCurrentPlayer();
+        loadPlayers();
 
-        loadPlayers("1b");
-        //fillData();
     }
 
-    private void fillData() {
-    	/*
-        // Get all of the rows from the database and create the item list
-    	Cursor notesCursor = mDbHelper.fetchAllNotes();
-        startManagingCursor(notesCursor);
-        
-        // Create an array to specify the fields we want to display in the list (only TITLE)
-        String[] from = new String[]{LeagueDbAdapter.KEY_TITLE};
-        
-        // and an array of the fields we want to bind those fields to (in this case just text1)
-        int[] to = new int[]{R.id.text1};
-        
-        // Now create a simple cursor adapter and set it to display
-        SimpleCursorAdapter notes = 
-        	    new SimpleCursorAdapter(this, R.layout.notes_row, notesCursor, from, to);
-        setListAdapter(notes);
-        */
-    }
     
 	@Override
 	protected void onFreeze(Bundle outState) {
@@ -126,11 +108,10 @@ public class MLBPlayersView extends ListActivity {
 
 	}
 	
-    private void loadPlayers(String position) {
+    private void loadPlayers() {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " loadPlayers");
  
         final MLBPlayerFetcher rf = new MLBPlayerFetcher();
-        final String playerPosition = position;
 
         progressDialog = ProgressDialog.show(this, " Working...", " Retrieving players", true, false);
 
@@ -142,7 +123,7 @@ public class MLBPlayersView extends ListActivity {
         new Thread() {
             public void run() {
                 //players = rf.getMockPlayers();
-            	players = rf.getMLBPlayers(playerPosition);
+            	players = rf.getMLBPlayers();
             	//players.add(rf.getMLBPlayer());
                 handler.sendEmptyMessage(0);
             }
@@ -151,6 +132,8 @@ public class MLBPlayersView extends ListActivity {
     
 	protected void onListItemClick(ListView listView, View view, int position, long id)
 	{
+		MLBPlayer playerSelected  = (MLBPlayer)listView.obtainItem(position);
+		SportsFlash.setCurrentPlayerID(playerSelected.getPlayerID());
         Intent i = new Intent(this, UpdatePlayer.class);
         startSubActivity(i, ACTIVITY_CREATE);	
 

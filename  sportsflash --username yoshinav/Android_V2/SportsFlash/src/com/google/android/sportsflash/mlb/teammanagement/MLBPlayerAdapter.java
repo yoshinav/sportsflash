@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Filterable;
 
 import com.google.android.sportsflash.mlb.data.*;
 
@@ -21,7 +22,7 @@ import com.google.android.sportsflash.mlb.data.*;
  * 
  */
 
-public class MLBPlayerAdapter extends BaseAdapter {
+public class MLBPlayerAdapter extends BaseAdapter implements Filterable {
 
     private static final String CLASSTAG = MLBPlayerAdapter.class.getSimpleName();
 
@@ -40,6 +41,11 @@ public class MLBPlayerAdapter extends BaseAdapter {
         return this.players.size();
     }
 
+    public MyFilter getFilter()
+    {
+    	return new MyFilter();
+    }
+   
     public Object getItem(int position) {
         return this.players.get(position);
     }

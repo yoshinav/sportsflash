@@ -30,6 +30,8 @@ public class MLBPlayerFetcher {
     private static final String CLASSTAG = MLBPlayerFetcher.class.getSimpleName();
 
     private String query;
+    private String queryPlayers;
+    private String queryPlayerID;
     private boolean debug;
 
     public MLBPlayerFetcher(boolean debug) {
@@ -38,6 +40,9 @@ public class MLBPlayerFetcher {
 
         // build query
         this.query = Configuration.urlGetMLBPlayersByPosition;
+        this.queryPlayers = Configuration.urlGetMLBPlayers;
+        this.queryPlayerID = Configuration.urlGetMLBPlayersByID;
+        
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " query - " + query);
     }
     
@@ -45,13 +50,42 @@ public class MLBPlayerFetcher {
         this(false);
     }
 
+    public MLBPlayer getMLBPlayerByID(int id) {
+        long start = System.currentTimeMillis();
+        MLBPlayer r = new MLBPlayer();
+
+        if (!debug) {
+            try {
+                URL url = new URL(this.queryPlayerID + id);
+                SAXParserFactory spf = SAXParserFactory.newInstance();
+                SAXParser sp = spf.newSAXParser();
+                XMLReader xr = sp.getXMLReader();
+                MLBPlayerHandler handler = new MLBPlayerHandler();
+                xr.setContentHandler(handler);
+                xr.parse(new InputSource(url.openStream()));
+                // after parsed, get record
+                r = handler.getMLBPlayerRecord();
+            } catch (Exception e) {
+                Log.e(Constants.LOGTAG, " " + CLASSTAG, e);
+            }
+        } else {
+            Log.v(Constants.LOGTAG, " " + CLASSTAG + " DEBUG true, return MOCK record");
+            r = getMockPlayer();
+        }
+
+        long duration = (System.currentTimeMillis() - start) / 1000;
+        Log.v(Constants.LOGTAG, " " + CLASSTAG + " call duration - " + duration);
+        Log.v(Constants.LOGTAG, " " + CLASSTAG + " WeatherReport = " + r);
+        return r;
+    }
+    
     public MLBPlayer getMLBPlayer(String position) {
         long start = System.currentTimeMillis();
         MLBPlayer r = new MLBPlayer();
 
         if (!debug) {
             try {
-                URL url = new URL(this.query + position);
+                URL url = new URL(this.query);
                 SAXParserFactory spf = SAXParserFactory.newInstance();
                 SAXParser sp = spf.newSAXParser();
                 XMLReader xr = sp.getXMLReader();
@@ -125,7 +159,53 @@ public class MLBPlayerFetcher {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " call duration - " + duration);
         return results;
     }
-    
+   
+    public List<MLBPlayer> getMLBPlayers() {
+
+        Log.v(Constants.LOGTAG, " " + CLASSTAG + " getReviews");
+        long start = System.currentTimeMillis();
+        List<MLBPlayer> results = null;
+
+        if (!debug) {
+            try {
+            	//setup the url
+                //URL feedUrl = new URL(this.queryPlayers);
+            	URL feedUrl = new URL(this.query + "1b");
+                // TODO - huge delay here on build call, takes 15-20 seconds 
+                // (takes < second for same class outside Android)
+                
+                // create the factory
+                SAXParserFactory factory = SAXParserFactory.newInstance();
+                // create a parser
+                SAXParser parser = factory.newSAXParser();
+
+                // create the reader (scanner)
+                XMLReader xmlreader = parser.getXMLReader();
+                // instantiate our handler
+                MLBPlayerHandler theMLBPlayerHandler = new MLBPlayerHandler();
+                // assign our handler
+                xmlreader.setContentHandler(theMLBPlayerHandler);
+                // get our data through the url class
+                InputSource is = new InputSource(feedUrl.openStream());
+                // perform the synchronous parse           
+                xmlreader.parse(is);
+                // get the results - should be a fully populated RSSFeed instance, 
+     		   // or null on error
+                return theMLBPlayerHandler.getFeed();
+  
+                
+            } catch (Exception e) {
+                Log.e(Constants.LOGTAG, " " + CLASSTAG + " getReviews ERROR", e);
+            }
+        } else {
+            Log.v(Constants.LOGTAG, " " + CLASSTAG + " devMode true - returning MOCK reviews");
+            results = this.getMockPlayers();
+        }
+
+        long duration = (System.currentTimeMillis() - start) / 1000;
+        Log.v(Constants.LOGTAG, " " + CLASSTAG + " call duration - " + duration);
+        return results;
+    }    
     
     private boolean isNumeric(String s) {
         try {
@@ -149,7 +229,7 @@ public class MLBPlayerFetcher {
         r.setTeam("tor");
         r.setHR(100);
         r.setRBI(100);
-        r.setAVG(0.345);
+        r.setAVG(345);
         results.add(r);
         
         MLBPlayer r1 = new MLBPlayer();
@@ -159,7 +239,7 @@ public class MLBPlayerFetcher {
         r1.setTeam("mtl");
         r1.setHR(12);
         r1.setRBI(12);
-        r1.setAVG(0.265);
+        r1.setAVG(265);
         results.add(r1);
         
         return results;
@@ -174,7 +254,7 @@ public class MLBPlayerFetcher {
         r.setTeam("tor");
         r.setHR(100);
         r.setRBI(100);
-        r.setAVG(0.345);
+        r.setAVG(345);
         
         return r;
     }

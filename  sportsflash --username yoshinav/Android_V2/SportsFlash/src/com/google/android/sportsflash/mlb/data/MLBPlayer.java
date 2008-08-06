@@ -21,10 +21,10 @@ public class MLBPlayer {
     private String team;
     private int hr;
     private int rbi;
-    private double avg;
+    private int avg;
     private int saves;
     private int wins;
-    private double era;
+    private int era;
    
  
     public MLBPlayer() {
@@ -88,11 +88,11 @@ public class MLBPlayer {
         this.rbi = rbi;
     }
     
-    public double getAVG() {
+    public int getAVG() {
         return this.avg;
     }
 
-    public void setAVG(double avg) {
+    public void setAVG(int avg) {
         this.avg = avg;
     }
     
@@ -112,11 +112,11 @@ public class MLBPlayer {
         this.wins = wins;
     }    
     
-    public double getERA() {
+    public int getERA() {
         return this.hr;
     }
 
-    public void setERA(double era) {
+    public void setERA(int era) {
         this.era = era;
     }
     
