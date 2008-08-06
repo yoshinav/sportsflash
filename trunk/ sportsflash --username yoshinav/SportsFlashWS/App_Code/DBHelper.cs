@@ -37,7 +37,7 @@ public class DBHelper
 
     public static string GetMLBPlayerByID(string id)
     {
-        return "EXEC SP_GetMLBPlayerByID '" + id + "'";
+        return "EXEC SP_GetMLBPlayerByID " + id;
         //return "EXEC SP_GetMLBPlayersByPosition '1b'";
 
     }
@@ -52,6 +52,10 @@ public class DBHelper
         return "EXEC SP_CreateMLBTeam " + leagueid + ",N'" + name + "',N'" + description + "'," + firstbase + "," + secondbase + "," + thirdbase + "," + shortstop + "," + catcher + "," + pitcher + "," + rightfield + "," + centerfield + "," + leftfield + "," + dhitter;
     }
 
+    public static string UpdateMLBPlayer(string id, string hr, string ba, string rbi, string wins, string saves, string era)
+    {
+        return "EXEC SP_UpdateMLBPlayer " + id + "'," + hr + "," + ba + "," + rbi + "," + wins + "," + saves + "," + era;
+    }
 
     public static string DeleteMLBLeague(int leagueid)
     {

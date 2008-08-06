@@ -234,11 +234,11 @@ public class MLBPlayerHandler extends DefaultHandler {
     
 
     public MLBPlayer getMLBPlayerRecord() {
-        return mlbPlayerRecord;
+        return this._item;
     }
 
     public void setMLBPlayerRecord(MLBPlayer mlbPlayerRecord) {
-        this.mlbPlayerRecord = mlbPlayerRecord;
+        this._item = mlbPlayerRecord;
     }
 
 }

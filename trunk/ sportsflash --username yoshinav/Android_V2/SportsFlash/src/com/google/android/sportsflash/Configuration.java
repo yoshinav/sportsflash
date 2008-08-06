@@ -12,7 +12,7 @@ public final class Configuration {
 	
 	public static final String urlServer = "192.168.1.108";
 	
-	public static final String urlGetMLBPlayersByPosition = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBPlayersbyPosition?position="; 
+	public static final String urlGetMLBPlayersByPosition = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBPlayersByPosition?position="; 
 
 	public static final String urlGetMLBPlayers = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBPlayers"; 
 
@@ -20,6 +20,6 @@ public final class Configuration {
 
 	public static final String urlCreateMLBTeam = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/CreateMLBTeam?"; 
 	
-	public static final String urlGetMLBPlayersByID = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBPlayerByID?id="; 
+	public static final String urlGetMLBPlayerByID = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBPlayerByIdentifier?id="; 
 	
 }

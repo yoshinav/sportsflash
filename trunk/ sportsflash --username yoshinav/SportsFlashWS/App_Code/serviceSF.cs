@@ -30,7 +30,7 @@ namespace com.google.android.sportsflash
         [OperationContract, WebGet]
         XmlDocument GetMLBPlayersByPosition(string position);
         [OperationContract, WebGet]
-        XmlDocument GetMLBPlayerByID(string id);
+        XmlDocument GetMLBPlayerByIdentifier(string id);
         [OperationContract, WebGet]
         XmlDocument CreateMLBLeague(string name, string description);
         [OperationContract, WebGet]
@@ -121,7 +121,7 @@ namespace com.google.android.sportsflash
             }
         }
 
-        public XmlDocument GetMLBPlayerByID(string id)
+        public XmlDocument GetMLBPlayerByIdentifier(string id)
         {
             try
             {
@@ -133,6 +133,7 @@ namespace com.google.android.sportsflash
                     XmlDocument datasetXML = new XmlDocument();
                     datasetXML.LoadXml(s.GetXml());
                     return datasetXML;
+                    //return a.ToString();
                 }
 
             }

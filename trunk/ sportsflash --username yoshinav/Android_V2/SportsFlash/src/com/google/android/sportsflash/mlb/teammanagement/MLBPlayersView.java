@@ -58,11 +58,13 @@ public class MLBPlayersView extends ListActivity {
 	            } else {
 	            	playerAdapter = new MLBPlayerAdapter(MLBPlayersView.this, players);
 	                setListAdapter(playerAdapter);
+	                
+		            playerAdapterAC = new MLBPlayerAdapter(MLBPlayersView.this, players);
+		            AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.edit);
+		            textView.setAdapter(playerAdapterAC);	                
 	            }
 	            
-	            playerAdapterAC = new MLBPlayerAdapter(MLBPlayersView.this, players);
-	            AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.edit);
-	            textView.setAdapter(playerAdapterAC);
+
 	        }
 
 	    };
