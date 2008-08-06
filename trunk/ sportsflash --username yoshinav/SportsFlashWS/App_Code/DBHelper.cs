@@ -35,6 +35,13 @@ public class DBHelper
 
     }
 
+    public static string GetMLBPlayerByID(string id)
+    {
+        return "EXEC SP_GetMLBPlayerByID '" + id + "'";
+        //return "EXEC SP_GetMLBPlayersByPosition '1b'";
+
+    }
+
     public static string CreateMLBLeague(string name, string description)
     {
         return "EXEC SP_CreateMLBLeague '" + name + "','" + description + "'";

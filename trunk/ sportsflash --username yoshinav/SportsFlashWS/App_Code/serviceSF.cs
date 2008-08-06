@@ -30,6 +30,8 @@ namespace com.google.android.sportsflash
         [OperationContract, WebGet]
         XmlDocument GetMLBPlayersByPosition(string position);
         [OperationContract, WebGet]
+        XmlDocument GetMLBPlayerByID(string id);
+        [OperationContract, WebGet]
         XmlDocument CreateMLBLeague(string name, string description);
         [OperationContract, WebGet]
         XmlDocument UpdateMLBLeague(int id, string name, string description);
@@ -47,6 +49,8 @@ namespace com.google.android.sportsflash
         XmlDocument DeleteMLBTeam(int id);
         [OperationContract, WebGet]
         XmlDocument GetMLBTeam(int id);
+        [OperationContract, WebGet]
+        XmlDocument UpdateMLBPlayer(string id, string hr, string ba, string rbi, string wins, string saves, string era);
 
     }
 
@@ -110,6 +114,27 @@ namespace com.google.android.sportsflash
                     return datasetXML;
                 }
                 
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public XmlDocument GetMLBPlayerByID(string id)
+        {
+            try
+            {
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBPlayerByID(id), conn))
+                {
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
+                }
+
             }
             catch
             {
@@ -278,6 +303,28 @@ namespace com.google.android.sportsflash
                     return datasetXML;
                 }
                 
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public XmlDocument UpdateMLBPlayer(string id, string hr, string ba, string rbi, string wins, string saves, string era)
+        {
+            try
+            {
+
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.UpdateMLBPlayer(id, hr, ba, rbi, wins, saves, era), conn))
+                {
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
+                }
+
             }
             catch
             {

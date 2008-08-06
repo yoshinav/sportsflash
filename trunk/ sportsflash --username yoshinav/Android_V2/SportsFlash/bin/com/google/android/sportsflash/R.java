@@ -40,6 +40,7 @@ public final class R {
     }
     public static final class id {
         public static final int container=0x7f070000;
+        public static final int edit=0x7f070016;
         public static final int empty=0x7f070015;
         public static final int flipper=0x7f070001;
         public static final int leagueCancelButton=0x7f070006;
@@ -47,14 +48,14 @@ public final class R {
         public static final int leagueName=0x7f070003;
         public static final int leagueOkButton=0x7f070005;
         public static final int picture=0x7f070002;
-        public static final int playerBA=0x7f070018;
-        public static final int playerCancelButton=0x7f07001d;
-        public static final int playerERA=0x7f07001b;
-        public static final int playerHR=0x7f070016;
-        public static final int playerOkButton=0x7f07001c;
-        public static final int playerRBI=0x7f070017;
-        public static final int playerSaves=0x7f070019;
-        public static final int playerWins=0x7f07001a;
+        public static final int playerBA=0x7f070019;
+        public static final int playerCancelButton=0x7f07001e;
+        public static final int playerERA=0x7f07001c;
+        public static final int playerHR=0x7f070017;
+        public static final int playerOkButton=0x7f07001d;
+        public static final int playerRBI=0x7f070018;
+        public static final int playerSaves=0x7f07001a;
+        public static final int playerWins=0x7f07001b;
         public static final int teamCancelButton=0x7f070014;
         public static final int teamCatcher=0x7f07000e;
         public static final int teamCenterField=0x7f070010;
@@ -88,20 +89,20 @@ public final class R {
  ================================== 
          */
         public static final int app_name=0x7f050000;
-        public static final int create_team_catcher=0x7f050023;
-        public static final int create_team_centerfield=0x7f050025;
-        public static final int create_team_dhitter=0x7f050027;
-        public static final int create_team_firstbase=0x7f05001e;
-        public static final int create_team_leftfield=0x7f050024;
-        public static final int create_team_pitcher=0x7f050022;
-        public static final int create_team_rightfield=0x7f050026;
-        public static final int create_team_secondbase=0x7f05001f;
-        public static final int create_team_shortstop=0x7f050021;
-        public static final int create_team_thirdbase=0x7f050020;
-        public static final int createleague_cancel=0x7f05000c;
+        public static final int create_team_catcher=0x7f050024;
+        public static final int create_team_centerfield=0x7f050026;
+        public static final int create_team_dhitter=0x7f050028;
+        public static final int create_team_firstbase=0x7f05001f;
+        public static final int create_team_leftfield=0x7f050025;
+        public static final int create_team_pitcher=0x7f050023;
+        public static final int create_team_rightfield=0x7f050027;
+        public static final int create_team_secondbase=0x7f050020;
+        public static final int create_team_shortstop=0x7f050022;
+        public static final int create_team_thirdbase=0x7f050021;
+        public static final int createleague_cancel=0x7f05000d;
         public static final int createleague_instructions_1=0x7f050006;
         public static final int createleague_instructions_2=0x7f050007;
-        public static final int createleague_ok=0x7f05000d;
+        public static final int createleague_ok=0x7f05000e;
         public static final int createteam_instructions_1=0x7f050008;
         public static final int createteam_instructions_2=0x7f050009;
         public static final int invitemembers_instructions_1=0x7f05000a;
@@ -109,28 +110,29 @@ public final class R {
         public static final int menu_NBA_TM=0x7f050004;
         public static final int menu_NFL_TM=0x7f050003;
         public static final int menu_NHL_TM=0x7f050005;
-        public static final int menu_view_league=0x7f050013;
+        public static final int menu_view_league=0x7f050014;
         /**  ================================== 
   MLB Instruction Messages			
  ================================== 
          */
-        public static final int menu_view_players=0x7f050010;
-        public static final int menu_view_team=0x7f050014;
-        public static final int menu_view_your_league=0x7f050011;
-        public static final int menu_view_your_team=0x7f050012;
-        public static final int mlbPlayerBA=0x7f050018;
-        public static final int mlbPlayerERA=0x7f05001b;
-        public static final int mlbPlayerHR=0x7f050016;
-        public static final int mlbPlayerRBI=0x7f050017;
-        public static final int mlbPlayerSaves=0x7f050019;
-        public static final int mlbPlayerTitle=0x7f050015;
-        public static final int mlbPlayerWins=0x7f05001a;
+        public static final int menu_view_players=0x7f050011;
+        public static final int menu_view_team=0x7f050015;
+        public static final int menu_view_your_league=0x7f050012;
+        public static final int menu_view_your_team=0x7f050013;
+        public static final int mlbPlayerBA=0x7f050019;
+        public static final int mlbPlayerERA=0x7f05001c;
+        public static final int mlbPlayerHR=0x7f050017;
+        public static final int mlbPlayerRBI=0x7f050018;
+        public static final int mlbPlayerSaves=0x7f05001a;
+        public static final int mlbPlayerTitle=0x7f050016;
+        public static final int mlbPlayerWins=0x7f05001b;
         public static final int no_players=0x7f050001;
-        public static final int sportsflash_mlb_instruction1=0x7f05001c;
-        public static final int sportsflash_mlb_instruction2=0x7f05001d;
-        public static final int sportsflash_standings=0x7f05000f;
-        public static final int sportsflash_update=0x7f05000e;
-        public static final int sportsflash_welcome_message=0x7f05000b;
+        public static final int player=0x7f05000b;
+        public static final int sportsflash_mlb_instruction1=0x7f05001d;
+        public static final int sportsflash_mlb_instruction2=0x7f05001e;
+        public static final int sportsflash_standings=0x7f050010;
+        public static final int sportsflash_update=0x7f05000f;
+        public static final int sportsflash_welcome_message=0x7f05000c;
     }
     public static final class style {
         public static final int edit_text=0x7f060002;

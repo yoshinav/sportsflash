@@ -32,6 +32,7 @@ public class SportsFlash extends Activity
     
 	private static int currentLeagueID = 0;
 	private static int currentTeamID = 0;
+	private static int currentPlayerID = 0;
 	
     public SportsFlash() {
 		super();
@@ -177,7 +178,18 @@ public class SportsFlash extends Activity
     	currentTeamID = value;
     	
     }
-       
+    
+    public static int getCurrentPlayerID()
+    {
+    	return currentPlayerID;
+    }
+    
+    public static void setCurrentPlayerID(int value)
+    {
+    	currentPlayerID = value;
+    	
+    }
+    
     //Worker Thread for SlideShow
     private static class WorkerThread extends Thread {
     	private volatile boolean ready = false;

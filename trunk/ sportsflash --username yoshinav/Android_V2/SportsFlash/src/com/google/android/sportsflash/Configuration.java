@@ -20,4 +20,6 @@ public final class Configuration {
 
 	public static final String urlCreateMLBTeam = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/CreateMLBTeam?"; 
 	
+	public static final String urlGetMLBPlayersByID = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBPlayerByID?id="; 
+	
 }
