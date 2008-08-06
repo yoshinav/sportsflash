@@ -6,6 +6,7 @@ public class MLBTeam {
     private int leagueId;
     private String name;
     private String description;
+    private int score;
     private int firstbaseId;
     private int secondbaseId;
     private int thirdbaseId;
@@ -36,6 +37,14 @@ public class MLBTeam {
 
     public void setLeagueID(int id) {
         this.leagueId = leagueId;
+    }
+    
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
     
     public String getTeamName() {

@@ -51,7 +51,7 @@ public class MLBTeamAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         MLBTeam team = this.teams.get(position);
-        return new MLBLeaguesListView(this.context, team.getTeamName(), team.getTeamDescription());
+        return new MLBLeaguesListView(this.context, team.getTeamName(), team.getTeamDescription(), team.getScore());
     }
 
     /**
@@ -65,7 +65,7 @@ public class MLBTeamAdapter extends BaseAdapter {
         private TextView name;
         private TextView description;
 
-        public MLBLeaguesListView(Context context, String name, String description) {
+        public MLBLeaguesListView(Context context, String name, String description, int score) {
             super(context);
 
             // TODO display rating as stars
@@ -82,7 +82,7 @@ public class MLBTeamAdapter extends BaseAdapter {
             addView(this.name, params);
 
             this.description = new TextView(context);
-            this.description.setText(description);
+            this.description.setText(description + " - " + Integer.toString(score));
             this.description.setTextSize(16f);
             addView(this.description, params);            
         }
