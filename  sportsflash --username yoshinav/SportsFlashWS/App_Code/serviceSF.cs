@@ -53,6 +53,8 @@ namespace com.google.android.sportsflash
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)] 
     public class SportsFlashService : ISportsFlash
     {
+        static SqlConnection conn = new SqlConnection(DBHelper.connectionString);
+
         public XmlDocument GetXmlDocument()
         {
             // Create an XmlDocument object.
@@ -75,19 +77,17 @@ namespace com.google.android.sportsflash
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.getMLBPlayers, conn))
                 {
-                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.getMLBPlayers, conn))
-                    {
-                        DataSet s = new DataSet();
-                        a.Fill(s);
-                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
-                        XmlDocument datasetXML = new XmlDocument();
-                        datasetXML.LoadXml(s.GetXml());
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
 
-                        return datasetXML;
-                    }
+                    return datasetXML;
                 }
+
             }
             catch
             {
@@ -100,18 +100,16 @@ namespace com.google.android.sportsflash
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBPlayersByPosition(position), conn))
                 {
-                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBPlayersByPosition(position), conn))
-                    {
-                        DataSet s = new DataSet();
-                        a.Fill(s);
-                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
-                        XmlDocument datasetXML = new XmlDocument();
-                        datasetXML.LoadXml(s.GetXml());
-                        return datasetXML;
-                    }
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
                 }
+                
             }
             catch
             {
@@ -123,18 +121,17 @@ namespace com.google.android.sportsflash
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.CreateMLBLeague(name, description), conn))
                 {
-                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.CreateMLBLeague(name, description), conn))
-                    {
-                        DataSet s = new DataSet();
-                        a.Fill(s);
-                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
-                        XmlDocument datasetXML = new XmlDocument();
-                        datasetXML.LoadXml(s.GetXml());
-                        return datasetXML;
-                    }
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
                 }
+                
             }
             catch
             {
@@ -146,18 +143,16 @@ namespace com.google.android.sportsflash
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.UpdateMLBLeague(id, name, description), conn))
                 {
-                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.UpdateMLBLeague(id, name, description), conn))
-                    {
-                        DataSet s = new DataSet();
-                        a.Fill(s);
-                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
-                        XmlDocument datasetXML = new XmlDocument();
-                        datasetXML.LoadXml(s.GetXml());
-                        return datasetXML;
-                    }
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
                 }
+                
             }
             catch
             {
@@ -170,18 +165,17 @@ namespace com.google.android.sportsflash
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.DeleteMLBLeague(id), conn))
                 {
-                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.DeleteMLBLeague(id), conn))
-                    {
-                        DataSet s = new DataSet();
-                        a.Fill(s);
-                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
-                        XmlDocument datasetXML = new XmlDocument();
-                        datasetXML.LoadXml(s.GetXml());
-                        return datasetXML;
-                    }
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
                 }
+                
             }
             catch
             {
@@ -193,18 +187,17 @@ namespace com.google.android.sportsflash
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBLeague(id), conn))
                 {
-                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBLeague(id), conn))
-                    {
-                        DataSet s = new DataSet();
-                        a.Fill(s);
-                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
-                        XmlDocument datasetXML = new XmlDocument();
-                        datasetXML.LoadXml(s.GetXml());
-                        return datasetXML;
-                    }
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
                 }
+                
             }
             catch
             {
@@ -216,20 +209,18 @@ namespace com.google.android.sportsflash
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.CreateMLBTeam(leagueId, name, description, firstbase, secondbase, thirdbase, shortstop, catcher, pitcher, rightfield, centerfield, leftfield, dhitter), conn))
                 {
-                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.CreateMLBTeam(leagueId, name, description, firstbase, secondbase, thirdbase, shortstop, catcher, pitcher, rightfield, centerfield, leftfield, dhitter), conn))
-                    {
-                        DataSet s = new DataSet();
-                        a.Fill(s);
-                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
-                        XmlDocument datasetXML = new XmlDocument();
-                        datasetXML.LoadXml(s.GetXml());
-                        return datasetXML;
-                      
-                        return null;
-                    }
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
+                  
+                    //return null;
                 }
+                
             }
             catch
             {
@@ -276,18 +267,17 @@ namespace com.google.android.sportsflash
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.UpdateMLBTeam(id, position, playerId), conn))
                 {
-                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.UpdateMLBTeam(id, position, playerId), conn))
-                    {
-                        DataSet s = new DataSet();
-                        a.Fill(s);
-                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
-                        XmlDocument datasetXML = new XmlDocument();
-                        datasetXML.LoadXml(s.GetXml());
-                        return datasetXML;
-                    }
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
                 }
+                
             }
             catch
             {
@@ -299,18 +289,17 @@ namespace com.google.android.sportsflash
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.DeleteMLBTeam(id), conn))
                 {
-                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.DeleteMLBTeam(id), conn))
-                    {
-                        DataSet s = new DataSet();
-                        a.Fill(s);
-                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
-                        XmlDocument datasetXML = new XmlDocument();
-                        datasetXML.LoadXml(s.GetXml());
-                        return datasetXML;
-                    }
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
                 }
+                
             }
             catch
             {
@@ -322,18 +311,17 @@ namespace com.google.android.sportsflash
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DBHelper.connectionString))
+
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBTeam(id), conn))
                 {
-                    using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBTeam(id), conn))
-                    {
-                        DataSet s = new DataSet();
-                        a.Fill(s);
-                        //XmlDataDocument datasetXML = new XmlDataDocument(s);
-                        XmlDocument datasetXML = new XmlDocument();
-                        datasetXML.LoadXml(s.GetXml());
-                        return datasetXML;
-                    }
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
                 }
+                
             }
             catch
             {
