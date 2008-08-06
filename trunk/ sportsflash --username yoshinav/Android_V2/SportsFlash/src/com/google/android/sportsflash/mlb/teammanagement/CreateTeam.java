@@ -11,6 +11,7 @@ import com.google.android.sportsflash.mlb.data.MLBPlayerFetcher;
 import com.google.android.sportsflash.mlb.data.SportsFlashTeamDBHelper;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -179,7 +180,14 @@ public class CreateTeam extends Activity {
        
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View view) { 
+            public void onClick(View view) {  
+            	//Check for valid input
+            	if(!AuthenticatedInput())
+            	{
+            		return;
+            	}
+            	
+            	//Create Team
             	CreateNewTeam(); 
                 Intent i = new Intent(CreateTeam.this, SportsFlashTeamManagement.class);
                 startSubActivity(i, Constants.SUB_ACTIVITY_REQUEST_CODE);             	
@@ -268,21 +276,12 @@ public class CreateTeam extends Activity {
                 	s9Value = 0;
                 }           
                 p1 = null;
-                
-                //TODO:  Null Exceptions for last Spinner sometimes
-                if(s10 != null)
-                {
-	                p1 = (MLBPlayer)s10.getSelectedItem();
-	                s10Value = p1.getPlayerID();
-	                if(s10Value < 0)
-	                {
-	                	s10Value = 421;  //TODO:  Default to Ortiz - Get around error for now
-	                }   
-                }
-                else
-                {
-                	s10Value = 421; //Default to Ortiz
-                }
+                p1 = (MLBPlayer)s10.getSelectedItem();
+	            s10Value = p1.getPlayerID();
+	            if(s10Value < 0)
+	            {
+	            	s10Value = 0;
+	            }
                 
                 mDbHelper.createRow(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue, s1Value, s2Value, s3Value, s4Value, s5Value, s6Value, s7Value, s8Value, s9Value, s10Value); 	
                 mWSHelper.CreateTeam(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue, s1Value, s2Value, s3Value, s4Value, s5Value, s6Value, s7Value, s8Value, s9Value, s10Value);  
@@ -322,4 +321,23 @@ public class CreateTeam extends Activity {
         }.start();
     }	
     
+	public boolean AuthenticatedInput()
+	{
+        mTeamNameValue = mTeamName.getText().toString();
+        mTeamDescriptionValue = mTeamDescription.getText().toString(); 
+        
+    	//Check for valid fields
+    	if(mTeamNameValue == null || mTeamNameValue.length() <= 0)
+    	{
+    		AlertDialog.show(CreateTeam.this, "Create Team Error", R.drawable.icon2, "Please give you team a name", "Ok", true);
+    		return false;
+    	}   
+    	
+    	if(mTeamDescriptionValue == null || mTeamDescriptionValue.length() <= 0)
+    	{
+    		AlertDialog.show(CreateTeam.this, "Create Team Error", R.drawable.icon2, "Please give you team a description", "Ok", true);
+    		return false;
+    	}  
+    	return true;
+	}    
 }

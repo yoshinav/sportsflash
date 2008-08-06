@@ -14,6 +14,7 @@
      <string name="createleague_instructions_2">League Description:</string>
      <string name="createteam_instructions_1">Team Name:</string>
      <string name="createteam_instructions_2">Team Description:</string>     
+     <string name="invitemembers_instructions_1">Invite Members:</string>  
      <string name="sportsflash_welcome_message">Welcome to SportsFlash!  Your Sports Fantasy League Mobile Application</string>
      <string name="createleague_cancel">Cancel</string>
      <string name="createleague_ok">OK</string>

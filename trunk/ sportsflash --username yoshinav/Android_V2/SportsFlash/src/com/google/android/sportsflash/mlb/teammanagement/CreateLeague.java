@@ -5,6 +5,7 @@ import com.google.android.sportsflash.R;
 import com.google.android.sportsflash.SportsFlash;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.Menu.Item;
 import android.widget.Button;
 import android.widget.EditText;
 import android.database.Cursor;
+import android.app.AlertDialog;
 
 /**
  * CreateLeague:  Create MLB Fantasy League 
@@ -75,10 +77,21 @@ public class CreateLeague extends Activity
           
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View view) {  
+            public void onClick(View view) { 
+            	
+            	//Check for valid input
+            	if(!AuthenticatedInput())
+            	{
+            		return;
+            	}
+            	
+            	//Create League
             	CreateNewLeague();    
-                Intent i = new Intent(CreateLeague.this, CreateTeam.class);
+                Intent i = new Intent(CreateLeague.this, InviteLeagueMembers.class);
                 startSubActivity(i, Constants.SUB_ACTIVITY_REQUEST_CODE);
+                //Intent i = new Intent(CreateLeague.this, SportsFlashTeamManagement.class);
+                //startSubActivity(i, Constants.SUB_ACTIVITY_REQUEST_CODE);            	
+          	
            }
           
         });
@@ -110,4 +123,25 @@ public class CreateLeague extends Activity
         }.start();	
 	}
 
+	public boolean AuthenticatedInput()
+	{
+        mLeagueNameValue = mLeagueName.getText().toString();
+        mLeagueDescriptionValue = mLeagueDescription.getText().toString();
+        
+    	//Check for valid fields
+    	if(mLeagueNameValue == null || mLeagueNameValue.length() <= 0)
+    	{
+    		AlertDialog.show(CreateLeague.this, "Create League Error", R.drawable.icon2, "Please give you league a name", "Ok", true);
+    		return false;
+    	}   
+    	
+    	if(mLeagueDescriptionValue == null || mLeagueDescriptionValue.length() <= 0)
+    	{
+    		AlertDialog.show(CreateLeague.this, "Create League Error", R.drawable.icon2, "Please give you league a description", "Ok", true);
+    		return false;
+    	}  
+    	return true;
+	}
+	
+	
 }

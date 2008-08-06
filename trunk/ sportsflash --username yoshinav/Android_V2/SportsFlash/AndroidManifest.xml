@@ -40,4 +40,8 @@
 <intent-filter>
 <action android:name="android.intent.action.VIEW">
 </action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.InviteLeagueMembers" android:label="Invite League Members" android:icon="@drawable/icon2">
+<intent-filter>
+<action android:name="android.intent.action.VIEW">
+</action><category android:name="android.intent.category.DEFAULT">
 </category></intent-filter></activity></application></manifest>
