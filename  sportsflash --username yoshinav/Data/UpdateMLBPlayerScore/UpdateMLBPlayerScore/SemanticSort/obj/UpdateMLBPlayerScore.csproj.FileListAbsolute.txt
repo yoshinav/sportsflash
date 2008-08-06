@@ -1,0 +1,14 @@
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\obj\Release\ResolveAssemblyReference.cache
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\bin\Release\UpdateMLBPlayerScore.exe
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\bin\Release\UpdateMLBPlayerScore.pdb
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\bin\Release\Microsoft.ApplicationBlocks.Data.xml
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\bin\Release\CS767_ExpertChaining.pdb
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\obj\Release\UpdateMLBPlayerScore.exe
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\obj\Release\UpdateMLBPlayerScore.pdb
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\bin\Debug\UpdateMLBPlayerScore.exe
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\bin\Debug\UpdateMLBPlayerScore.pdb
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\bin\Debug\Microsoft.ApplicationBlocks.Data.xml
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\bin\Debug\CS767_ExpertChaining.pdb
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\obj\Debug\ResolveAssemblyReference.cache
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\obj\Debug\UpdateMLBPlayerScore.exe
+E:\Nav\BU\CS893\Project\src\Data\UpdateMLBPlayerScore\UpdateMLBPlayerScore\SemanticSort\obj\Debug\UpdateMLBPlayerScore.pdb
