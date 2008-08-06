@@ -72,6 +72,7 @@ public class MLBPlayerHandler extends DefaultHandler {
         {
             // initialize the MLBPlayer object - 
             _item = new MLBPlayer();
+            mlbPlayerRecord = new MLBPlayer();
             
             currentstate = 0;
             return;
@@ -156,6 +157,7 @@ public class MLBPlayerHandler extends DefaultHandler {
         {
             // add our item to the list!
             _feed.add(_item);
+            setMLBPlayerRecord(_item);
             _item = null;
             return;
         }
@@ -234,11 +236,11 @@ public class MLBPlayerHandler extends DefaultHandler {
     
 
     public MLBPlayer getMLBPlayerRecord() {
-        return this._item;
+        return this.mlbPlayerRecord;
     }
 
     public void setMLBPlayerRecord(MLBPlayer mlbPlayerRecord) {
-        this._item = mlbPlayerRecord;
+    	this.mlbPlayerRecord = mlbPlayerRecord;
     }
 
 }

@@ -54,7 +54,7 @@ public class DBHelper
 
     public static string UpdateMLBPlayer(string id, string hr, string ba, string rbi, string wins, string saves, string era)
     {
-        return "EXEC SP_UpdateMLBPlayer " + id + "'," + hr + "," + ba + "," + rbi + "," + wins + "," + saves + "," + era;
+        return "EXEC SP_UpdateMLBPlayer " + id + "," + hr + "," + ba + "," + rbi + "," + wins + "," + saves + "," + era;
     }
 
     public static string DeleteMLBLeague(int leagueid)

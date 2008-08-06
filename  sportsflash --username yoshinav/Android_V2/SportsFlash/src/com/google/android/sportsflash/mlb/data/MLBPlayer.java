@@ -113,7 +113,7 @@ public class MLBPlayer {
     }    
     
     public int getERA() {
-        return this.hr;
+        return this.era;
     }
 
     public void setERA(int era) {

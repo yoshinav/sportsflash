@@ -13,6 +13,7 @@ import java.util.List;
 import com.google.android.sportsflash.mlb.data.*;
 import com.google.android.sportsflash.SportsFlash;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -34,7 +35,7 @@ import android.app.Activity;
 public class UpdatePlayer extends Activity {
 
 		private SportsFlashTeamDBHelper mDbHelper;
-		private MLBCreateTeam mWSHelper;
+		private MLBUpdatePlayer mWSHelper;
 
 	    private ProgressDialog progressDialog;
 
@@ -42,6 +43,7 @@ public class UpdatePlayer extends Activity {
 	    private MLBPlayerAdapter playerAdapter;
 
 	    private TextView empty;
+	    private TextView mPlayerInfo;
 		private EditText mPlayerHR;
 		private String mPlayerHRValue;	
 		private EditText mPlayerBA;
@@ -68,12 +70,13 @@ public class UpdatePlayer extends Activity {
 	        @Override
 	        public void handleMessage(Message msg) {
 	        	
-	            mPlayerHR.setText(player.getHR());
-	            mPlayerBA.setText(player.getAVG());
-	            mPlayerRBI.setText(player.getRBI());
-	            mPlayerWins.setText(player.getWins());
-	            mPlayerSaves.setText(player.getSaves());
-	            mPlayerERA.setText(player.getERA());
+	        	mPlayerInfo.setText("Player: " + player.getLastName() + "," + player.getFirstName());
+	            mPlayerHR.setText(Integer.toString(player.getHR()));
+	            mPlayerBA.setText(Integer.toString(player.getAVG()));
+	            mPlayerRBI.setText(Integer.toString(player.getRBI()));
+	            mPlayerWins.setText(Integer.toString(player.getWins()));
+	            mPlayerSaves.setText(Integer.toString(player.getSaves()));
+	            mPlayerERA.setText(Integer.toString(player.getERA()));
 	            
 	            progressDialog.dismiss();
 	        }
@@ -91,10 +94,11 @@ public class UpdatePlayer extends Activity {
         setContentView(R.layout.update_mlbplayer);
         
         mDbHelper = new SportsFlashTeamDBHelper(this);
-        mWSHelper = new MLBCreateTeam();
+        mWSHelper = new MLBUpdatePlayer();
        
         loadPlayer(SportsFlash.getCurrentPlayerID());
         
+        mPlayerInfo = (TextView) findViewById(R.id.playerInfo);
         mPlayerHR = (EditText) findViewById(R.id.playerHR);
         mPlayerBA = (EditText) findViewById(R.id.playerBA);
         mPlayerRBI = (EditText) findViewById(R.id.playerRBI);
@@ -109,6 +113,12 @@ public class UpdatePlayer extends Activity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) { 
+            	//Check for valid input
+            	if(!AuthenticatedInput())
+            	{
+            		return;
+            	}
+            	
             	UpdatePlayer(); 
                 Intent i = new Intent(UpdatePlayer.this, SportsFlashTeamManagement.class);
                 startSubActivity(i, Constants.SUB_ACTIVITY_REQUEST_CODE);             	
@@ -126,26 +136,7 @@ public class UpdatePlayer extends Activity {
         
     }
 
-    private void fillData() {
-    	/*
-        // Get all of the rows from the database and create the item list
-    	Cursor notesCursor = mDbHelper.fetchAllNotes();
-        startManagingCursor(notesCursor);
-        
-        // Create an array to specify the fields we want to display in the list (only TITLE)
-        String[] from = new String[]{LeagueDbAdapter.KEY_TITLE};
-        
-        // and an array of the fields we want to bind those fields to (in this case just text1)
-        int[] to = new int[]{R.id.text1};
-        
-        // Now create a simple cursor adapter and set it to display
-        SimpleCursorAdapter notes = 
-        	    new SimpleCursorAdapter(this, R.layout.notes_row, notesCursor, from, to);
-        setListAdapter(notes);
-        */
-    }
-    
-	@Override
+    @Override
 	protected void onFreeze(Bundle outState) {
 		// TODO Auto-generated method stub
 		super.onFreeze(outState);
@@ -202,10 +193,70 @@ public class UpdatePlayer extends Activity {
                 
                 //ToDO
              	//mDbHelper.createRow(mTeamNameValue, mTeamDescriptionValue);
-            	//mWSHelper.CreateTeam(com.google.android.sportsflash.SportsFlash.currentLeagueID, mTeamNameValue, mTeamDescriptionValue);  
+            	mWSHelper.UpdatePlayer(Integer.toString(SportsFlash.getCurrentPlayerID()), mPlayerHRValue, mPlayerBAValue, mPlayerRBIValue, mPlayerWinsValue, mPlayerSavesValue, mPlayerERAValue); 
             	handler.sendEmptyMessage(0);
             }
         }.start();	
 	}    
    
+	public boolean AuthenticatedInput()
+	{
+    	mPlayerHRValue = mPlayerHR.getText().toString();
+    	mPlayerBAValue = mPlayerBA.getText().toString(); 
+        mPlayerRBIValue = mPlayerRBI.getText().toString();
+        mPlayerWinsValue = mPlayerWins.getText().toString();
+        mPlayerSavesValue = mPlayerSaves.getText().toString();
+        mPlayerERAValue = mPlayerERA.getText().toString();
+        
+    	//Check for valid fields
+    	if(mPlayerHRValue == null || mPlayerHRValue.length() <= 0)
+    	{
+    		AlertDialog.show(UpdatePlayer.this, "Update Player Error", R.drawable.icon2, "Please specify home run (hr)", "Ok", true);
+    		return false;
+    	}   
+    	
+    	if(mPlayerBAValue == null || mPlayerBAValue.length() <= 0)
+    	{
+    		AlertDialog.show(UpdatePlayer.this, "Update Player Error", R.drawable.icon2, "Please specify batting average (ba)", "Ok", true);
+    		return false;
+    	}  
+    	if(mPlayerRBIValue == null || mPlayerRBIValue.length() <= 0)
+    	{
+    		AlertDialog.show(UpdatePlayer.this, "Update Player Error", R.drawable.icon2, "Please specify runs batted in (rbi)", "Ok", true);
+    		return false;
+    	}   
+    	
+    	if(mPlayerWinsValue == null || mPlayerWinsValue.length() <= 0)
+    	{
+    		AlertDialog.show(UpdatePlayer.this, "Update Player Error", R.drawable.icon2, "Please specify wins", "Ok", true);
+    		return false;
+    	}  
+    	if(mPlayerSavesValue == null || mPlayerSavesValue.length() <= 0)
+    	{
+    		AlertDialog.show(UpdatePlayer.this, "Update Player Error", R.drawable.icon2, "Please specify saves", "Ok", true);
+    		return false;
+    	}   
+    	
+    	if(mPlayerERAValue == null || mPlayerERAValue.length() <= 0)
+    	{
+    		AlertDialog.show(UpdatePlayer.this, "Update Player Error", R.drawable.icon2, "Please specify earned run average (era)", "Ok", true);
+    		return false;
+    	}    
+    	
+    	try
+    	{
+    		if(Integer.parseInt(mPlayerHRValue) < 0 || Integer.parseInt(mPlayerBAValue) < 0 || Integer.parseInt(mPlayerRBIValue) < 0 || Integer.parseInt(mPlayerWinsValue) < 0 || Integer.parseInt(mPlayerSavesValue) < 0 || Integer.parseInt(mPlayerERAValue) < 0)
+    		{
+        		AlertDialog.show(UpdatePlayer.this, "Update Player Error", R.drawable.icon2, "Please specify numeric values only", "Ok", true);
+        		return false;
+    		}
+    	}
+    	catch (Exception e)
+    	{
+    		AlertDialog.show(UpdatePlayer.this, "Update Player Error", R.drawable.icon2, "Please specify numeric values only", "Ok", true);
+    		return false;	
+    	}
+    	
+    	return true;
+	} 	
 }
