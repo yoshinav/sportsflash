@@ -32,6 +32,10 @@ namespace com.google.android.sportsflash
         [OperationContract, WebGet]
         XmlDocument GetMLBPlayerByIdentifier(string id);
         [OperationContract, WebGet]
+        XmlDocument GetMLBTeamsByIdentifier(string id);
+        [OperationContract, WebGet]
+        XmlDocument GetMLBTeamsPlayers(string teamid, string playerid);
+        [OperationContract, WebGet]
         XmlDocument CreateMLBLeague(string name, string description);
         [OperationContract, WebGet]
         XmlDocument UpdateMLBLeague(int id, string name, string description);
@@ -82,6 +86,52 @@ namespace com.google.android.sportsflash
             try
             {
                 using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.getMLBPlayers, conn))
+                {
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+
+                    return datasetXML;
+                }
+
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
+        public XmlDocument GetMLBTeamsByIdentifier(string id)
+        {
+            try
+            {
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBTeamsByID(id), conn))
+                {
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+
+                    return datasetXML;
+                }
+
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
+        public XmlDocument GetMLBTeamsPlayers(string teamid, string playerid)
+        {
+            try
+            {
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBTeamsPlayers(teamid, playerid), conn))
                 {
                     DataSet s = new DataSet();
                     a.Fill(s);

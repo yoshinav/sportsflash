@@ -3,13 +3,18 @@ package com.google.android.sportsflash.mlb.teammanagement;
 import java.util.List;
 
 import com.google.android.sportsflash.R;
+import com.google.android.sportsflash.SportsFlash;
 import com.google.android.sportsflash.mlb.data.MLBLeague;
+import com.google.android.sportsflash.mlb.data.MLBPlayer;
 import com.google.android.sportsflash.mlb.data.SportsFlashLeagueDBHelper;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -19,6 +24,9 @@ public class ViewCurrentLeagues extends ListActivity {
 	 private ProgressDialog progressDialog;
 	 private SportsFlashLeagueDBHelper mDbHelper;
 	 private List<MLBLeague> leagues;
+	 private MLBLeague league;
+	 
+	 private static final int ACTIVITY_CREATE=0;
 	 
 	 private MLBLeagueAdapter leagueAdapter;
 	 
@@ -85,7 +93,16 @@ public class ViewCurrentLeagues extends ListActivity {
 	     
         
 	 }
-	    
+	
+	protected void onListItemClick(ListView listView, View view, int position, long id)
+	{
+		MLBLeague league  = (MLBLeague)listView.obtainItem(position);
+		SportsFlash.setCurrentLeagueID(league.getLeagueID());
+        Intent i = new Intent(this, ViewCurrentTeams.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+
+	}
+		
     // use a Handler in order to update UI thread after worker done
     // (cannot update UI thread inline (not done yet), or from separate thread)
     private Handler handler = new Handler() {
@@ -104,4 +121,5 @@ public class ViewCurrentLeagues extends ListActivity {
         }
 
     };
+    
 }

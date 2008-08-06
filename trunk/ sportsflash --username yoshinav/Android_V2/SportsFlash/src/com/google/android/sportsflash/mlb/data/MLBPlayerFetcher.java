@@ -170,7 +170,7 @@ public class MLBPlayerFetcher {
             try {
             	//setup the url
                 //URL feedUrl = new URL(this.queryPlayers);
-            	URL feedUrl = new URL(this.query + "1b");
+            	URL feedUrl = new URL(this.queryPlayers);
                 // TODO - huge delay here on build call, takes 15-20 seconds 
                 // (takes < second for same class outside Android)
                 
