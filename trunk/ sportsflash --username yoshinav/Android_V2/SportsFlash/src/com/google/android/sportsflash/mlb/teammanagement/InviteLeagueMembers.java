@@ -19,7 +19,7 @@ import android.widget.EditText;
 import android.database.Cursor;
 
 /**
- * CreateLeague:  Create MLB Fantasy League 
+ * InviteLeagueMembers:  Invite People on your cell phone to be a part of your league 
  * 
  * @author Navdeep Alam
  * @version CS 893 Summer 2008 Version 1.0

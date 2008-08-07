@@ -5,7 +5,7 @@ import android.widget.*;
 /**
  * MyFilter:  Used to support Filtering of MLBPlayers
  * 
- * @author Navdeep Alam, with credit to charliecollins
+ * @author Navdeep Alam
  * @version CS 893 Summer 2008 Version 1.0
  * 
  */

@@ -1,12 +1,13 @@
 package com.google.android.sportsflash.mlb.data;
 
 /**
- * MLBLeagueHandler:  SAX Handler for Team
+ * MLBTeamHandler:  SAX Handler for Team
  * 
  * @author Navdeep Alam, with credit to charliecollins
  * @version CS 893 Summer 2008 Version 1.0
  * 
  */
+
 import java.util.ArrayList;
 import java.util.List;
 

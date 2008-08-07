@@ -21,7 +21,7 @@ import android.database.Cursor;
 import android.app.AlertDialog;
 
 /**
- * CreateLeague:  Create MLB Fantasy League 
+ * CreateMessagePost:  Create MLB MEssage Posts
  * 
  * @author Navdeep Alam
  * @version CS 893 Summer 2008 Version 1.0

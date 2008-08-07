@@ -3,7 +3,7 @@ package com.google.android.sportsflash.mlb.teammanagement;
  * SportsFlashRosterView:  Start Activity to view Roster ... eventually manage all
  * of Team Management for SportsFlash Fantasy League.
  * 
- * @author Navdeep Alam, with credit to charliecollins
+ * @author Navdeep Alam
  * @version CS 893 Summer 2008 Version 1.0
  * 
  */

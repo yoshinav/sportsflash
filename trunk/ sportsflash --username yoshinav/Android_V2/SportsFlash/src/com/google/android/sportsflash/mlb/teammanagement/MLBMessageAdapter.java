@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.google.android.sportsflash.mlb.data.*;
 
 /**
- * MLBPlayerAdapter:  Custom adapter for "Player" model objects.
+ * MLBMessageAdapter:  Custom adapter for "Message" model objects.
  * 
  * @author Navdeep Alam, with credit to charliecollins
  * @version CS 893 Summer 2008 Version 1.0

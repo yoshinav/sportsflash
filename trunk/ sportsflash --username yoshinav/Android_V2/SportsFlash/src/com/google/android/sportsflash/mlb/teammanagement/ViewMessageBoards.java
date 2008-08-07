@@ -1,5 +1,13 @@
 package com.google.android.sportsflash.mlb.teammanagement;
 
+/**
+ * ViewMessageBoards:  View current messages in message boards
+ * 
+ * @author Navdeep Alam
+ * @version CS 893 Summer 2008 Version 1.0
+ * 
+ */
+
 import java.util.List;
 
 import com.google.android.sportsflash.R;

@@ -17,14 +17,14 @@ import java.util.List;
 import com.google.android.sportsflash.mlb.teammanagement.Constants;
 import com.google.android.sportsflash.Configuration;
 
-
 /**
- * MLBPlayerFetcher:  Get Player roster for MLB
+ * MLBPlayerFetcher:  Fetcher data from Web Service to support Players
  * 
- * @author Navdeep Alam, with credit to charliecollins
+ * @author Navdeep Alam
  * @version CS 893 Summer 2008 Version 1.0
  * 
  */
+
 public class MLBPlayerFetcher {
 
     private static final String CLASSTAG = MLBPlayerFetcher.class.getSimpleName();
