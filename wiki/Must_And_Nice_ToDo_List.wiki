@@ -22,7 +22,7 @@
 ------------------------------------------------------------------------------------------
 
 ==Must do Accomplishments Check for Aug 7 Version 1:==
-  *  DID:  Access MLB.com for data for our league.
+  *  *DID*:  Access MLB.com for data for our league.
   *  DID:  Create and modify fantasy baseball teams using real world player data.
   *  DID:  Create interface to allow users to update player stats over the season, so that the community of users are responsible for maintaining the current player stats.
   *  DID:  Provide ability to create, manage, and communicate with a group of fellow baseball enthusiasts with accounts on our service (i.e. Message Boards).
