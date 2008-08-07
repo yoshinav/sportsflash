@@ -57,7 +57,7 @@ public class MLBPlayerAdapter extends BaseAdapter implements Filterable {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         MLBPlayer player = this.players.get(position);
-        return new MLBPlayersListView(this.context, player.getLastName() + ", " + player.getFirstName() + " (" + player.getPlayerID() + ")", player.getPosition(), player.getTeam());
+        return new MLBPlayersListView(this.context, player.getLastName() + ", " + player.getFirstName(), player.getPosition(), player.getTeam(), player.getHR() + "-" + player.getRBI() + "-" + player.getAVG(), player.getWins() + "-" + player.getSaves() + "-" + player.getERA());
     }
 
 
@@ -67,7 +67,7 @@ public class MLBPlayerAdapter extends BaseAdapter implements Filterable {
         private TextView rating;
         private TextView date;
 
-        public MLBPlayersListView(Context context, String name, String position, String team) {
+        public MLBPlayersListView(Context context, String name, String position, String team, String stats1, String stats2) {
             super(context);
 
             // TODO display rating as stars
@@ -78,15 +78,15 @@ public class MLBPlayerAdapter extends BaseAdapter implements Filterable {
             params.setMargins(5, 3, 5, 0);
  
             this.name = new TextView(context);
-            this.name.setText(name);
+            this.name.setText(name + " - " + team + " - " + position);
             this.name.setTextSize(16f);
             this.name.setTextColor(Color.BLACK);
             addView(this.name, params);
 
             this.rating = new TextView(context);
-            this.rating.setText(team + " - " + position);
+            this.rating.setText(stats1 + " , " + stats2);
             this.rating.setTextSize(16f);
-            addView(this.rating, params);            
+            addView(this.rating, params);              
         }
 
         public TextView getName() {

@@ -37,7 +37,7 @@
        <TextView
            android:layout_width="fill_parent"
            android:layout_height="wrap_content"
-       	   android:text="@string/createteam_instructions_1"/>
+       	   android:text="@string/createmessage_instructions_1"/>
         
        
        <EditText android:id="@+id/messageTitle"
@@ -48,146 +48,14 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/createteam_instructions_2"/>
+            android:text="@string/createmessage_instructions_2"/>
     
         <EditText android:id="@+id/messageDescription"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/editbox_background"/>
           
-    <!-- 
-     	Create list of team players
-      -->   
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/create_team_firstbase"
-    />
-
-    <Spinner android:id="@+id/teamFirstBase"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-    />
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/create_team_secondbase"
-    />
-
-    <Spinner android:id="@+id/teamSecondBase"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-    />
-    
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/create_team_thirdbase"
-    />
-
-    <Spinner android:id="@+id/teamThirdBase"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-    />    
-		
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/create_team_shortstop"
-    />
-
-    <Spinner android:id="@+id/teamShortStop"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-    />		
-    
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/create_team_pitcher"
-    />
-
-    <Spinner android:id="@+id/teamPitcher"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-    />    
-    
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/create_team_catcher"
-    />
-
-    <Spinner android:id="@+id/teamCatcher"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-    />    
-    
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/create_team_leftfield"
-    />
-
-    <Spinner android:id="@+id/teamLeftField"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-    />
-      
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/create_team_centerfield"
-    />
-
-    <Spinner android:id="@+id/teamCenterField"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-    />   
-    
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/create_team_rightfield"
-    />
-
-    <Spinner android:id="@+id/teamRightField"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-    />         
-    
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/create_team_dhitter"
-    />
-
-    <Spinner android:id="@+id/teamDHitter"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-    />    
-    <!--
+     <!--
         Use a horizontal layout to hold the two buttons.
         This item has layout_gravity="right". This means the whole
         horizontal LinearLayout is right aligned, not the individual
@@ -202,13 +70,13 @@
         android:scrollbars="vertical|horizontal"
         android:layout_gravity="right" >
 
-        <Button android:id="@+id/teamOkButton"
+        <Button android:id="@+id/msgOkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dip"
             android:text="@string/createleague_ok" />
             
-        <Button android:id="@+id/teamCancelButton"
+        <Button android:id="@+id/msgCancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/createleague_cancel"/>

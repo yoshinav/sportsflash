@@ -18,7 +18,13 @@ import android.view.View;
 import android.view.Menu.Item;
 import android.widget.ListView;
 import android.widget.TextView;
-
+/**
+ * ViewCurrentLeagues:  View Current Leagues
+ * 
+ * @author Navdeep Alam
+ * @version CS 893 Summer 2008 Version 1.0
+ * 
+ */
 
 public class ViewCurrentLeagues extends ListActivity {
 	

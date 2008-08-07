@@ -41,5 +41,5 @@ public class MLBLeague {
 
     public void setLeagueDescription(String description) {
         this.description = description;
-    }  
+    }   
 }
