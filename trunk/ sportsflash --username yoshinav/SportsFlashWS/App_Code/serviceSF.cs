@@ -15,6 +15,7 @@ using System.ServiceModel.Channels;
 /// Author Navdeep Alam - CS 893
 /// July 2008
 /// XMLDocument methods from Stored Procedures
+/// XML Data Centric REST Web Service APIs for Mobile Sports Application - SportsFlash
 /// </summary>
 namespace com.google.android.sportsflash
 {
@@ -25,38 +26,90 @@ namespace com.google.android.sportsflash
     {
         [OperationContract, WebGet]
         XmlDocument GetXmlDocument();
-        [OperationContract, WebGet]
-        XmlDocument GetMLBPlayers();
-        [OperationContract, WebGet]
-        XmlDocument GetMLBPlayersByPosition(string position);
-        [OperationContract, WebGet]
-        XmlDocument GetMLBPlayerByIdentifier(string id);
-        [OperationContract, WebGet]
-        XmlDocument GetMLBTeamsByIdentifier(string id);
-        [OperationContract, WebGet]
-        XmlDocument GetMLBTeamsPlayers(string teamid, string playerid);
+
+  
+        // -----------------------------------------
+        //CRUD API for MLB Fantasy League
+        // -----------------------------------------
+
+        //Create MLB Fantasy League Team
         [OperationContract, WebGet]
         XmlDocument CreateMLBLeague(string name, string description);
+
+        //Update MLB Fantasy League 
         [OperationContract, WebGet]
         XmlDocument UpdateMLBLeague(int id, string name, string description);
+
+        //Delete MLB Fantasy League 
         [OperationContract, WebGet]
         XmlDocument DeleteMLBLeague(int id);
+
+        //Get MLB Fantasy League
         [OperationContract, WebGet]
         XmlDocument GetMLBLeague(int id);
+
+
+        // -----------------------------------------
+        //CRUD API for MLB Fantasy League Teams
+        // -----------------------------------------
+
+        //Create MLB Fantasy League Team
         [OperationContract, WebGet]
         XmlDocument CreateMLBTeam(string leagueId, string name, string description, string firstbase, string secondbase, string thirdbase, string shortstop, string catcher, string pitcher, string rightfield, string centerfield, string leftfield, string dhitter);
         //[OperationContract, WebGet]
         //XmlDocument CreateMLBTeam2(string leagueId, string name, string description);
+
+        //Update MLB Fantasy League Team
         [OperationContract, WebGet]
         XmlDocument UpdateMLBTeam(int id, string position, int playerId);
+
+        //Delete MLB Fantasy League Team
         [OperationContract, WebGet]
         XmlDocument DeleteMLBTeam(int id);
+
+        //Get MLB Fantasy League Team
         [OperationContract, WebGet]
         XmlDocument GetMLBTeam(int id);
+
+        //Get MLB Teams, specified by it's unique identifier in the database
+        [OperationContract, WebGet]
+        XmlDocument GetMLBTeamsByIdentifier(string id);
+
+
+        // -----------------------------------------
+        //CRUD API for MLB Fantasy League Team Players
+        // -----------------------------------------
+
+        // Get MLB Players
+        [OperationContract, WebGet]
+        XmlDocument GetMLBPlayers();
+
+        //Get MLB Players, specified by position
+        [OperationContract, WebGet]
+        XmlDocument GetMLBPlayersByPosition(string position);
+
+        //Get MLB Player, specified by their unique identifier in the database
+        [OperationContract, WebGet]
+        XmlDocument GetMLBPlayerByIdentifier(string id);
+
+        //Get MLB Players associated with a SportsFlash Fantasy Team
+        [OperationContract, WebGet]
+        XmlDocument GetMLBTeamsPlayers(string teamid, string playerid);
+
+        //Update MLB Fantasy League Team Player Statistics
         [OperationContract, WebGet]
         XmlDocument UpdateMLBPlayer(string id, string hr, string ba, string rbi, string wins, string saves, string era);
+
+ 
+        // -----------------------------------------
+        //CRUD API for MLB Fantasy League Message Boards
+        // -----------------------------------------
+
+        //Create Message Post
         [OperationContract, WebGet]
         XmlDocument CreateMLBMessage(string title, string message);
+
+        //Get All Message Posts
         [OperationContract, WebGet]
         XmlDocument GetMLBMessages();
     }
@@ -84,6 +137,7 @@ namespace com.google.android.sportsflash
             return (xmlDocumentObject);
         }
 
+        // Get MLB Players
         public XmlDocument GetMLBPlayers()
         {
             try
@@ -107,6 +161,7 @@ namespace com.google.android.sportsflash
 
         }
 
+        //Get MLB Teams, specified by it's unique identifier in the database
         public XmlDocument GetMLBTeamsByIdentifier(string id)
         {
             try
@@ -130,6 +185,7 @@ namespace com.google.android.sportsflash
 
         }
 
+        //Get MLB Players associated with a SportsFlash Fantasy Team
         public XmlDocument GetMLBTeamsPlayers(string teamid, string playerid)
         {
             try
@@ -153,6 +209,7 @@ namespace com.google.android.sportsflash
 
         }
 
+        //Get MLB Players, specified by position
         public XmlDocument GetMLBPlayersByPosition(string position)
         {
             try
@@ -174,6 +231,7 @@ namespace com.google.android.sportsflash
             }
         }
 
+        //Get MLB Player, specified by their unique identifier in the database
         public XmlDocument GetMLBPlayerByIdentifier(string id)
         {
             try
@@ -196,6 +254,7 @@ namespace com.google.android.sportsflash
             }
         }
 
+        //Create MLB Fantasy League Team
         public XmlDocument CreateMLBLeague(string name, string description)
         {
             try
@@ -218,6 +277,7 @@ namespace com.google.android.sportsflash
             }
         }
 
+        //Update MLB Fantasy League Team
         public XmlDocument UpdateMLBLeague(int id, string name, string description)
         {
             try
@@ -240,6 +300,7 @@ namespace com.google.android.sportsflash
 
         }
 
+        //Delete MLB Fantasy League
         public XmlDocument DeleteMLBLeague(int id)
         {
             try
@@ -262,6 +323,7 @@ namespace com.google.android.sportsflash
             }
         }
 
+        //Get MLB Fantasy League
         public XmlDocument GetMLBLeague(int id)
         {
             try
@@ -284,6 +346,7 @@ namespace com.google.android.sportsflash
             }
         }
 
+        //Create MLB Fantasy League Team
         public XmlDocument CreateMLBTeam(string leagueId, string name, string description, string firstbase, string secondbase, string thirdbase, string shortstop, string catcher, string pitcher, string rightfield, string centerfield, string leftfield, string dhitter)
         {
             try
@@ -342,6 +405,7 @@ namespace com.google.android.sportsflash
         }
         */
 
+        //Update MLB Fantasy League Team
         public XmlDocument UpdateMLBTeam(int id, string position, int playerId)
         {
             try
@@ -364,6 +428,7 @@ namespace com.google.android.sportsflash
             }
         }
 
+        //Update MLB Fantasy League Team Players
         public XmlDocument UpdateMLBPlayer(string id, string hr, string ba, string rbi, string wins, string saves, string era)
         {
             try
@@ -385,7 +450,8 @@ namespace com.google.android.sportsflash
                 return null;
             }
         }
-
+        
+        //Delete MLB Fantasy League Team
         public XmlDocument DeleteMLBTeam(int id)
         {
             try
@@ -408,6 +474,7 @@ namespace com.google.android.sportsflash
             }
         }
 
+        //Get MLB Fantasy Team
         public XmlDocument GetMLBTeam(int id)
         {
             try
@@ -430,6 +497,7 @@ namespace com.google.android.sportsflash
             }
         }
 
+        //Get Message Board Posts
         public XmlDocument GetMLBMessages()
         {
             try
@@ -453,6 +521,7 @@ namespace com.google.android.sportsflash
 
         }
 
+        //Create Message Boards Posts
         public XmlDocument CreateMLBMessage(string title, string message)
         {
             try
