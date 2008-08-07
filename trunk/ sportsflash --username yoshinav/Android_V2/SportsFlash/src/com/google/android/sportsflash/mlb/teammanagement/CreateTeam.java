@@ -88,6 +88,8 @@ public class CreateTeam extends Activity {
     private MLBPlayerAdapter playerAdapterRF;
     private MLBPlayerAdapter playerAdapterDH;
     
+    public static final int TEAM_MANAGEMENT = Menu.FIRST;
+    
     // use a Handler in order to update UI thread after worker done
     // (cannot update UI thread inline (not done yet), or from separate thread)
     private Handler handler = new Handler() {
@@ -283,8 +285,8 @@ public class CreateTeam extends Activity {
 	            	s10Value = 0;
 	            }
                 
-                mDbHelper.createRow(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue, s1Value, s2Value, s3Value, s4Value, s5Value, s6Value, s7Value, s8Value, s9Value, s10Value); 	
-                mWSHelper.CreateTeam(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue, s1Value, s2Value, s3Value, s4Value, s5Value, s6Value, s7Value, s8Value, s9Value, s10Value);  
+                int teamID = mWSHelper.CreateTeam(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue, s1Value, s2Value, s3Value, s4Value, s5Value, s6Value, s7Value, s8Value, s9Value, s10Value);  	            
+                mDbHelper.createRow(SportsFlash.getCurrentLeagueID(), mTeamNameValue, mTeamDescriptionValue, teamID, s1Value, s2Value, s3Value, s4Value, s5Value, s6Value, s7Value, s8Value, s9Value, s10Value); 	
             	handler.sendEmptyMessage(0);
             }
         }.start();	
@@ -339,5 +341,33 @@ public class CreateTeam extends Activity {
     		return false;
     	}  
     	return true;
-	}    
+	}  
+	
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // TODO Auto-generated method stub
+    	boolean result = super.onCreateOptionsMenu(menu);
+    	menu.add(0, TEAM_MANAGEMENT, R.string.team_management);
+    	return result;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(Item item) {
+        // TODO Auto-generated method stub
+    	switch(item.getId())
+    	{
+	    	case  TEAM_MANAGEMENT:
+	    		MLB_teamManagement();
+	    		return true;
+    	
+    	}
+    	
+        return super.onOptionsItemSelected(item);
+    }
+    
+    private void MLB_teamManagement()
+    {
+        Intent i = new Intent(this, SportsFlashTeamManagement.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+    }	
 }

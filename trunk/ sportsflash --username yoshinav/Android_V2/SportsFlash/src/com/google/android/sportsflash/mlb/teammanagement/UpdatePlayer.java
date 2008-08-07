@@ -24,6 +24,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.Menu.Item;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -36,6 +37,9 @@ public class UpdatePlayer extends Activity {
 
 		private SportsFlashTeamDBHelper mDbHelper;
 		private MLBUpdatePlayer mWSHelper;
+		
+		public static final int TEAM_MANAGEMENT = Menu.FIRST;
+		private static final int ACTIVITY_CREATE=0;
 
 	    private ProgressDialog progressDialog;
 
@@ -259,4 +263,32 @@ public class UpdatePlayer extends Activity {
     	
     	return true;
 	} 	
+	
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // TODO Auto-generated method stub
+    	boolean result = super.onCreateOptionsMenu(menu);
+    	menu.add(0, TEAM_MANAGEMENT, R.string.team_management);
+    	return result;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(Item item) {
+        // TODO Auto-generated method stub
+    	switch(item.getId())
+    	{
+	    	case  TEAM_MANAGEMENT:
+	    		MLB_teamManagement();
+	    		return true;
+    	
+    	}
+    	
+        return super.onOptionsItemSelected(item);
+    }
+    
+    private void MLB_teamManagement()
+    {
+        Intent i = new Intent(this, SportsFlashTeamManagement.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+    }
 }

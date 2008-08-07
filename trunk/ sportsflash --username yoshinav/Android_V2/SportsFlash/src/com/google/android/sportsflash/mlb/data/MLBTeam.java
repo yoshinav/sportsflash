@@ -4,6 +4,8 @@ public class MLBTeam {
 
     private int id;
     private int leagueId;
+    private int teamId;
+    private String leagueName;
     private String name;
     private String description;
     private int score;
@@ -27,10 +29,18 @@ public class MLBTeam {
         return id;
     }
 
+    public void setTeamWSID(int teamId) {
+        this.teamId = teamId;
+    }
+ 
+    public int getTeamWSID() {
+        return teamId;
+    }
+
     public void setTeamID(int id) {
         this.id = id;
     }
- 
+    
     public int getLeagueID() {
         return leagueId;
     }
@@ -53,6 +63,14 @@ public class MLBTeam {
 
     public void setTeamName(String name) {
         this.name = name;
+    }
+    
+    public String getLeagueName() {
+        return leagueName;
+    }
+
+    public void setLeagueName(String leagueName) {
+        this.leagueName = leagueName;
     }
     
     public String getTeamDescription() {
@@ -133,5 +151,13 @@ public class MLBTeam {
 
     public void setTeamcfid (int centerfieldId) {
         this.centerfieldId = centerfieldId;
-    }       
+    }    
+    
+    public int getTeamdhid() {
+        return firstbaseId;
+    }
+
+    public void setTeamdhid (int dhitterId) {
+        this.dhitterId = dhitterId;
+    }    
 }

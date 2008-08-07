@@ -36,7 +36,7 @@ public class MLBTeamFetcher {
         this.debug = debug;
 
         // build query
-        this.query = Configuration.urlCreateMLBTeam;
+        this.query = Configuration.GetMLBTeamsByIdentifier;
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " query - " + query);
     }
     
@@ -44,7 +44,7 @@ public class MLBTeamFetcher {
         this(false);
     }
     
-    public int ViewTeams(int leagueid)
+    public List<MLBTeam> ViewTeams(int leagueid)
     {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " getReviews");
         long start = System.currentTimeMillis();
@@ -52,7 +52,7 @@ public class MLBTeamFetcher {
         if (!debug) {
             try {
             	//setup the url
-                URL feedUrl = new URL(this.query + "leagueId=" + leagueid); 
+                URL feedUrl = new URL(this.query + "id=" + leagueid); 
 
                 // TODO - huge delay here on build call, takes 15-20 seconds 
                 // (takes < second for same class outside Android)
@@ -65,16 +65,16 @@ public class MLBTeamFetcher {
                 // create the reader (scanner)
                 XMLReader xmlreader = parser.getXMLReader();
                 // instantiate our handler
-                MLBLeagueHandler theMLBLeagueHandler = new MLBLeagueHandler();
+                MLBTeamHandler theMLBTeamHandler = new MLBTeamHandler();
                 // assign our handler
-                xmlreader.setContentHandler(theMLBLeagueHandler);
+                xmlreader.setContentHandler(theMLBTeamHandler);
                 // get our data through the url class
                 InputSource is = new InputSource(feedUrl.openStream());
                 // perform the synchronous parse           
                 xmlreader.parse(is);
                 // get the results - should be a fully populated RSSFeed instance, 
      		   // or null on error
-                return theMLBLeagueHandler.getMLBID();
+                return theMLBTeamHandler.getFeed();
   
                 
             } catch (Exception e) {
@@ -82,11 +82,11 @@ public class MLBTeamFetcher {
             }
         } else {
             Log.v(Constants.LOGTAG, " " + CLASSTAG + " devMode true - returning MOCK reviews");
-            return 0;
+            return null;
         }
 
         long duration = (System.currentTimeMillis() - start) / 1000;
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " call duration - " + duration);
-        return 0;
+        return null;
     }
 }

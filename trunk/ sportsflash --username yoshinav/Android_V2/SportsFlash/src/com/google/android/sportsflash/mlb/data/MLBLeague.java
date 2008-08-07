@@ -3,6 +3,7 @@ package com.google.android.sportsflash.mlb.data;
 public class MLBLeague {
 
     private int id;
+    private int leagueId;
     private String name;
     private String description;
     
@@ -14,10 +15,18 @@ public class MLBLeague {
         return id;
     }
 
+    public void setLeagueWSID(int leagueId) {
+        this.leagueId = leagueId;
+    }
+ 
+    public int getLeagueWSID() {
+        return leagueId;
+    }
+
     public void setLeagueID(int id) {
         this.id = id;
     }
- 
+    
     public String getLeagueName() {
         return name;
     }
