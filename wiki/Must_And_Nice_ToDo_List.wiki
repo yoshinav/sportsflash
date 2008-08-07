@@ -24,7 +24,7 @@
   *  DID:  Create and modify fantasy baseball teams using real world player data.
   *  DID:  Create interface to allow users to update player stats over the season, so that the community of users are responsible for maintaining the current player stats.
   *  DID:  Provide ability to create, manage, and communicate with a group of fellow baseball enthusiasts with accounts on our service (i.e. Message Boards).
-  *  DID:  Create ability for scores/rankings to be updated on the server to automatically and displayed on Android phone when requested.
+  *  DID:  Create ability for scores/rankings to be updated on the server automatically and displayed on Android phone when requested.
   *  DID:  Start SMS and alert syndication but DID NOT fully implement and integrate in version 1.
   *  DID NOT:  Create ability to tag, and store images and media from the web, but DID build out personalization classes to eventually support personalizing image galleries with images from the web.
 
