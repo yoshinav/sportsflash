@@ -7,6 +7,9 @@ package com.google.android.sportsflash.mlb.data;
  * @version CS 893 Summer 2008 Version 1.0
  * 
  */
+import java.util.ArrayList;
+import java.util.List;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -14,27 +17,32 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class MLBMessageHandler extends DefaultHandler {
 
-    final int MLBLEAGUE_ID = 1;
+	List<MLBMessage> _feed;
+	MLBMessage _item;
+	
+    final int MLBMESSAGE_TITLE = 1;
+    final int MLBMESSAGE_DESCRIPTION = 2;
     
-    int ID = 0;
+    int depth = 0;
     int currentstate = 0;
 
     private int identity_ID;
+    private MLBMessage mlbMessageRecord;
 
     public MLBMessageHandler() {
-        
+    	mlbMessageRecord = new MLBMessage();
     }
     /*
      * getFeed - this returns our feed when all of the parsing is complete
      */
-    public int getMLBID()
+    public List<MLBMessage> getFeed()
     {
-    	return getIdentityID();
+        return _feed;
     }
-
+    
     @Override
     public void startDocument() throws SAXException {
-
+    	_feed = new ArrayList<MLBMessage>(20);
 
     }
 
@@ -47,19 +55,47 @@ public class MLBMessageHandler extends DefaultHandler {
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
         
       
-        if (localName.equals("ID"))
+    	depth++;
+
+        if (localName.equals("Table"))
+        {
+            // initialize the MLBPlayer object - 
+            _item = new MLBMessage();
+            mlbMessageRecord = new MLBMessage();
+            
+            currentstate = 0;
+            return;
+        }
+        
+        if (localName.equals("title"))
         {
             currentstate = 1;
             return;
         }
+
+        if (localName.equals("message"))
+        {
+            currentstate = 2;
+            return;
+        }
         
+         
         currentstate = 0;
         
     }
 
     @Override
     public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+    	depth--;
 
+        if (localName.equals("Table"))
+        {
+            // add our item to the list!
+            _feed.add(_item);
+            setMLBMessageRecord(_item);
+            _item = null;
+            return;
+        }
     	
     }
 
@@ -71,11 +107,15 @@ public class MLBMessageHandler extends DefaultHandler {
         
         switch (currentstate)
         {
-            case MLBLEAGUE_ID:
-                setIdentityID(Integer.valueOf(theString).intValue());
+            case MLBMESSAGE_TITLE:
+                _item.setMsgTitle(theString);
                 currentstate = 0;
                 break;
-            default:
+            case MLBMESSAGE_DESCRIPTION:
+                _item.setMsgDescription(theString);
+                currentstate = 0;
+                break;
+       default:
                 return;
         }
     	
@@ -94,12 +134,13 @@ public class MLBMessageHandler extends DefaultHandler {
     }
     
 
-    private int getIdentityID() {
-        return this.identity_ID;
+    public MLBMessage getMLBMessageRecord() {
+        return this.mlbMessageRecord;
     }
 
-    private void setIdentityID(int identityID) {
-        this.identity_ID = identityID;
+    public void setMLBMessageRecord(MLBMessage mlbMessageRecord) {
+    	this.mlbMessageRecord = mlbMessageRecord;
     }
+
 
 }

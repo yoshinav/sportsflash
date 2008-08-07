@@ -42,6 +42,7 @@ public class SportsFlashTeamManagement extends Activity   {
 	public static final int CREATEMLBLEAGUE_ID = 4;
 	public static final int CREATEMLBTEAM_ID = 5;
 	public static final int HOME_ID = 6;
+	public static final int MESSAGE_ID = 7;
 	
     private ViewGroup mContainer;
     private ImageView mImageView;
@@ -97,7 +98,8 @@ public class SportsFlashTeamManagement extends Activity   {
     	//menu.add(2, VIEWTEAM_ID, R.string.menu_view_your_team);    	
     	menu.add(2, CREATEMLBLEAGUE_ID, R.string.menu_view_league);
     	//menu.add(4, CREATEMLBTEAM_ID, R.string.menu_view_team);
-    	menu.add(3, HOME_ID, R.string.home);
+    	menu.add(3, MESSAGE_ID, R.string.message_board);
+    	menu.add(4, HOME_ID, R.string.home);
     	return result;
     }
 
@@ -128,7 +130,11 @@ public class SportsFlashTeamManagement extends Activity   {
 	    		
 	    	case HOME_ID:
 	    		Home();
-	    		return true;	    		
+	    		return true;	    	
+	    		
+	    	case MESSAGE_ID:
+	    		viewMessages();
+	    		return true;	 	    		
     	
     	}
     	
@@ -141,6 +147,12 @@ public class SportsFlashTeamManagement extends Activity   {
         startSubActivity(i, ACTIVITY_CREATE);	
     }
 
+    private void viewMessages()
+    {
+        Intent i = new Intent(this, ViewMessageBoards.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+    }
+    
     private void viewLeagueRoster()
     {
         Intent i = new Intent(this, ViewCurrentLeagues.class);

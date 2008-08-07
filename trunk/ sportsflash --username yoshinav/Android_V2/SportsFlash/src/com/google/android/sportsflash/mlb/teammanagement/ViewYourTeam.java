@@ -1,5 +1,14 @@
 package com.google.android.sportsflash.mlb.teammanagement;
 
+/**
+ * ViewYourTeam:  View you current fantasy team
+ * 
+ * @author Navdeep Alam
+ * @version CS 893 Summer 2008 Version 1.0
+ * 
+ */
+
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.android.sportsflash.R;
@@ -15,7 +24,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
+import android.view.View;
 import android.view.Menu.Item;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class ViewYourTeam extends ListActivity {
@@ -90,6 +101,7 @@ public class ViewYourTeam extends ListActivity {
             public void run() {
             	//teams = mDbHelper.fetchAllRows();
             	int[] playersList = SportsFlash.getCurrentTeamPlayers();
+            	players = new ArrayList<MLBPlayer>(playersList.length);
             	for(int i = 0; i < playersList.length; i++)
             	{
             		player = mWSHelper.ViewPlayer(SportsFlash.getCurrentTeamID(),playersList[i]);
@@ -130,6 +142,15 @@ public class ViewYourTeam extends ListActivity {
 	        startSubActivity(i, ACTIVITY_CREATE);	
 	    }
 	    
+		protected void onListItemClick(ListView listView, View view, int position, long id)
+		{
+			MLBPlayer playerSelected  = (MLBPlayer)listView.obtainItem(position);
+			SportsFlash.setCurrentPlayerID(playerSelected.getPlayerID());
+	        Intent i = new Intent(this, UpdatePlayer.class);
+	        startSubActivity(i, ACTIVITY_CREATE);	
+
+		}
+		
     // use a Handler in order to update UI thread after worker done
     // (cannot update UI thread inline (not done yet), or from separate thread)
     private Handler handler = new Handler() {

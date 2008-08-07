@@ -38,6 +38,7 @@ public class CreateMessagePost extends Activity
     private ProgressDialog progressDialog;
     public static final int TEAM_MANAGEMENT = Menu.FIRST;
     private static final int ACTIVITY_CREATE=0;
+    private Long mRowId;
     
     // use a Handler in order to update UI thread after worker done
     // (cannot update UI thread inline (not done yet), or from separate thread)
@@ -64,9 +65,9 @@ public class CreateMessagePost extends Activity
         mMessageTitle = (EditText) findViewById(R.id.messageTitle);
         mMessageDescription = (EditText) findViewById(R.id.messageDescription);
         
-        Button confirmButton = (Button) findViewById(R.id.leagueOkButton);
-        Button cancelButton = (Button) findViewById(R.id.leagueCancelButton);
-                
+        Button confirmButton = (Button) findViewById(R.id.msgOkButton);
+        Button cancelButton = (Button) findViewById(R.id.msgCancelButton);
+                     
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) { 
@@ -81,9 +82,6 @@ public class CreateMessagePost extends Activity
             	CreateNewMessage();    
                 Intent i = new Intent(CreateMessagePost.this, ViewMessageBoards.class);
                 startSubActivity(i, Constants.SUB_ACTIVITY_REQUEST_CODE);
-                //Intent i = new Intent(CreateLeague.this, SportsFlashTeamManagement.class);
-                //startSubActivity(i, Constants.SUB_ACTIVITY_REQUEST_CODE);            	
-          	
            }
           
         });
@@ -96,7 +94,8 @@ public class CreateMessagePost extends Activity
             	
             }
           
-        });        
+        });    
+           
     }
 	
 	public void CreateNewMessage()
@@ -108,7 +107,7 @@ public class CreateMessagePost extends Activity
                 mMessageTitleValue = mMessageTitle.getText().toString();
                 mMessageDescriptionValue = mMessageDescription.getText().toString();
             	//Log.i(Constants.LOGTAG,"mLeagueNameValue= " + mLeagueNameValue + ", mLeagueDescriptionValue=" + mLeagueDescriptionValue);
-            	mWSHelper.CreateLeague(mMessageTitleValue, mMessageDescriptionValue);            	
+            	mWSHelper.CreateMessage(mMessageTitleValue, mMessageDescriptionValue);            	
             	handler.sendEmptyMessage(0);
             }
         }.start();	

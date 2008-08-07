@@ -8,7 +8,7 @@
 <intent-filter>
 <action android:name="android.intent.action.PICK">
 </action><category android:name="android.intent.category.DEFAULT">
-</category></intent-filter></activity><activity android:name=".mlb.teammanagement.MLBPlayerView" android:label="MLB PlayerView" android:icon="@drawable/icon2">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.MLBPlayerView" android:icon="@drawable/icon2" android:label="HR-RBI-AVG , Wins-Saves-ERA">
 <intent-filter>
 <action android:name="android.intent.action.VIEW">
 </action><category android:name="android.intent.category.DEFAULT">
@@ -24,7 +24,7 @@
 <intent-filter>
 <action android:name="android.intent.action.EDIT">
 </action><category android:name="android.intent.category.DEFAULT">
-</category></intent-filter></activity><activity android:name=".mlb.teammanagement.MLBPlayersView" android:label="MLB PlayersView" android:icon="@drawable/icon2">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.MLBPlayersView" android:icon="@drawable/icon2" android:label="HR-RBI-AVG , Wins-Saves-ERA">
 <intent-filter>
 <action android:name="android.intent.action.VIEW">
 </action><category android:name="android.intent.category.DEFAULT">
@@ -44,8 +44,16 @@
 <intent-filter>
 <action android:name="android.intent.action.VIEW">
 </action><category android:name="android.intent.category.DEFAULT">
-</category></intent-filter></activity><activity android:name=".mlb.teammanagement.ViewYourTeam" android:icon="@drawable/icon2" android:label="View Your Team">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.ViewYourTeam" android:icon="@drawable/icon2" android:label="HR-RBI-AVG , Wins-Saves-ERA">
 <intent-filter>
 <action android:name="android.intent.action.VIEW">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.ViewMessageBoards" android:icon="@drawable/icon2" android:label="View SportsFlash Messages">
+<intent-filter>
+<action android:name="android.intent.action.VIEW">
+</action><category android:name="android.intent.category.DEFAULT">
+</category></intent-filter></activity><activity android:name=".mlb.teammanagement.CreateMessagePost" android:icon="@drawable/icon2" android:label="Create Message">
+<intent-filter>
+<action android:name="android.intent.action.EDIT">
 </action><category android:name="android.intent.category.DEFAULT">
 </category></intent-filter></activity></application></manifest>

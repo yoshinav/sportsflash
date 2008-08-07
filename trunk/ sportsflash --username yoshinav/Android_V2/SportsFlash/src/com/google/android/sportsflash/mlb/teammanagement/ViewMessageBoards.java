@@ -4,8 +4,9 @@ import java.util.List;
 
 import com.google.android.sportsflash.R;
 import com.google.android.sportsflash.SportsFlash;
-import com.google.android.sportsflash.mlb.data.MLBLeague;
-import com.google.android.sportsflash.mlb.data.MLBPlayer;
+import com.google.android.sportsflash.mlb.data.MLBMessage;
+import com.google.android.sportsflash.mlb.data.MLBMessageFetcher;
+import com.google.android.sportsflash.mlb.data.MLBTeamFetcher;
 import com.google.android.sportsflash.mlb.data.SportsFlashLeagueDBHelper;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -24,15 +25,15 @@ public class ViewMessageBoards extends ListActivity {
 	
 	 private TextView empty;
 	 private ProgressDialog progressDialog;
-	 private SportsFlashLeagueDBHelper mDbHelper;
-	 private List<MLBLeague> leagues;
-	 private MLBLeague league;
+	 private List<MLBMessage> messages;
+	 private MLBMessage message;
+	 private MLBMessageFetcher mWSHelper;
 	 
 	 private static final int ACTIVITY_CREATE=0;
 	 public static final int TEAM_MANAGEMENT = Menu.FIRST;
 	 public static final int POST_MESSAGE = 2;
 	 
-	 private MLBLeagueAdapter leagueAdapter;
+	 private MLBMessageAdapter messageAdapter;
 	 
     /** Called when the activity is first created. */
     @Override
@@ -40,8 +41,7 @@ public class ViewMessageBoards extends ListActivity {
         super.onCreate(icicle);
         //Log.v(Constants.LOGTAG, " " + CLASSTAG + " onCreate");
         
-        mDbHelper = new SportsFlashLeagueDBHelper(this);
-        
+        mWSHelper = new MLBMessageFetcher();
         setDefaultKeyMode(SHORTCUT_DEFAULT_KEYS);
         
         setContentView(R.layout.mlbleague_list);
@@ -51,13 +51,7 @@ public class ViewMessageBoards extends ListActivity {
 
         empty = (TextView) findViewById(R.id.empty);
 
-        // get the current review criteria from the Application (global state
-        // placed there)
-        //SportsFlashPlayersApplication application = (SportsFlashPlayersApplication) this.getApplication();
-        //MLBPlayer reviewPlayer = application.getCurrentPlayer();
-
-        loadLeagues();
-        //fillData();
+        loadMessages();
     }
   
 	@Override
@@ -80,8 +74,8 @@ public class ViewMessageBoards extends ListActivity {
 		super.onResume();
 	}
 	
-	 private void loadLeagues() {
-        progressDialog = ProgressDialog.show(this, " Working...", " Retrieving leagues", true, false);
+	 private void loadMessages() {
+        progressDialog = ProgressDialog.show(this, " Working...", " Retrieving messages", true, false);
         
         // get reviews in a separate thread for ProgressDialog/Handler
         // when complete send "empty" message to handler indicating thread is
@@ -90,7 +84,7 @@ public class ViewMessageBoards extends ListActivity {
         // onDestroy?)
         new Thread() {
             public void run() {
-            	leagues = mDbHelper.fetchAllRows();
+            	messages = mWSHelper.ViewMessages();
                 handler.sendEmptyMessage(0);
             }
         }.start();
@@ -98,14 +92,6 @@ public class ViewMessageBoards extends ListActivity {
         
 	 }
 	
-	protected void onListItemClick(ListView listView, View view, int position, long id)
-	{
-		MLBLeague league  = (MLBLeague)listView.obtainItem(position);
-		SportsFlash.setCurrentLeagueID(league.getLeagueWSID());
-        Intent i = new Intent(this, ViewCurrentTeams.class);
-        startSubActivity(i, ACTIVITY_CREATE);	
-
-	}
 		
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -154,11 +140,11 @@ public class ViewMessageBoards extends ListActivity {
 
            // Log.v(Constants.LOGTAG, " " + CLASSTAG + " worker thread done, setup ReviewAdapter");
             progressDialog.dismiss();
-            if (leagues == null || leagues.size() == 0) {
-                empty.setText("No Leagues");
+            if (messages == null || messages.size() == 0) {
+                empty.setText("No Messages");
             } else {
-            	leagueAdapter = new MLBLeagueAdapter(ViewMessageBoards.this, leagues);
-                setListAdapter(leagueAdapter);
+            	messageAdapter = new MLBMessageAdapter(ViewMessageBoards.this, messages);
+                setListAdapter(messageAdapter);
             }
         }
 

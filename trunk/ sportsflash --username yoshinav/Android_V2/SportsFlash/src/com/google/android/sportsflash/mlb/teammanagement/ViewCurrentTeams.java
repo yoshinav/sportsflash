@@ -21,6 +21,14 @@ import android.view.Menu.Item;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * ViewCurrentTeams:  View current teams
+ * 
+ * @author Navdeep Alam
+ * @version CS 893 Summer 2008 Version 1.0
+ * 
+ */
+
 public class ViewCurrentTeams extends ListActivity {
 	 
 	 private TextView empty;
