@@ -18,3 +18,20 @@
   *	Extend data source and interface design to support additional sports like NBA, NHL, NFL, … etc.
   *	Provide a mechanism to allow users to trade players with other members of your fantasy league group.
   *	Create interface to allow for easy league management, like changing rules and point allocation.
+
+==Must to do Accomplishments for Aug 7 Version 1):--
+  *  DID:  Access MLB.com for data for our league.
+  *  DID:  Create and modify fantasy baseball teams using real world player data.
+  *  DID:  Create interface to allow users to update player stats over the season, so that the community of users are responsible for maintaining the current player stats.
+  *  DID:  Provide ability to create, manage, and communicate with a group of fellow baseball enthusiasts with accounts on our service (i.e. Message Boards).
+  *  DID:  Create ability for scores/rankings to be updated on the server to automatically and displayed on Android phone when requested.
+  *  DID:  Start SMS and alert syndication but DID NOT fully implement and integrate in version 1.
+  *  DID NOT:  Create ability to tag, and store images and media from the web, but DID build out personalization classes to eventually support personalizing image galleries with images from the web.
+
+==Nice to do Accomplishments for Aug 7 Version 1):--
+  * DID:  Extend architecture to easily support other leagues in the future.
+  * DID:  Implement personalization libraries for image galleries, and push alert message system to be able to display dynamic messages to the user, all mulitasking supported with threading.  This will allow for real time scores or other alerts to be displayed.
+  * DID NOT:  Create easy interface to change league management or score.
+  * DID NOT:  Fully implement trading player functionality.
+  * DID NOT:  Extend SMS to support real time scores.
+  * DID NOT:  Have player stats automatically updated from dependable source (Version 1 dependent on user community for updates and moderation).
