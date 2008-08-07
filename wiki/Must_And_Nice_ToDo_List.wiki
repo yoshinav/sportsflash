@@ -19,6 +19,8 @@
   *	Provide a mechanism to allow users to trade players with other members of your fantasy league group.
   *	Create interface to allow for easy league management, like changing rules and point allocation.
 
+--
+
 ==Must do Accomplishments Check for Aug 7 Version 1:==
   *  DID:  Access MLB.com for data for our league.
   *  DID:  Create and modify fantasy baseball teams using real world player data.
