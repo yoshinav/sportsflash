@@ -55,7 +55,10 @@ namespace com.google.android.sportsflash
         XmlDocument GetMLBTeam(int id);
         [OperationContract, WebGet]
         XmlDocument UpdateMLBPlayer(string id, string hr, string ba, string rbi, string wins, string saves, string era);
-
+        [OperationContract, WebGet]
+        XmlDocument CreateMLBMessage(string title, string message);
+        [OperationContract, WebGet]
+        XmlDocument GetMLBMessages();
     }
 
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)] 
@@ -420,6 +423,51 @@ namespace com.google.android.sportsflash
                     return datasetXML;
                 }
                 
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public XmlDocument GetMLBMessages()
+        {
+            try
+            {
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.GetMLBMessages(), conn))
+                {
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+
+                    return datasetXML;
+                }
+
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
+        public XmlDocument CreateMLBMessage(string title, string message)
+        {
+            try
+            {
+
+                using (SqlDataAdapter a = new SqlDataAdapter(DBHelper.CreateMLBMessage(title, message), conn))
+                {
+                    DataSet s = new DataSet();
+                    a.Fill(s);
+                    //XmlDataDocument datasetXML = new XmlDataDocument(s);
+                    XmlDocument datasetXML = new XmlDocument();
+                    datasetXML.LoadXml(s.GetXml());
+                    return datasetXML;
+                }
+
             }
             catch
             {

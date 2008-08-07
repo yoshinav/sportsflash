@@ -42,6 +42,11 @@ public class DBHelper
 
     }
 
+    public static string GetMLBMessages()
+    {
+        return "EXEC SP_GetMLBMessages";
+    }
+
     public static string GetMLBTeamsByID(string id)
     {
         return "EXEC SP_GetMLBTeamsByID " + id;
@@ -55,6 +60,11 @@ public class DBHelper
     public static string CreateMLBLeague(string name, string description)
     {
         return "EXEC SP_CreateMLBLeague '" + name + "','" + description + "'";
+    }
+
+    public static string CreateMLBMessage(string title, string message)
+    {
+        return "EXEC SP_CreateMessage '" + title + "','" + message + "'";
     }
 
     public static string CreateMLBTeam(string leagueid, string name, string description, string firstbase, string secondbase, string thirdbase, string shortstop, string catcher, string pitcher, string rightfield, string centerfield, string leftfield, string dhitter)

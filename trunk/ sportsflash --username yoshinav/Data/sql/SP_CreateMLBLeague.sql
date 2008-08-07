@@ -16,12 +16,12 @@ GO
 -- =============================================
 -- Author:		<Navdeep Alam>
 -- Create date: <July 19, 2008>
--- Description:	<Create MLB League>
+-- Description:	<Create MLB Message Board Message>
 -- =============================================
-CREATE PROCEDURE [dbo].[SP_CreateMLBLeague]
+CREATE PROCEDURE [dbo].[SP_CreateMessage]
 	-- Add the parameters for the stored procedure here
-	@name nvarchar(25), 
-	@description nvarchar(200)
+	@title nvarchar(25), 
+	@message nvarchar(500)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -29,7 +29,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	INSERT INTO MLBFantasyLeagues (name, description) VALUES (@name, @description)
+	INSERT INTO MLBFantasyMessageBoards (title, message) VALUES (@title, @message)
 	
 	--Return ID
 	select @@IDENTITY AS ID	

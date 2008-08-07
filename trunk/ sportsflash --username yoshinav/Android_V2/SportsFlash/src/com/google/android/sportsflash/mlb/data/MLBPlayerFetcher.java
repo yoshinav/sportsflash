@@ -32,6 +32,7 @@ public class MLBPlayerFetcher {
     private String query;
     private String queryPlayers;
     private String queryPlayerID;
+    private String queryPlayer;
     private boolean debug;
 
     public MLBPlayerFetcher(boolean debug) {
@@ -42,6 +43,7 @@ public class MLBPlayerFetcher {
         this.query = Configuration.urlGetMLBPlayersByPosition;
         this.queryPlayers = Configuration.urlGetMLBPlayers;
         this.queryPlayerID = Configuration.urlGetMLBPlayerByID;
+        this.queryPlayer = Configuration.GetMLBTeamsPlayers;
         
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " query - " + query);
     }
@@ -206,6 +208,52 @@ public class MLBPlayerFetcher {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " call duration - " + duration);
         return results;
     }    
+    
+    public MLBPlayer ViewPlayer(int teamid, int playerId)
+    {
+        Log.v(Constants.LOGTAG, " " + CLASSTAG + " getReviews");
+        long start = System.currentTimeMillis();
+
+        if (!debug) {
+            try {
+            	//setup the url
+                URL feedUrl = new URL(this.queryPlayer + "teamid=" + teamid + "&playerid=" + playerId); 
+
+                // TODO - huge delay here on build call, takes 15-20 seconds 
+                // (takes < second for same class outside Android)
+
+                // create the factory
+                SAXParserFactory factory = SAXParserFactory.newInstance();
+                // create a parser
+                SAXParser parser = factory.newSAXParser();
+
+                // create the reader (scanner)
+                XMLReader xmlreader = parser.getXMLReader();
+                // instantiate our handler
+                MLBPlayerHandler theMLBPlayerHandler = new MLBPlayerHandler();
+                // assign our handler
+                xmlreader.setContentHandler(theMLBPlayerHandler);
+                // get our data through the url class
+                InputSource is = new InputSource(feedUrl.openStream());
+                // perform the synchronous parse           
+                xmlreader.parse(is);
+                // get the results - should be a fully populated RSSFeed instance, 
+     		   // or null on error
+                return theMLBPlayerHandler.getMLBPlayerRecord();
+  
+                
+            } catch (Exception e) {
+                Log.e(Constants.LOGTAG, " " + CLASSTAG + " getReviews ERROR", e);
+            }
+        } else {
+            Log.v(Constants.LOGTAG, " " + CLASSTAG + " devMode true - returning MOCK reviews");
+            return null;
+        }
+
+        long duration = (System.currentTimeMillis() - start) / 1000;
+        Log.v(Constants.LOGTAG, " " + CLASSTAG + " call duration - " + duration);
+        return null;
+    }
     
     private boolean isNumeric(String s) {
         try {

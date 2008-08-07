@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.android.sportsflash.R;
 import com.google.android.sportsflash.SportsFlash;
+import com.google.android.sportsflash.mlb.data.MLBLeague;
 import com.google.android.sportsflash.mlb.data.MLBTeam;
 import com.google.android.sportsflash.mlb.data.SportsFlashTeamDBHelper;
 import com.google.android.sportsflash.mlb.data.MLBTeamFetcher;
@@ -15,7 +16,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
+import android.view.View;
 import android.view.Menu.Item;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class ViewCurrentTeams extends ListActivity {
@@ -124,6 +127,17 @@ public class ViewCurrentTeams extends ListActivity {
 	        startSubActivity(i, ACTIVITY_CREATE);	
 	    }
 	    
+		protected void onListItemClick(ListView listView, View view, int position, long id)
+		{
+			MLBTeam team  = (MLBTeam)listView.obtainItem(position);
+			SportsFlash.setCurrentTeamID(team.getTeamWSID());
+			int[] players = {team.getTeam1bid(), team.getTeam2bid(), team.getTeam3bid(), team.getTeamssid(), team.getTeamcid(), team.getTeampid(), team.getTeamlfid(), team.getTeamcfid(), team.getTeamrfid(), team.getTeamdhid()};
+			SportsFlash.setCurrentPlayerID(players);
+			Intent i = new Intent(this, ViewYourTeam.class);
+	        startSubActivity(i, ACTIVITY_CREATE);	
+
+		}
+		
     // use a Handler in order to update UI thread after worker done
     // (cannot update UI thread inline (not done yet), or from separate thread)
     private Handler handler = new Handler() {
