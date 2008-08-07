@@ -3,10 +3,11 @@ package com.google.android.sportsflash.mlb.data;
 /**
  * MLBLeagueHandler:  SAX Handler for Leagues
  * 
- * @author Navdeep Alam, with credit to charliecollins
+ * @author Navdeep Alam
  * @version CS 893 Summer 2008 Version 1.0
  * 
  */
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;

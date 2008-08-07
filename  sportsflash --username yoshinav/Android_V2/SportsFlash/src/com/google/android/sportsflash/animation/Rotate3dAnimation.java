@@ -14,6 +14,13 @@
  * limitations under the License.
  */
 
+/**
+ * Rotate3dAnimation:  Class to support animation
+ * 
+ * @author Navdeep Alam
+ * @version CS 893 Summer 2008 Version 1.0
+ * 
+ */
 
 package com.google.android.sportsflash.animation;
 

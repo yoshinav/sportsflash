@@ -16,8 +16,9 @@ import com.google.android.sportsflash.Configuration;
 import com.google.android.sportsflash.mlb.teammanagement.Constants;
 import com.google.android.sportsflash.mlb.data.MLBLeagueHandler;
 
+
 /**
- * MLBCreateTeam:  View MLB Fantasy Teams
+ * MLBTeamFetcher:  Fetcher data from Web Service to support Team
  * 
  * @author Navdeep Alam
  * @version CS 893 Summer 2008 Version 1.0

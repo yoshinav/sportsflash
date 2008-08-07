@@ -17,7 +17,7 @@ import com.google.android.sportsflash.mlb.teammanagement.Constants;
 import com.google.android.sportsflash.mlb.data.MLBLeagueHandler;
 
 /**
- * MLBCreateTeam:  Create MLB Fantasy Team
+ * MLBCreateMessage:  Create MLB Message for MEssage Board
  * 
  * @author Navdeep Alam
  * @version CS 893 Summer 2008 Version 1.0

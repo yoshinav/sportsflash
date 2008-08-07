@@ -1,8 +1,8 @@
 package com.google.android.sportsflash;
 /**
- * SportsFlash:  Start Activity to view Roster
+ * SportsFlash:  Main Activity for SportsFlash
  * 
- * @author Navdeep Alam, with credit to charliecollins
+ * @author Navdeep Alam
  * @version CS 893 Summer 2008 Version 1.0
  * 
  */
@@ -30,6 +30,7 @@ public class SportsFlash extends Activity
 
     private ImageView mImageView;
     
+    //Master League, Team, Player, Players Data References
 	private static int currentLeagueID = 0;
 	private static int currentTeamID = 0;
 	private static int currentPlayerID = 0;

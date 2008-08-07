@@ -7,6 +7,7 @@ package com.google.android.sportsflash.mlb.data;
  * @version CS 893 Summer 2008 Version 1.0
  * 
  */
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
