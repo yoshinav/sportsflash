@@ -29,12 +29,13 @@ public class SportsFlashLeagueDBHelper {
     
     public class Row extends Object {
         public long rowId;
+        public int leagueId;
         public String leagueName;
         public String leagueDescription;
     }
 
     private static final String DATABASE_CREATE = "create table sportsflashMLBFantasyLeague (rowId integer primary key autoincrement, "
-            + "leagueName text not null, leagueDescription text not null);";
+            + "leagueName text not null, leagueDescription text not null, leagueId int not null);";
     private static final String DATABASE_NAME = "sportsflashdb";
     private static final String DATABASE_TABLE = "sportsflashMLBFantasyLeague";
     private static final int DATABASE_VERSION = 1;
@@ -61,7 +62,7 @@ public class SportsFlashLeagueDBHelper {
         {
         	if(db != null)
         	{
-        		db.query(DATABASE_TABLE, new String[] { "rowid", "leagueName", "leagueDescription" }, null, null, null, null, null);
+        		db.query(DATABASE_TABLE, new String[] { "rowid", "leagueName", "leagueDescription", "leagueId" }, null, null, null, null, null);
         	}
         }
   		catch (Exception e)
@@ -75,11 +76,12 @@ public class SportsFlashLeagueDBHelper {
         db.close();
     }
 
-    public int createRow(String leagueName, String leagueDescription) {
+    public int createRow(String leagueName, String leagueDescription, int leagueId) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " create row - " + leagueName + " , " + leagueDescription);
         ContentValues initialValues = new ContentValues();
         initialValues.put("leagueName", leagueName);
         initialValues.put("leagueDescription", leagueDescription);
+        initialValues.put("leagueId", leagueId);
         return (int) db.insert(DATABASE_TABLE, null, initialValues);
     }
 
@@ -97,7 +99,7 @@ public class SportsFlashLeagueDBHelper {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " fetchAllRows");
         ArrayList<MLBLeague> ret = new ArrayList<MLBLeague>();
         try {
-            Cursor c = db.query(DATABASE_TABLE, new String[] { "rowid", "leagueName", "leagueDescription" }, null, null, null, null, null);
+            Cursor c = db.query(DATABASE_TABLE, new String[] { "rowid", "leagueName", "leagueDescription", "leagueId" }, null, null, null, null, null);
             int numRows = c.count();
             c.first();
             for (int i = 0; i < numRows; ++i) {
@@ -105,6 +107,7 @@ public class SportsFlashLeagueDBHelper {
                 row.setLeagueID(c.getInt(0));
                 row.setLeagueName( c.getString(1));
                 row.setLeagueDescription(c.getString(2));
+                row.setLeagueWSID(c.getInt(3));
                 ret.add(row);
                 c.next();
             }
@@ -117,10 +120,11 @@ public class SportsFlashLeagueDBHelper {
     private Row fetchRow(String where, boolean hack) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " fetchRow");
         Row row = new Row();
-        Cursor c = db.query(true, DATABASE_TABLE, new String[] { "rowId", "leagueName", "leagueDescription" }, where, null, null, null, null);
+        Cursor c = db.query(true, DATABASE_TABLE, new String[] { "rowId", "leagueName", "leagueDescription", "leagueId" }, where, null, null, null, null);
         row.rowId = c.getLong(0);
         row.leagueName = c.getString(1);
         row.leagueDescription = c.getString(2);
+        row.leagueId = c.getInt(3);
         return row;
     }
 
@@ -132,11 +136,12 @@ public class SportsFlashLeagueDBHelper {
         return fetchRow("leagueName=" + leagueName, false);
     }
 
-    public void updateRow(long rowId, String leagueName, String leagueDescription) {
+    public void updateRow(long rowId, String leagueName, String leagueDescription, int leagueId) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " updateRow");
         ContentValues args = new ContentValues();
         args.put("leagueName", leagueName);
         args.put("leagueDescripton", leagueDescription);
+        args.put("leagueId", leagueId);
         db.update(DATABASE_TABLE, args, "rowId=" + rowId, null);
     }
 }

@@ -92,9 +92,9 @@ public class SportsFlashTeamManagement extends Activity   {
     	boolean result = super.onCreateOptionsMenu(menu);
     	menu.add(0, VIEWROSTER_ID, R.string.menu_view_players);
     	menu.add(1, VIEWLEAGUE_ID, R.string.menu_view_your_league);
-    	menu.add(2, VIEWTEAM_ID, R.string.menu_view_your_team);    	
-    	menu.add(3, CREATEMLBLEAGUE_ID, R.string.menu_view_league);
-    	menu.add(4, CREATEMLBTEAM_ID, R.string.menu_view_team);
+    	//menu.add(2, VIEWTEAM_ID, R.string.menu_view_your_team);    	
+    	menu.add(2, CREATEMLBLEAGUE_ID, R.string.menu_view_league);
+    	//menu.add(4, CREATEMLBTEAM_ID, R.string.menu_view_team);
     	return result;
     }
 

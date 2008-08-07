@@ -82,7 +82,7 @@ public class MLBTeamAdapter extends BaseAdapter {
             addView(this.name, params);
 
             this.description = new TextView(context);
-            this.description.setText(description + " - " + Integer.toString(score));
+            this.description.setText(description + " - Score: " + Integer.toString(score));
             this.description.setTextSize(16f);
             addView(this.description, params);            
         }

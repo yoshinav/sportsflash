@@ -24,4 +24,8 @@ public final class Configuration {
 	
 	public static final String urlUpdateMLBPlayerByID = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/UpdateMLBPlayer?"; 
 	
+	public static final String GetMLBTeamsByIdentifier = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBTeamsByIdentifier?"; 
+
+	public static final String GetMLBTeamsPlayers = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBTeamsPlayers?"; 
+
 }

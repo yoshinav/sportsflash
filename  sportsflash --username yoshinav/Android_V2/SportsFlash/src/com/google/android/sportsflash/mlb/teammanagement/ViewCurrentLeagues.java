@@ -13,7 +13,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Menu;
 import android.view.View;
+import android.view.Menu.Item;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,6 +29,7 @@ public class ViewCurrentLeagues extends ListActivity {
 	 private MLBLeague league;
 	 
 	 private static final int ACTIVITY_CREATE=0;
+	 public static final int TEAM_MANAGEMENT = Menu.FIRST;
 	 
 	 private MLBLeagueAdapter leagueAdapter;
 	 
@@ -97,12 +100,40 @@ public class ViewCurrentLeagues extends ListActivity {
 	protected void onListItemClick(ListView listView, View view, int position, long id)
 	{
 		MLBLeague league  = (MLBLeague)listView.obtainItem(position);
-		SportsFlash.setCurrentLeagueID(league.getLeagueID());
+		SportsFlash.setCurrentLeagueID(league.getLeagueWSID());
         Intent i = new Intent(this, ViewCurrentTeams.class);
         startSubActivity(i, ACTIVITY_CREATE);	
 
 	}
 		
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // TODO Auto-generated method stub
+    	boolean result = super.onCreateOptionsMenu(menu);
+    	menu.add(0, TEAM_MANAGEMENT, R.string.team_management);
+    	return result;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(Item item) {
+        // TODO Auto-generated method stub
+    	switch(item.getId())
+    	{
+	    	case  TEAM_MANAGEMENT:
+	    		MLB_teamManagement();
+	    		return true;
+    	
+    	}
+    	
+        return super.onOptionsItemSelected(item);
+    }
+    
+    private void MLB_teamManagement()
+    {
+        Intent i = new Intent(this, SportsFlashTeamManagement.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+    }
+    
     // use a Handler in order to update UI thread after worker done
     // (cannot update UI thread inline (not done yet), or from separate thread)
     private Handler handler = new Handler() {

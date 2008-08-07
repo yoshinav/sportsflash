@@ -22,6 +22,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.Menu.Item;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
@@ -33,6 +34,7 @@ import com.google.android.sportsflash.SportsFlash;
 public class MLBPlayersView extends ListActivity {
 
 	 private static final int ACTIVITY_CREATE=0;
+	 public static final int TEAM_MANAGEMENT = Menu.FIRST;
 	 
 	    private static final String CLASSTAG = MLBPlayersView.class.getSimpleName();
 
@@ -125,12 +127,43 @@ public class MLBPlayersView extends ListActivity {
         new Thread() {
             public void run() {
                 //players = rf.getMockPlayers();
-            	players = rf.getMLBPlayers();
+            	
+            	//players = rf.getMLBPlayers();
+            	players = rf.getMLBPlayers("dh");  //Testing against Designated Hitters
+            	
             	//players.add(rf.getMLBPlayer());
                 handler.sendEmptyMessage(0);
             }
         }.start();
     }	
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // TODO Auto-generated method stub
+    	boolean result = super.onCreateOptionsMenu(menu);
+    	menu.add(0, TEAM_MANAGEMENT, R.string.team_management);
+    	return result;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(Item item) {
+        // TODO Auto-generated method stub
+    	switch(item.getId())
+    	{
+	    	case  TEAM_MANAGEMENT:
+	    		MLB_teamManagement();
+	    		return true;
+    	
+    	}
+    	
+        return super.onOptionsItemSelected(item);
+    }
+    
+    private void MLB_teamManagement()
+    {
+        Intent i = new Intent(this, SportsFlashTeamManagement.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+    }
     
 	protected void onListItemClick(ListView listView, View view, int position, long id)
 	{

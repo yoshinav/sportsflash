@@ -29,12 +29,13 @@ public class SportsFlashTeamDBHelper {
     
     class Row extends Object {
         public long rowId;
+        public int teamId;
         public String teamName;
         public String teamDescription;     
     }
 
     private static final String DATABASE_CREATE = "create table sportsflashMLBFantasyTeam (rowId integer primary key autoincrement, "
-            + "leagueId integer not null, teamName text not null, teamDescription text not null" +
+            + "leagueId integer not null, teamName text not null, teamDescription text not null, teamId int not null" +
             ", [1bid] integer null, [2bid] integer null, [3bid] integer null" +
             ", [ssid] integer null, [pid] integer null, [rfid] integer null" +
             ", [cfid] integer null, [lfid] integer null, [dhid] integer null, [cid] integer null);";
@@ -64,7 +65,7 @@ public class SportsFlashTeamDBHelper {
         {
         	if(db != null)
         	{
-        		db.query(DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "leagueId", "[1bid]", "[2bid]", "[3bid]", "[ssid]", "[pid]", "[rfid]", "[cfid]", "[lfid]", "[dhid]", "[cid]" }, null, null, null, null, null);        	}
+        		db.query(DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "teamId", "leagueId", "[1bid]", "[2bid]", "[3bid]", "[ssid]", "[pid]", "[rfid]", "[cfid]", "[lfid]", "[dhid]", "[cid]" }, null, null, null, null, null);        	}
         }
         catch (Exception e)
         {
@@ -76,7 +77,7 @@ public class SportsFlashTeamDBHelper {
         db.close();
     }
 
-    public int createRow(int leagueId, String teamName, String teamDescription,
+    public int createRow(int leagueId, String teamName, String teamDescription, int teamId,
     		int firstbase, int secondbase, int thirdbase, int shortstop, int pitcher, int catcher,
     		int rightfield, int centerfield, int leftfield, int dhitter) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " create row - " + teamName + " , " + teamDescription);
@@ -85,6 +86,7 @@ public class SportsFlashTeamDBHelper {
         initialValues.put("leagueId", leagueId);
         initialValues.put("teamName", teamName);
         initialValues.put("teamDescription", teamDescription);
+        initialValues.put("teamId", teamId);
         initialValues.put("[1bid]", firstbase);
         initialValues.put("[2bid]", secondbase);
         initialValues.put("[3bid]", thirdbase);
@@ -112,7 +114,7 @@ public class SportsFlashTeamDBHelper {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " fetchAllRows");
         ArrayList<MLBTeam> ret = new ArrayList<MLBTeam>();
         try {
-            Cursor c = db.query(DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "leagueId", "[1bid]", "[2bid]", "[3bid]", "[ssid]", "[pid]", "[rfid]", "[cfid]", "[lfid]", "[dhid]", "[cid]" }, null, null, null, null, null);
+            Cursor c = db.query(DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "teamId", "leagueId", "[1bid]", "[2bid]", "[3bid]", "[ssid]", "[pid]", "[rfid]", "[cfid]", "[lfid]", "[dhid]", "[cid]" }, null, null, null, null, null);
             int numRows = c.count();
             c.first();
             for (int i = 0; i < numRows; ++i) {
@@ -120,6 +122,7 @@ public class SportsFlashTeamDBHelper {
                 row.setLeagueID(c.getInt(0));
                 row.setTeamName( c.getString(1));
                 row.setTeamDescription(c.getString(2));
+                row.setTeamID(c.getInt(3));
                 ret.add(row);
                 c.next();
             }
@@ -132,10 +135,11 @@ public class SportsFlashTeamDBHelper {
     private Row fetchRow(String where, boolean hack) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " fetchRow");
         Row row = new Row();
-        Cursor c = db.query(true, DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "leagueId", "[1bid]", "[2bid]", "[3bid]", "[ssid]", "[pid]", "[rfid]", "[cfid]", "[lfid]", "[dhid]", "[cid]" }, where, null, null, null, null);
+        Cursor c = db.query(true, DATABASE_TABLE, new String[] { "rowid", "teamName", "teamDescription", "teamId", "leagueId", "[1bid]", "[2bid]", "[3bid]", "[ssid]", "[pid]", "[rfid]", "[cfid]", "[lfid]", "[dhid]", "[cid]" }, where, null, null, null, null);
         row.rowId = c.getLong(0);
         row.teamName = c.getString(1);
         row.teamDescription = c.getString(2);
+        row.teamId = c.getInt(3);
         return row;
     }
 
@@ -147,19 +151,21 @@ public class SportsFlashTeamDBHelper {
         return fetchRow("teamName=" + teamName, false);
     }
 
-    public void updateRow(long rowId, String teamName, String teamDescription) {
+    public void updateRow(long rowId, String teamName, String teamDescription, int teamId) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " updateRow");
         ContentValues args = new ContentValues();
         args.put("teamName", teamName);
         args.put("leagueDescripton", teamDescription);
+        args.put("teamId", teamId);
         db.update(DATABASE_TABLE, args, "rowId=" + rowId, null);
     }
     
-    public void updatePlayerRow(long rowId, String teamName, String teamDescription) {
+    public void updatePlayerRow(long rowId, String teamName, String teamDescription, int teamId) {
         Log.v(Constants.LOGTAG, " " + CLASSTAG + " updateRow");
         ContentValues args = new ContentValues();
         args.put("teamName", teamName);
         args.put("leagueDescripton", teamDescription);
+        args.put("teamId", teamId);
         db.update(DATABASE_TABLE, args, "rowId=" + rowId, null);
     }    
 }

@@ -38,6 +38,8 @@ public class CreateLeague extends Activity
     private String mLeagueDescriptionValue;
     private Long mRowId;
     private ProgressDialog progressDialog;
+    public static final int TEAM_MANAGEMENT = Menu.FIRST;
+    private static final int ACTIVITY_CREATE=0;
     
     // use a Handler in order to update UI thread after worker done
     // (cannot update UI thread inline (not done yet), or from separate thread)
@@ -116,8 +118,8 @@ public class CreateLeague extends Activity
                 mLeagueNameValue = mLeagueName.getText().toString();
                 mLeagueDescriptionValue = mLeagueDescription.getText().toString();
             	//Log.i(Constants.LOGTAG,"mLeagueNameValue= " + mLeagueNameValue + ", mLeagueDescriptionValue=" + mLeagueDescriptionValue);
-            	mDbHelper.createRow(mLeagueNameValue, mLeagueDescriptionValue);
-            	SportsFlash.setCurrentLeagueID(mWSHelper.CreateLeague(mLeagueNameValue, mLeagueDescriptionValue));
+            	SportsFlash.setCurrentLeagueID(mWSHelper.CreateLeague(mLeagueNameValue, mLeagueDescriptionValue));            	
+                mDbHelper.createRow(mLeagueNameValue, mLeagueDescriptionValue,SportsFlash.getCurrentLeagueID());
             	handler.sendEmptyMessage(0);
             }
         }.start();	
@@ -143,5 +145,32 @@ public class CreateLeague extends Activity
     	return true;
 	}
 	
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // TODO Auto-generated method stub
+    	boolean result = super.onCreateOptionsMenu(menu);
+    	menu.add(0, TEAM_MANAGEMENT, R.string.team_management);
+    	return result;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(Item item) {
+        // TODO Auto-generated method stub
+    	switch(item.getId())
+    	{
+	    	case  TEAM_MANAGEMENT:
+	    		MLB_teamManagement();
+	    		return true;
+    	
+    	}
+    	
+        return super.onOptionsItemSelected(item);
+    }
+    
+    private void MLB_teamManagement()
+    {
+        Intent i = new Intent(this, SportsFlashTeamManagement.class);
+        startSubActivity(i, ACTIVITY_CREATE);	
+    }	
 	
 }

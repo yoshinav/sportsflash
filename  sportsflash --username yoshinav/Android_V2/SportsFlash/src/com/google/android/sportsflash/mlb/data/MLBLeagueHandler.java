@@ -1,7 +1,7 @@
 package com.google.android.sportsflash.mlb.data;
 
 /**
- * MLBLeagueHandler:  SAX Handler
+ * MLBLeagueHandler:  SAX Handler for Leagues
  * 
  * @author Navdeep Alam, with credit to charliecollins
  * @version CS 893 Summer 2008 Version 1.0
