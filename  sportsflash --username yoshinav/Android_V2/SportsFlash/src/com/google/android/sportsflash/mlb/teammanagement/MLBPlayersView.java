@@ -128,8 +128,8 @@ public class MLBPlayersView extends ListActivity {
             public void run() {
                 //players = rf.getMockPlayers();
             	
-            	//players = rf.getMLBPlayers();
-            	players = rf.getMLBPlayers("dh");  //Testing against Designated Hitters
+            	players = rf.getMLBPlayers();
+            	//players = rf.getMLBPlayers("dh");  //Testing against Designated Hitters
             	
             	//players.add(rf.getMLBPlayer());
                 handler.sendEmptyMessage(0);

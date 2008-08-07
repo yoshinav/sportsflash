@@ -214,7 +214,7 @@ public class MLBTeamHandler extends DefaultHandler {
                 currentstate = 0;
                 break;
             case MLBTEAM_ID:
-                _item.setTeamID(Integer.parseInt(theString));
+                _item.setTeamWSID(Integer.parseInt(theString));
                 currentstate = 0;
                 break;
             case MLBTEAM_FIRSTBASEID:

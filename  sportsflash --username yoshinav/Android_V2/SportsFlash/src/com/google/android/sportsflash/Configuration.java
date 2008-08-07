@@ -28,4 +28,8 @@ public final class Configuration {
 
 	public static final String GetMLBTeamsPlayers = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBTeamsPlayers?"; 
 
+	public static final String CreateMLBMessage = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/CreateMLBMessage?"; 
+
+	public static final String GetMLBMessages = "http://" + urlServer + "/sportsflashws/serviceSF.svc/rest/GetMLBMessages"; 
+
 }
